@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-stone-50 text-slate-800 antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-semibold tracking-tight text-slate-900;
+  }
+
+  a {
+    @apply text-orange-700 transition-colors hover:text-orange-600;
+  }
+
+  /* Range slider theming — used across every calculator input */
+  input[type="range"] {
+    @apply h-2 w-full cursor-pointer appearance-none rounded-full bg-stone-200 accent-orange-600;
+  }
+
+  input[type="number"],
+  input[type="text"],
+  select {
+    @apply w-full rounded-lg border border-stone-300 bg-white px-3 py-2 text-slate-900 outline-none focus:border-orange-600 focus:ring-1 focus:ring-orange-600;
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-2xl border border-stone-200 bg-white p-6 shadow-sm;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-lg bg-orange-600 px-5 py-2.5 font-medium text-white transition hover:bg-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-600 focus:ring-offset-2 focus:ring-offset-stone-50;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-lg border border-stone-300 bg-white px-5 py-2.5 font-medium text-slate-800 transition hover:border-stone-400;
+  }
+
+  .disclaimer-strip {
+    @apply mt-6 rounded-lg border border-amber-300/60 bg-amber-50 p-4 text-sm leading-relaxed text-amber-900;
+  }
+
+  .ad-slot {
+    @apply flex items-center justify-center rounded-xl border border-dashed border-stone-300 bg-stone-100/60 text-xs uppercase tracking-wide text-stone-400;
+  }
+
+  /* Article/content typography for the long-form sections below each tool */
+  .prose-hmb h2 {
+    @apply mb-3 mt-10 text-2xl;
+  }
+  .prose-hmb h3 {
+    @apply mb-2 mt-8 text-xl;
+  }
+  .prose-hmb p {
+    @apply mb-4 leading-relaxed;
+  }
+  .prose-hmb ul,
+  .prose-hmb ol {
+    @apply mb-4 ml-6 space-y-2;
+  }
+  .prose-hmb ul {
+    @apply list-disc;
+  }
+  .prose-hmb ol {
+    @apply list-decimal;
+  }
+  .prose-hmb table {
+    @apply mb-6 w-full border-collapse text-sm;
+  }
+  .prose-hmb th {
+    @apply border border-stone-200 bg-stone-100 px-3 py-2 text-left font-semibold text-slate-900;
+  }
+  .prose-hmb td {
+    @apply border border-stone-200 px-3 py-2;
+  }
+}
