@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import CostEstimator from "@/components/CostEstimator";
 
 const BOARD_FACE_IN = 5.5; // actual face width of 5/4x6 and 2x6 decking
 const BOARD_GAP_IN = 0.25; // typical decking gap, labeled below
@@ -306,7 +307,15 @@ export default function DeckCalculator() {
         </div>
 
         {/* Results */}
-        <div className="space-y-5">
+        <div className="space-y-5 lg:sticky lg:top-24 self-start">
+          <CostEstimator
+            lines={[
+              { id: "decking", label: "Decking boards", quantity: calc.deckingPieces, unit: "boards", pricePlaceholder: "8.00" },
+              { id: "joists", label: "Joists", quantity: calc.joistPieces, unit: "pieces", pricePlaceholder: "6.00" },
+              { id: "rim", label: "Rim boards", quantity: calc.rimPieces, unit: "boards", pricePlaceholder: "8.00" },
+              { id: "posts", label: "Posts", quantity: calc.posts, unit: "posts", pricePlaceholder: "12.00" },
+            ]}
+          />
           <div className="rounded-xl bg-slate-900 p-5 text-white">
             <p className="text-sm uppercase tracking-wide text-slate-400">
               Material takeoff

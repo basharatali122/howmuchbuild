@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import CostEstimator from "@/components/CostEstimator";
 import {
   BAG_YIELDS_CU_FT,
   CU_FT_PER_CU_YD,
@@ -166,7 +167,6 @@ export default function ConcreteCalcHub() {
   const [colH, setColH] = useState({ ft: "4", inch: "0" });
 
   const [waste, setWaste] = useState(10);
-  const [pricePerYard, setPricePerYard] = useState("");
 
   const calc = useMemo(() => {
     const steps = [];
@@ -229,8 +229,6 @@ export default function ConcreteCalcHub() {
     colDia, colH, waste,
   ]);
 
-  const price = Number(pricePerYard) || 0;
-  const cost = price > 0 ? calc.withWasteYd * price : null;
   const readyMix = calc.withWasteYd >= 2 ? "truck" : calc.withWasteYd > 1 ? "borderline" : "bags";
 
   return (
@@ -323,21 +321,21 @@ export default function ConcreteCalcHub() {
             </p>
           </div>
 
-          <div>
-            <label className="mb-1 block text-sm font-medium text-slate-700">
-              Ready-mix price per cubic yard{" "}
-              <span className="font-normal text-slate-400">(optional — for cost estimate)</span>
-            </label>
-            <input
-              type="number" min="0" step="0.01" value={pricePerYard}
-              onChange={(e) => setPricePerYard(e.target.value)}
-              placeholder="$ e.g. 180"
-            />
-          </div>
         </div>
 
         {/* Results */}
-        <div className="space-y-5">
+        <div className="space-y-5 lg:sticky lg:top-24 self-start">
+          <CostEstimator
+            lines={[
+              {
+                id: "readymix",
+                label: "Ready-mix concrete",
+                quantity: calc.withWasteYd,
+                unit: "cu yd",
+                pricePlaceholder: "170.00",
+              },
+            ]}
+          />
           <div className="rounded-xl bg-slate-900 p-5 text-white">
             <p className="text-sm uppercase tracking-wide text-slate-400">
               You need (with {calc.wastePct}% waste)
@@ -352,14 +350,6 @@ export default function ConcreteCalcHub() {
               = {round2(calc.withWasteCuFt)} cu ft · exact pour {round2(calc.yards)} yd³
               ({round2(calc.volumeCuFt)} cu ft)
             </p>
-            {cost !== null && (
-              <p className="mt-3 border-t border-slate-700 pt-3 text-lg font-semibold">
-                Est. ready-mix cost: ${cost.toFixed(2)}{" "}
-                <span className="text-sm font-normal text-slate-400">
-                  ({round2(calc.withWasteYd)} yd³ × ${price.toFixed(2)})
-                </span>
-              </p>
-            )}
           </div>
 
           <div
@@ -420,7 +410,8 @@ export default function ConcreteCalcHub() {
           <VolumeDiagram />
 
           <p className="disclaimer-strip">
-            Planning estimates only. Cost is volume × your quoted price per yard —
+            Planning estimates only. Enter your plant&apos;s quoted price per yard in the
+            estimator above —
             delivery, short-load, and fuel fees vary by plant and aren&apos;t included.
             Ready-mix is usually sold in whole or quarter-yard increments; confirm the
             minimum order and increment with your batch plant before ordering.

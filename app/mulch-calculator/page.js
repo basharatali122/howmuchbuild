@@ -2,6 +2,9 @@ import Link from "next/link";
 import MulchCalculator from "@/components/MulchCalculator";
 import AdSlot from "@/components/AdSlot";
 import JsonLd from "@/components/JsonLd";
+import AuthorByline from "@/components/AuthorByline";
+import TableOfContents from "@/components/TableOfContents";
+import RelatedCalculators from "@/components/RelatedCalculators";
 import { SITE_URL, SITE_NAME } from "@/lib/siteConfig";
 
 export const metadata = {
@@ -82,6 +85,33 @@ const breadcrumbJsonLd = {
   ],
 };
 
+const TOC_ITEMS = [
+    { id: "calculator", label: "Calculator" },
+    { id: "worked-example", label: "Worked example" },
+    { id: "coverage-chart", label: "Coverage chart" },
+    { id: "bags-vs-bulk", label: "Bags vs bulk" },
+    { id: "formulas", label: "Formulas" },
+    { id: "faqs", label: "FAQs" }
+];
+
+const RELATED_ITEMS = [
+    {
+      href: "/topsoil-calculator",
+      title: "Topsoil Calculator",
+      desc: "Cubic yards of topsoil for beds and grading.",
+    },
+    {
+      href: "/sod-calculator",
+      title: "Sod Calculator",
+      desc: "Pallets and rolls for the lawn around your beds.",
+    },
+    {
+      href: "/gravel-calculator",
+      title: "Gravel Calculator",
+      desc: "Gravel for paths and drainage beside mulched beds.",
+    }
+];
+
 export default function MulchCalculatorPage() {
   return (
     <article className="mx-auto max-w-content px-4 py-10 sm:px-6">
@@ -93,6 +123,7 @@ export default function MulchCalculatorPage() {
         <span aria-current="page">Mulch Calculator</span>
       </nav>
 
+      <p className="eyebrow">Free calculator</p>
       <h1 className="max-w-3xl text-3xl sm:text-4xl">
         Mulch Calculator: How Many Bags or Cubic Yards Do You Need?
       </h1>
@@ -103,14 +134,18 @@ export default function MulchCalculatorPage() {
         browser: no sign-up, no tracking.
       </p>
 
-      <div className="mt-8">
-        <MulchCalculator />
+      <div className="mt-4">
+        <AuthorByline />
       </div>
 
-      <AdSlot label="Advertisement" className="my-8 h-28" />
+      <div className="mt-10 grid gap-10 lg:grid-cols-[minmax(0,1fr)_260px]">
+        <div className="min-w-0">
+          <MulchCalculator />
 
-      <div className="prose-hmb mt-12 max-w-3xl">
-        <h2>Worked example: 10×12 ft bed at 3 inches deep</h2>
+          <AdSlot label="Advertisement" className="my-8 h-28" />
+
+          <div className="prose-hmb mt-12 max-w-3xl">
+        <h2 id="worked-example">Worked example: 10×12 ft bed at 3 inches deep</h2>
         <p>
           A typical flower bed against the house. Here is the full arithmetic,
           step by step:
@@ -138,7 +173,7 @@ export default function MulchCalculatorPage() {
           </li>
         </ol>
 
-        <h2>Mulch coverage chart: one cubic yard</h2>
+        <h2 id="coverage-chart">Mulch coverage chart: one cubic yard</h2>
         <p>
           One cubic yard is exactly 27 cubic feet. Deeper beds eat yards fast:
         </p>
@@ -180,7 +215,7 @@ export default function MulchCalculatorPage() {
           coming up half a yard short.
         </p>
 
-        <h2>Common bed sizes at 3″ deep</h2>
+        <h2 id="common-sizes">Common bed sizes at 3″ deep</h2>
         <p>Bags below use standard 2 cu ft bags; figures exclude waste:</p>
         <table>
           <thead>
@@ -231,7 +266,7 @@ export default function MulchCalculatorPage() {
           </tbody>
         </table>
 
-        <h2>Bags vs. bulk: which should you buy?</h2>
+        <h2 id="bags-vs-bulk">Bags vs. bulk: which should you buy?</h2>
         <p>
           Since 27 ÷ 2 = 13.5, every cubic yard of bulk equals about fourteen
           2 cu ft bags. Bags are grab-and-go with no delivery minimum, which
@@ -242,7 +277,7 @@ export default function MulchCalculatorPage() {
           ordering bulk.
         </p>
 
-        <h2>The formulas</h2>
+        <h2 id="formulas">The formulas</h2>
         <h3>Rectangle bed</h3>
         <p>
           <strong>Area = Length × Width</strong> (feet). Volume = area ×
@@ -265,7 +300,7 @@ export default function MulchCalculatorPage() {
           always round up.
         </p>
 
-        <h2>Frequently asked questions</h2>
+        <h2 id="faqs">Frequently asked questions</h2>
         {FAQ_ITEMS.map((f) => (
           <div key={f.q} className="mb-6">
             <h3 className="!mt-6">{f.q}</h3>
@@ -273,7 +308,7 @@ export default function MulchCalculatorPage() {
           </div>
         ))}
 
-        <h2>How deep should you spread it?</h2>
+        <h2 id="spread-depth">How deep should you spread it?</h2>
         <p>
           General guidance: 2–3 inches for beds you top off every year, 3–4
           inches when mulching bare soil for the first time. Spread it evenly,
@@ -282,7 +317,16 @@ export default function MulchCalculatorPage() {
           mulch settles and decomposes, measure to your target depth after
           spreading, not to the depth of the fresh pile in the truck.
         </p>
+          </div>
+        </div>
+        <aside className="hidden lg:block">
+          <div className="sticky top-24">
+            <TableOfContents items={TOC_ITEMS} />
+          </div>
+        </aside>
       </div>
+
+      <RelatedCalculators items={RELATED_ITEMS} />
     </article>
   );
 }

@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import CostEstimator from "@/components/CostEstimator";
 
 /* Mulch math constants (standard, verifiable US figures):
    - 1 cubic yard = 27 cubic feet (exact)
@@ -319,7 +320,13 @@ export default function MulchCalculator() {
         </div>
 
         {/* Results */}
-        <div className="space-y-5">
+        <div className="space-y-5 lg:sticky lg:top-24 self-start">
+          <CostEstimator
+            lines={[
+              { id: "bulk", label: "Bulk mulch", quantity: calc.cuYdWaste, unit: "cu yd", pricePlaceholder: "45.00" },
+              { id: "bags", label: "Bagged mulch", quantity: calc.bagsWaste, unit: "bags", pricePlaceholder: "4.00" },
+            ]}
+          />
           <div className="rounded-xl bg-slate-900 p-5 text-white">
             <p className="text-sm uppercase tracking-wide text-slate-400">
               You need

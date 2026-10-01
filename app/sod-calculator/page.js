@@ -2,6 +2,9 @@ import Link from "next/link";
 import SodCalculator from "@/components/SodCalculator";
 import AdSlot from "@/components/AdSlot";
 import JsonLd from "@/components/JsonLd";
+import AuthorByline from "@/components/AuthorByline";
+import TableOfContents from "@/components/TableOfContents";
+import RelatedCalculators from "@/components/RelatedCalculators";
 import { SITE_URL, SITE_NAME } from "@/lib/siteConfig";
 
 export const metadata = {
@@ -86,6 +89,32 @@ const breadcrumbJsonLd = {
   ],
 };
 
+const TOC_ITEMS = [
+    { id: "calculator", label: "Calculator" },
+    { id: "worked-example", label: "Worked example" },
+    { id: "pallet-chart", label: "Pallet chart" },
+    { id: "formulas", label: "Formulas" },
+    { id: "faqs", label: "FAQs" }
+];
+
+const RELATED_ITEMS = [
+    {
+      href: "/topsoil-calculator",
+      title: "Topsoil Calculator",
+      desc: "Topsoil depth and volume before laying sod.",
+    },
+    {
+      href: "/mulch-calculator",
+      title: "Mulch Calculator",
+      desc: "Mulch for the beds bordering your new lawn.",
+    },
+    {
+      href: "/sand-calculator",
+      title: "Sand Calculator",
+      desc: "Leveling sand for prepping the sod base.",
+    }
+];
+
 export default function SodCalculatorPage() {
   return (
     <article className="mx-auto max-w-content px-4 py-10 sm:px-6">
@@ -97,6 +126,7 @@ export default function SodCalculatorPage() {
         <span aria-current="page">Sod Calculator</span>
       </nav>
 
+      <p className="eyebrow">Free calculator</p>
       <h1 className="max-w-3xl text-3xl sm:text-4xl">
         Sod Calculator: How Many Pallets of Sod Do I Need?
       </h1>
@@ -108,14 +138,18 @@ export default function SodCalculatorPage() {
         sign-up, no tracking: the math runs entirely in your browser.
       </p>
 
-      <div className="mt-8">
-        <SodCalculator />
+      <div className="mt-4">
+        <AuthorByline />
       </div>
 
-      <AdSlot label="Advertisement" className="my-8 h-28" />
+      <div className="mt-10 grid gap-10 lg:grid-cols-[minmax(0,1fr)_260px]">
+        <div className="min-w-0">
+          <SodCalculator />
 
-      <div className="prose-hmb mt-12 max-w-3xl">
-        <h2>Worked example: 20×30 ft rectangular lawn</h2>
+          <AdSlot label="Advertisement" className="my-8 h-28" />
+
+          <div className="prose-hmb mt-12 max-w-3xl">
+        <h2 id="worked-example">Worked example: 20×30 ft rectangular lawn</h2>
         <p>A standard suburban side yard. Full arithmetic, step by step:</p>
         <ol>
           <li>
@@ -131,7 +165,7 @@ export default function SodCalculatorPage() {
           </li>
         </ol>
 
-        <h2>Worked example: 40 ft diameter circular lawn</h2>
+        <h2 id="circular-example">Worked example: 40 ft diameter circular lawn</h2>
         <ol>
           <li>
             <strong>Area:</strong> π × 20² = <strong>1,256.64 sq ft</strong>
@@ -146,7 +180,7 @@ export default function SodCalculatorPage() {
           </li>
         </ol>
 
-        <h2>Sod pallet coverage chart</h2>
+        <h2 id="pallet-chart">Sod pallet coverage chart</h2>
         <p>
           Pallets needed for common lawn sizes, including a 5% waste
           allowance, at both ends of the typical 450–500 sq ft pallet range:
@@ -194,7 +228,7 @@ export default function SodCalculatorPage() {
           </tbody>
         </table>
 
-        <h2>Laying tips</h2>
+        <h2 id="laying-tips">Laying tips</h2>
         <p>
           The following is guidance, not math — but it&apos;s what separates
           a lawn that takes from one that dies:
@@ -227,7 +261,7 @@ export default function SodCalculatorPage() {
           </li>
         </ul>
 
-        <h2>The formulas</h2>
+        <h2 id="formulas">The formulas</h2>
         <h3>Lawn area</h3>
         <p>
           <strong>A = Length × Width</strong> (rectangle) or{" "}
@@ -241,7 +275,7 @@ export default function SodCalculatorPage() {
           ft (typical); this calculator defaults to the conservative 450.
         </p>
 
-        <h2>Frequently asked questions</h2>
+        <h2 id="faqs">Frequently asked questions</h2>
         {FAQ_ITEMS.map((f) => (
           <div key={f.q} className="mb-6">
             <h3 className="!mt-6">{f.q}</h3>
@@ -249,7 +283,7 @@ export default function SodCalculatorPage() {
           </div>
         ))}
 
-        <h2>Order timing and delivery</h2>
+        <h2 id="delivery">Order timing and delivery</h2>
         <p>
           Sod is perishable — order it for the day you plan to lay it, not a
           week ahead. A pallet covers a meaningful chunk of lawn, so delivery
@@ -258,7 +292,16 @@ export default function SodCalculatorPage() {
           all day is miserable. Order the sod for the day you lay it — soil
           prep finished first, fresh product laid the same day.
         </p>
+          </div>
+        </div>
+        <aside className="hidden lg:block">
+          <div className="sticky top-24">
+            <TableOfContents items={TOC_ITEMS} />
+          </div>
+        </aside>
       </div>
+
+      <RelatedCalculators items={RELATED_ITEMS} />
     </article>
   );
 }

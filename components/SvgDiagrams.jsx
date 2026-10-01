@@ -222,3 +222,193 @@ export function FencePostDiagram() {
     </svg>
   );
 }
+
+/* ------------------------------------------------------------------ */
+/* Calculator icon set — original line-art icons, one per calculator.  */
+/* 48×48 viewBox, stroke="currentColor"; the parent sets the color.     */
+/* ------------------------------------------------------------------ */
+
+function IconSvg({ className = "h-8 w-8", children }) {
+  return (
+    <svg
+      viewBox="0 0 48 48"
+      className={className}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2.5}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      {children}
+    </svg>
+  );
+}
+
+/** Concrete slab (isometric). */
+export function IconSlab({ className }) {
+  return (
+    <IconSvg className={className}>
+      <path d="M8 20 L28 12 L42 18 L22 26 Z" />
+      <path d="M8 20 L22 26 L22 37 L8 31 Z" />
+      <path d="M22 26 L42 18 L42 29 L22 37 Z" />
+    </IconSvg>
+  );
+}
+
+/** Concrete wall / block wall. */
+export function IconWall({ className }) {
+  return (
+    <IconSvg className={className}>
+      <rect x="8" y="12" width="32" height="24" />
+      <line x1="8" y1="20" x2="40" y2="20" />
+      <line x1="8" y1="28" x2="40" y2="28" />
+      <line x1="18" y1="12" x2="18" y2="20" />
+      <line x1="30" y1="12" x2="30" y2="20" />
+      <line x1="14" y1="20" x2="14" y2="28" />
+      <line x1="26" y1="20" x2="26" y2="28" />
+      <line x1="38" y1="20" x2="38" y2="28" />
+      <line x1="18" y1="28" x2="18" y2="36" />
+      <line x1="30" y1="28" x2="30" y2="36" />
+    </IconSvg>
+  );
+}
+
+/** Deck (boards on joists). */
+export function IconDeck({ className }) {
+  return (
+    <IconSvg className={className}>
+      <line x1="6" y1="14" x2="42" y2="14" />
+      <line x1="6" y1="22" x2="42" y2="22" />
+      <line x1="6" y1="30" x2="42" y2="30" />
+      <line x1="14" y1="8" x2="14" y2="38" />
+      <line x1="34" y1="8" x2="34" y2="38" />
+    </IconSvg>
+  );
+}
+
+/** Fence (pickets + rails). */
+export function IconFence({ className }) {
+  return (
+    <IconSvg className={className}>
+      <line x1="6" y1="18" x2="42" y2="18" />
+      <line x1="6" y1="30" x2="42" y2="30" />
+      <line x1="11" y1="10" x2="11" y2="38" />
+      <line x1="19" y1="10" x2="19" y2="38" />
+      <line x1="27" y1="10" x2="27" y2="38" />
+      <line x1="35" y1="10" x2="35" y2="38" />
+    </IconSvg>
+  );
+}
+
+/** Mulch pile. */
+export function IconMulch({ className }) {
+  return (
+    <IconSvg className={className}>
+      <path d="M6 36 Q24 12 42 36" />
+      <line x1="6" y1="36" x2="42" y2="36" />
+      <circle cx="20" cy="28" r="1" fill="currentColor" />
+      <circle cx="27" cy="24" r="1" fill="currentColor" />
+      <circle cx="31" cy="31" r="1" fill="currentColor" />
+      <circle cx="17" cy="33" r="1" fill="currentColor" />
+    </IconSvg>
+  );
+}
+
+/** Paint roller. */
+export function IconPaint({ className }) {
+  return (
+    <IconSvg className={className}>
+      <rect x="6" y="8" width="20" height="10" rx="2" />
+      <path d="M16 18 L16 26 L30 26 L30 40" />
+      <line x1="24" y1="40" x2="36" y2="40" />
+    </IconSvg>
+  );
+}
+
+/** Drywall sheet. */
+export function IconDrywall({ className }) {
+  return (
+    <IconSvg className={className}>
+      <rect x="10" y="6" width="28" height="36" />
+      <circle cx="16" cy="12" r="1" fill="currentColor" />
+      <circle cx="32" cy="12" r="1" fill="currentColor" />
+      <circle cx="16" cy="36" r="1" fill="currentColor" />
+      <circle cx="32" cy="36" r="1" fill="currentColor" />
+    </IconSvg>
+  );
+}
+
+/** Pavers. */
+export function IconPaver({ className }) {
+  return (
+    <IconSvg className={className}>
+      <rect x="8" y="8" width="14" height="14" />
+      <rect x="26" y="8" width="14" height="14" />
+      <rect x="8" y="26" width="14" height="14" />
+      <rect x="26" y="26" width="14" height="14" />
+    </IconSvg>
+  );
+}
+
+/** Sod roll. */
+export function IconSod({ className }) {
+  return (
+    <IconSvg className={className}>
+      <circle cx="15" cy="30" r="9" />
+      <path d="M15 30 m-4 0 a4 4 0 1 1 4 4" />
+      <path d="M24 30 L42 30" />
+      <path d="M42 30 L42 38 L24 38" />
+    </IconSvg>
+  );
+}
+
+/** Topsoil (layered ground). */
+export function IconSoil({ className }) {
+  return (
+    <IconSvg className={className}>
+      <line x1="6" y1="14" x2="42" y2="14" />
+      <path d="M8 22 L40 22" strokeDasharray="4 3" />
+      <path d="M8 30 L40 30" strokeDasharray="4 3" />
+      <line x1="6" y1="38" x2="42" y2="38" />
+      <circle cx="18" cy="26" r="1" fill="currentColor" />
+      <circle cx="30" cy="34" r="1" fill="currentColor" />
+    </IconSvg>
+  );
+}
+
+/** Gravel (stone cluster). */
+export function IconGravel({ className }) {
+  return (
+    <IconSvg className={className}>
+      <polygon points="14,30 20,22 28,24 26,32" />
+      <polygon points="28,32 34,24 40,28 36,36" />
+      <polygon points="10,38 18,34 24,38 18,42" />
+      <polygon points="28,40 36,38 40,42 32,44" />
+    </IconSvg>
+  );
+}
+
+/** Sand (dune + grains). */
+export function IconSand({ className }) {
+  return (
+    <IconSvg className={className}>
+      <path d="M6 34 Q18 22 30 30 Q38 35 42 28" />
+      <line x1="6" y1="40" x2="42" y2="40" />
+      <circle cx="16" cy="14" r="1" fill="currentColor" />
+      <circle cx="24" cy="10" r="1" fill="currentColor" />
+      <circle cx="32" cy="15" r="1" fill="currentColor" />
+    </IconSvg>
+  );
+}
+
+/** Floor tile. */
+export function IconTile({ className }) {
+  return (
+    <IconSvg className={className}>
+      <rect x="8" y="8" width="32" height="32" />
+      <line x1="24" y1="8" x2="24" y2="40" />
+      <line x1="8" y1="24" x2="40" y2="24" />
+    </IconSvg>
+  );
+}

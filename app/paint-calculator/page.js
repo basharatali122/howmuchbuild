@@ -2,6 +2,9 @@ import Link from "next/link";
 import PaintCalculator from "@/components/PaintCalculator";
 import AdSlot from "@/components/AdSlot";
 import JsonLd from "@/components/JsonLd";
+import AuthorByline from "@/components/AuthorByline";
+import TableOfContents from "@/components/TableOfContents";
+import RelatedCalculators from "@/components/RelatedCalculators";
 import { SITE_URL, SITE_NAME } from "@/lib/siteConfig";
 
 export const metadata = {
@@ -82,6 +85,32 @@ const breadcrumbJsonLd = {
   ],
 };
 
+const TOC_ITEMS = [
+    { id: "calculator", label: "Calculator" },
+    { id: "worked-example", label: "Worked example" },
+    { id: "gallons-chart", label: "Gallons chart" },
+    { id: "formulas", label: "Formulas" },
+    { id: "faqs", label: "FAQs" }
+];
+
+const RELATED_ITEMS = [
+    {
+      href: "/drywall-calculator",
+      title: "Drywall Calculator",
+      desc: "Sheets, screws, mud, and tape for the walls you're painting.",
+    },
+    {
+      href: "/tile-calculator",
+      title: "Tile Calculator",
+      desc: "Tile and box counts for bathroom and kitchen floors.",
+    },
+    {
+      href: "/deck-calculator",
+      title: "Deck Calculator",
+      desc: "Stain coverage planning for decks and outdoor wood.",
+    }
+];
+
 export default function PaintCalculatorPage() {
   return (
     <article className="mx-auto max-w-content px-4 py-10 sm:px-6">
@@ -93,6 +122,7 @@ export default function PaintCalculatorPage() {
         <span aria-current="page">Paint Calculator</span>
       </nav>
 
+      <p className="eyebrow">Free calculator</p>
       <h1 className="max-w-3xl text-3xl sm:text-4xl">
         Paint Calculator: How Many Gallons Do You Need?
       </h1>
@@ -103,14 +133,18 @@ export default function PaintCalculatorPage() {
         per-coat breakdown. The math runs entirely in your browser.
       </p>
 
-      <div className="mt-8">
-        <PaintCalculator />
+      <div className="mt-4">
+        <AuthorByline />
       </div>
 
-      <AdSlot label="Advertisement" className="my-8 h-28" />
+      <div className="mt-10 grid gap-10 lg:grid-cols-[minmax(0,1fr)_260px]">
+        <div className="min-w-0">
+          <PaintCalculator />
 
-      <div className="prose-hmb mt-12 max-w-3xl">
-        <h2>Worked example: 12×15 ft room, 8 ft ceiling, 2 coats</h2>
+          <AdSlot label="Advertisement" className="my-8 h-28" />
+
+          <div className="prose-hmb mt-12 max-w-3xl">
+        <h2 id="worked-example">Worked example: 12×15 ft room, 8 ft ceiling, 2 coats</h2>
         <p>Full arithmetic for a standard bedroom repaint:</p>
         <ol>
           <li>
@@ -133,7 +167,7 @@ export default function PaintCalculatorPage() {
           </li>
         </ol>
 
-        <h2>Gallons chart at 350 sq ft per gallon</h2>
+        <h2 id="gallons-chart">Gallons chart at 350 sq ft per gallon</h2>
         <p>Buy quantities, always rounded up:</p>
         <table>
           <thead>
@@ -177,7 +211,7 @@ export default function PaintCalculatorPage() {
           </tbody>
         </table>
 
-        <h2>Quick answers for common rooms (2 coats, 8 ft ceilings)</h2>
+        <h2 id="quick-answers">Quick answers for common rooms (2 coats, 8 ft ceilings)</h2>
         <p>Assumes 1 door and 2 windows subtracted:</p>
         <table>
           <thead>
@@ -211,7 +245,7 @@ export default function PaintCalculatorPage() {
           </tbody>
         </table>
 
-        <h2>Do you need primer?</h2>
+        <h2 id="primer">Do you need primer?</h2>
         <p>
           General guidance, not a hard rule: primer earns its keep on bare
           drywall, patched or repaired spots, stained surfaces, and dramatic
@@ -224,7 +258,7 @@ export default function PaintCalculatorPage() {
           surfaces.
         </p>
 
-        <h2>The formulas</h2>
+        <h2 id="formulas">The formulas</h2>
         <h3>Room mode</h3>
         <p>
           <strong>Wall area = 2 × (Length + Width) × Height</strong>, all in
@@ -245,7 +279,7 @@ export default function PaintCalculatorPage() {
           conservative end of the 350–400 range printed on most cans.
         </p>
 
-        <h2>Frequently asked questions</h2>
+        <h2 id="faqs">Frequently asked questions</h2>
         {FAQ_ITEMS.map((f) => (
           <div key={f.q} className="mb-6">
             <h3 className="!mt-6">{f.q}</h3>
@@ -253,7 +287,7 @@ export default function PaintCalculatorPage() {
           </div>
         ))}
 
-        <h2>Before you buy</h2>
+        <h2 id="before-you-buy">Before you buy</h2>
         <p>
           Coverage on the can assumes ideal conditions, so the 350 default
           already protects you — don&apos;t &quot;save&quot; by picking the
@@ -262,7 +296,16 @@ export default function PaintCalculatorPage() {
           little of the rounded-up extra for touch-ups: a stored, labeled can
           beats a color-match guess two years later.
         </p>
+          </div>
+        </div>
+        <aside className="hidden lg:block">
+          <div className="sticky top-24">
+            <TableOfContents items={TOC_ITEMS} />
+          </div>
+        </aside>
       </div>
+
+      <RelatedCalculators items={RELATED_ITEMS} />
     </article>
   );
 }

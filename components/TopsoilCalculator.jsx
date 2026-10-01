@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import CostEstimator from "@/components/CostEstimator";
 
 // --- Math constants ---
 // 27 cubic feet = 1 cubic yard — exact arithmetic.
@@ -256,7 +257,14 @@ export default function TopsoilCalculator() {
         </div>
 
         {/* Results */}
-        <div className="space-y-5">
+        <div className="space-y-5 lg:sticky lg:top-24 self-start">
+          <CostEstimator
+            lines={[
+              { id: "bulk", label: "Bulk topsoil", quantity: calc.withAllowCuYd, unit: "cu yd", pricePlaceholder: "40.00" },
+              { id: "bags1", label: "Topsoil bags (1 cu ft)", quantity: calc.bags1, unit: "bags", pricePlaceholder: "3.00" },
+              { id: "bags15", label: "Topsoil bags (1.5 cu ft)", quantity: calc.bags15, unit: "bags", pricePlaceholder: "4.00" },
+            ]}
+          />
           <div className="rounded-xl bg-slate-900 p-5 text-white">
             <p className="text-sm uppercase tracking-wide text-slate-400">
               You need

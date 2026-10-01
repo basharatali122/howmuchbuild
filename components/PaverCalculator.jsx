@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import CostEstimator from "@/components/CostEstimator";
 
 const PATTERNS = [
   { id: "stack", label: "Stack bond", waste: 5, note: "grid layout, fewest cuts" },
@@ -397,7 +398,15 @@ export default function PaverCalculator() {
         </div>
 
         {/* Results */}
-        <div className="space-y-5">
+        <div className="space-y-5 lg:sticky lg:top-24 self-start">
+          <CostEstimator
+            lines={[
+              { id: "pavers", label: "Pavers", quantity: calc.pavers, unit: "pavers", pricePlaceholder: "3.00" },
+              { id: "gravel", label: "Gravel base", quantity: roundUp1(calc.gravelTons), unit: "tons", pricePlaceholder: "50.00" },
+              { id: "sand", label: "Bedding sand", quantity: roundUp1(calc.beddingTons), unit: "tons", pricePlaceholder: "50.00" },
+              { id: "polysand", label: "Polymeric sand (50-lb bags)", quantity: calc.polyBags, unit: "bags", pricePlaceholder: "20.00" },
+            ]}
+          />
           <div className="rounded-xl bg-slate-900 p-5 text-white">
             <p className="text-sm uppercase tracking-wide text-slate-400">
               You need

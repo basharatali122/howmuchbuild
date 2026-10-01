@@ -2,6 +2,9 @@ import Link from "next/link";
 import PaverCalculator from "@/components/PaverCalculator";
 import AdSlot from "@/components/AdSlot";
 import JsonLd from "@/components/JsonLd";
+import AuthorByline from "@/components/AuthorByline";
+import TableOfContents from "@/components/TableOfContents";
+import RelatedCalculators from "@/components/RelatedCalculators";
 import { SITE_URL, SITE_NAME } from "@/lib/siteConfig";
 
 export const metadata = {
@@ -82,6 +85,32 @@ const breadcrumbJsonLd = {
   ],
 };
 
+const TOC_ITEMS = [
+    { id: "calculator", label: "Calculator" },
+    { id: "worked-example", label: "Worked example" },
+    { id: "coverage-chart", label: "Coverage chart" },
+    { id: "formulas", label: "Formulas" },
+    { id: "faqs", label: "FAQs" }
+];
+
+const RELATED_ITEMS = [
+    {
+      href: "/gravel-calculator",
+      title: "Gravel Calculator",
+      desc: "Tonnage for the compacted gravel base under pavers.",
+    },
+    {
+      href: "/sand-calculator",
+      title: "Sand Calculator",
+      desc: "Bedding and joint sand quantities for paver beds.",
+    },
+    {
+      href: "/concrete-bags-calculator",
+      title: "Concrete Bags Calculator",
+      desc: "Concrete for edge restraints and paver borders.",
+    }
+];
+
 export default function PaverCalculatorPage() {
   return (
     <article className="mx-auto max-w-content px-4 py-10 sm:px-6">
@@ -93,6 +122,7 @@ export default function PaverCalculatorPage() {
         <span aria-current="page">Paver Calculator</span>
       </nav>
 
+      <p className="eyebrow">Free calculator</p>
       <h1 className="max-w-3xl text-3xl sm:text-4xl">
         Paver Calculator: How Many Pavers, Gravel &amp; Sand Do I Need?
       </h1>
@@ -105,14 +135,18 @@ export default function PaverCalculatorPage() {
         sign-up, no tracking: the math runs entirely in your browser.
       </p>
 
-      <div className="mt-8">
-        <PaverCalculator />
+      <div className="mt-4">
+        <AuthorByline />
       </div>
 
-      <AdSlot label="Advertisement" className="my-8 h-28" />
+      <div className="mt-10 grid gap-10 lg:grid-cols-[minmax(0,1fr)_260px]">
+        <div className="min-w-0">
+          <PaverCalculator />
 
-      <div className="prose-hmb mt-12 max-w-3xl">
-        <h2>Worked example: 12×10 ft patio, 4×8 in pavers, running bond</h2>
+          <AdSlot label="Advertisement" className="my-8 h-28" />
+
+          <div className="prose-hmb mt-12 max-w-3xl">
+        <h2 id="worked-example">Worked example: 12×10 ft patio, 4×8 in pavers, running bond</h2>
         <p>
           The classic backyard patio. Here is the full arithmetic, step by
           step:
@@ -146,7 +180,7 @@ export default function PaverCalculatorPage() {
           </li>
         </ol>
 
-        <h2>Paver coverage chart</h2>
+        <h2 id="coverage-chart">Paver coverage chart</h2>
         <p>
           Pavers needed per 100 sq ft <em>before</em> waste — add your
           pattern&apos;s allowance on top:
@@ -188,7 +222,7 @@ export default function PaverCalculatorPage() {
           </tbody>
         </table>
 
-        <h2>Materials for common projects</h2>
+        <h2 id="common-projects">Materials for common projects</h2>
         <p>
           Using 4×8 in pavers, running bond (10% waste), and a 4-inch base.
           Gravel and sand figures are estimates:
@@ -228,7 +262,7 @@ export default function PaverCalculatorPage() {
           </tbody>
         </table>
 
-        <h2>The formulas</h2>
+        <h2 id="formulas">The formulas</h2>
         <h3>Patio area</h3>
         <p>
           <strong>A = Length × Width</strong> (rectangle) or{" "}
@@ -258,7 +292,7 @@ export default function PaverCalculatorPage() {
           common rule of thumb that varies with joint width and paver size.
         </p>
 
-        <h2>Frequently asked questions</h2>
+        <h2 id="faqs">Frequently asked questions</h2>
         {FAQ_ITEMS.map((f) => (
           <div key={f.q} className="mb-6">
             <h3 className="!mt-6">{f.q}</h3>
@@ -266,7 +300,7 @@ export default function PaverCalculatorPage() {
           </div>
         ))}
 
-        <h2>Base depth: patios vs. driveways</h2>
+        <h2 id="base-depth">Base depth: patios vs. driveways</h2>
         <p>
           The base is what keeps pavers from heaving and settling — most paver
           failures are base failures, not paver failures. Four inches of
@@ -276,7 +310,16 @@ export default function PaverCalculatorPage() {
           bed goes on top of the compacted base, is screeded flat, and is{" "}
           <em>not</em> compacted before the pavers go down.
         </p>
+          </div>
+        </div>
+        <aside className="hidden lg:block">
+          <div className="sticky top-24">
+            <TableOfContents items={TOC_ITEMS} />
+          </div>
+        </aside>
       </div>
+
+      <RelatedCalculators items={RELATED_ITEMS} />
     </article>
   );
 }

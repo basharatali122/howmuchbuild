@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import CostEstimator from "@/components/CostEstimator";
 import {
   BAG_YIELDS_CU_FT,
   CU_FT_PER_CU_M,
@@ -154,7 +155,6 @@ export default function ConcreteBagsCalculator() {
   // Shared options
   const [bagSize, setBagSize] = useState("80");
   const [waste, setWaste] = useState(10);
-  const [pricePerBag, setPricePerBag] = useState("");
 
   const calc = useMemo(() => {
     const steps = [];
@@ -237,9 +237,6 @@ export default function ConcreteBagsCalculator() {
   ]);
 
   const { results, steps } = calc;
-  const price = Number(pricePerBag) || 0;
-  const cost =
-    price > 0 ? results.bags[bagSize].withWaste * price : null;
 
   return (
     <div className="card" id="calculator">
@@ -429,20 +426,21 @@ export default function ConcreteBagsCalculator() {
             </p>
           </div>
 
-          <div>
-            <label className="mb-1 block text-sm font-medium text-slate-700">
-              Price per bag <span className="font-normal text-slate-400">(optional — for cost estimate)</span>
-            </label>
-            <input
-              type="number" min="0" step="0.01" value={pricePerBag}
-              onChange={(e) => setPricePerBag(e.target.value)}
-              placeholder="$ e.g. 6.48"
-            />
-          </div>
         </div>
 
         {/* Results */}
-        <div className="space-y-5">
+        <div className="space-y-5 lg:sticky lg:top-24 self-start">
+          <CostEstimator
+            lines={[
+              {
+                id: "bags",
+                label: `${bagSize} lb concrete bags`,
+                quantity: results.bags[bagSize].withWaste,
+                unit: "bags",
+                pricePlaceholder: "6.50",
+              },
+            ]}
+          />
           <div className="rounded-xl bg-slate-900 p-5 text-white">
             <p className="text-sm uppercase tracking-wide text-slate-400">
               You need
@@ -457,14 +455,6 @@ export default function ConcreteBagsCalculator() {
               Includes {results.wastePct}% waste · exact pour needs{" "}
               {results.bags[bagSize].exact} bags (always rounded up)
             </p>
-            {cost !== null && (
-              <p className="mt-3 border-t border-slate-700 pt-3 text-lg font-semibold">
-                Est. cost: ${cost.toFixed(2)}{" "}
-                <span className="text-sm font-normal text-slate-400">
-                  ({results.bags[bagSize].withWaste} × ${price.toFixed(2)})
-                </span>
-              </p>
-            )}
           </div>
 
           <div className="grid grid-cols-3 gap-3 text-center">

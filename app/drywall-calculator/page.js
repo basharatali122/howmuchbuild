@@ -2,6 +2,9 @@ import Link from "next/link";
 import DrywallCalculator from "@/components/DrywallCalculator";
 import AdSlot from "@/components/AdSlot";
 import JsonLd from "@/components/JsonLd";
+import AuthorByline from "@/components/AuthorByline";
+import TableOfContents from "@/components/TableOfContents";
+import RelatedCalculators from "@/components/RelatedCalculators";
 import { SITE_URL, SITE_NAME } from "@/lib/siteConfig";
 
 export const metadata = {
@@ -82,6 +85,32 @@ const breadcrumbJsonLd = {
   ],
 };
 
+const TOC_ITEMS = [
+    { id: "calculator", label: "Calculator" },
+    { id: "worked-example", label: "Worked example" },
+    { id: "materials-chart", label: "Materials chart" },
+    { id: "formulas", label: "Formulas" },
+    { id: "faqs", label: "FAQs" }
+];
+
+const RELATED_ITEMS = [
+    {
+      href: "/paint-calculator",
+      title: "Paint Calculator",
+      desc: "Gallons needed once the drywall is hung and finished.",
+    },
+    {
+      href: "/tile-calculator",
+      title: "Tile Calculator",
+      desc: "Floor tile counts for the rooms you're drywalling.",
+    },
+    {
+      href: "/concrete-bags-calculator",
+      title: "Concrete Bags Calculator",
+      desc: "Bag counts for basement slabs and footings.",
+    }
+];
+
 export default function DrywallCalculatorPage() {
   return (
     <article className="mx-auto max-w-content px-4 py-10 sm:px-6">
@@ -93,6 +122,7 @@ export default function DrywallCalculatorPage() {
         <span aria-current="page">Drywall Calculator</span>
       </nav>
 
+      <p className="eyebrow">Free calculator</p>
       <h1 className="max-w-3xl text-3xl sm:text-4xl">
         Drywall Calculator: Sheets, Screws, Mud &amp; Tape
       </h1>
@@ -105,14 +135,18 @@ export default function DrywallCalculatorPage() {
         estimates.
       </p>
 
-      <div className="mt-8">
-        <DrywallCalculator />
+      <div className="mt-4">
+        <AuthorByline />
       </div>
 
-      <AdSlot label="Advertisement" className="my-8 h-28" />
+      <div className="mt-10 grid gap-10 lg:grid-cols-[minmax(0,1fr)_260px]">
+        <div className="min-w-0">
+          <DrywallCalculator />
 
-      <div className="prose-hmb mt-12 max-w-3xl">
-        <h2>Worked example: 12×15 ft room with ceiling</h2>
+          <AdSlot label="Advertisement" className="my-8 h-28" />
+
+          <div className="prose-hmb mt-12 max-w-3xl">
+        <h2 id="worked-example">Worked example: 12×15 ft room with ceiling</h2>
         <p>Full arithmetic for a standard bedroom, walls plus ceiling:</p>
         <ol>
           <li>
@@ -155,7 +189,7 @@ export default function DrywallCalculatorPage() {
           </li>
         </ol>
 
-        <h2>Drywall materials chart</h2>
+        <h2 id="materials-chart">Drywall materials chart</h2>
         <p>
           Sheets use a 10% waste allowance and are rounded up; screws,
           compound, and tape are rule-of-thumb estimates:
@@ -230,7 +264,7 @@ export default function DrywallCalculatorPage() {
           </tbody>
         </table>
 
-        <h2>The formulas</h2>
+        <h2 id="formulas">The formulas</h2>
         <h3>Room mode</h3>
         <p>
           <strong>Walls = 2 × (Length + Width) × Height</strong>, minus{" "}
@@ -254,7 +288,7 @@ export default function DrywallCalculatorPage() {
           three are rough field rules of thumb, not exact math.
         </p>
 
-        <h2>Frequently asked questions</h2>
+        <h2 id="faqs">Frequently asked questions</h2>
         {FAQ_ITEMS.map((f) => (
           <div key={f.q} className="mb-6">
             <h3 className="!mt-6">{f.q}</h3>
@@ -262,7 +296,7 @@ export default function DrywallCalculatorPage() {
           </div>
         ))}
 
-        <h2>Why screws, mud, and tape are estimates</h2>
+        <h2 id="estimates-note">Why screws, mud, and tape are estimates</h2>
         <p>
           Sheet count is pure geometry — area divided by 32, rounded up —
           which is why the calculator states it as a hard number. Screws,
@@ -276,7 +310,16 @@ export default function DrywallCalculatorPage() {
           When in doubt, buy the extra box of screws and the extra roll of
           tape; they are cheap insurance against a stalled job.
         </p>
+          </div>
+        </div>
+        <aside className="hidden lg:block">
+          <div className="sticky top-24">
+            <TableOfContents items={TOC_ITEMS} />
+          </div>
+        </aside>
       </div>
+
+      <RelatedCalculators items={RELATED_ITEMS} />
     </article>
   );
 }

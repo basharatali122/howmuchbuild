@@ -6,7 +6,7 @@ import { SITE_URL, SITE_NAME } from "@/lib/siteConfig";
 export const metadata = {
   title: `Project Guides | ${SITE_NAME}`,
   description:
-    "Step-by-step DIY project guides from HowMuchBuild: how to pour a concrete slab, fence planning, and mulch installation — each paired with a free material calculator.",
+    "Step-by-step DIY project guides from HowMuchBuild: how to pour a concrete slab, fence planning, mulch installation, and cost breakdowns for slabs, decks, and fences — each paired with a free material calculator.",
   alternates: {
     canonical: `${SITE_URL}/guides`,
   },
@@ -48,6 +48,42 @@ const GUIDES = [
     calculator: "/mulch-calculator",
     calculatorLabel: "Mulch calculator",
     tag: "Landscaping",
+  },
+  {
+    slug: "/guides/concrete-slab-cost-guide",
+    title: "How Much Does a Concrete Slab Cost?",
+    description:
+      "Typical cost ranges for a poured slab — DIY vs. pro, per-square-foot bands, what drives the price, and a worked 10×10 ft example.",
+    calculator: "/concrete-bags-calculator",
+    calculatorLabel: "Concrete bags calculator",
+    tag: "Cost",
+  },
+  {
+    slug: "/guides/deck-cost-guide",
+    title: "How Much Does a Deck Cost?",
+    description:
+      "Wood vs. composite cost ranges per square foot, installed vs. DIY, and the factors — height, railings, stairs — that move any quote.",
+    calculator: "/deck-calculator",
+    calculatorLabel: "Deck calculator",
+    tag: "Cost",
+  },
+  {
+    slug: "/guides/fence-cost-guide",
+    title: "How Much Does a Fence Cost?",
+    description:
+      "Per-linear-foot cost ranges for wood, chain-link, and vinyl fences — installed and DIY — plus gates, terrain, and removal costs.",
+    calculator: "/fence-calculator",
+    calculatorLabel: "Fence calculator",
+    tag: "Cost",
+  },
+  {
+    slug: "/guides/bags-vs-readymix-guide",
+    title: "Concrete Bags vs. Ready-Mix: Which Is Cheaper?",
+    description:
+      "The break-even math: per-yard costs, short-load fees, and the project sizes where bags or a ready-mix truck wins.",
+    calculator: "/concrete-calculator",
+    calculatorLabel: "Concrete calculator",
+    tag: "Cost",
   },
 ];
 

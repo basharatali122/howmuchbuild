@@ -2,6 +2,9 @@ import Link from "next/link";
 import TopsoilCalculator from "@/components/TopsoilCalculator";
 import AdSlot from "@/components/AdSlot";
 import JsonLd from "@/components/JsonLd";
+import AuthorByline from "@/components/AuthorByline";
+import TableOfContents from "@/components/TableOfContents";
+import RelatedCalculators from "@/components/RelatedCalculators";
 import { SITE_URL, SITE_NAME } from "@/lib/siteConfig";
 
 export const metadata = {
@@ -82,6 +85,32 @@ const breadcrumbJsonLd = {
   ],
 };
 
+const TOC_ITEMS = [
+    { id: "calculator", label: "Calculator" },
+    { id: "worked-example", label: "Worked example" },
+    { id: "coverage-chart", label: "Coverage chart" },
+    { id: "formulas", label: "Formulas" },
+    { id: "faqs", label: "FAQs" }
+];
+
+const RELATED_ITEMS = [
+    {
+      href: "/sod-calculator",
+      title: "Sod Calculator",
+      desc: "Sod pallets for the lawn going over your topsoil.",
+    },
+    {
+      href: "/mulch-calculator",
+      title: "Mulch Calculator",
+      desc: "Mulch quantities for planted beds and borders.",
+    },
+    {
+      href: "/gravel-calculator",
+      title: "Gravel Calculator",
+      desc: "Gravel for drainage layers and paths.",
+    }
+];
+
 export default function TopsoilCalculatorPage() {
   return (
     <article className="mx-auto max-w-content px-4 py-10 sm:px-6">
@@ -93,6 +122,7 @@ export default function TopsoilCalculatorPage() {
         <span aria-current="page">Topsoil Calculator</span>
       </nav>
 
+      <p className="eyebrow">Free calculator</p>
       <h1 className="max-w-3xl text-3xl sm:text-4xl">
         Topsoil Calculator: Cubic Yards, Bags &amp; Raised Bed Soil
       </h1>
@@ -105,14 +135,18 @@ export default function TopsoilCalculatorPage() {
         entirely in your browser.
       </p>
 
-      <div className="mt-8">
-        <TopsoilCalculator />
+      <div className="mt-4">
+        <AuthorByline />
       </div>
 
-      <AdSlot label="Advertisement" className="my-8 h-28" />
+      <div className="mt-10 grid gap-10 lg:grid-cols-[minmax(0,1fr)_260px]">
+        <div className="min-w-0">
+          <TopsoilCalculator />
 
-      <div className="prose-hmb mt-12 max-w-3xl">
-        <h2>Worked example: 4×8 ft raised bed, 12″ deep</h2>
+          <AdSlot label="Advertisement" className="my-8 h-28" />
+
+          <div className="prose-hmb mt-12 max-w-3xl">
+        <h2 id="worked-example">Worked example: 4×8 ft raised bed, 12″ deep</h2>
         <p>
           The most common raised bed size, filled a full foot deep. Full
           arithmetic, step by step:
@@ -136,7 +170,7 @@ export default function TopsoilCalculatorPage() {
           </li>
         </ol>
 
-        <h2>Worked example: 20×30 ft lawn, 3″ of topsoil</h2>
+        <h2 id="lawn-example">Worked example: 20×30 ft lawn, 3″ of topsoil</h2>
         <ol>
           <li>
             <strong>Volume:</strong> 20 ft × 30 ft × (3 ÷ 12) ft ={" "}
@@ -152,7 +186,7 @@ export default function TopsoilCalculatorPage() {
           </li>
         </ol>
 
-        <h2>Coverage chart: what one cubic yard covers</h2>
+        <h2 id="coverage-chart">Coverage chart: what one cubic yard covers</h2>
         <p>
           Square feet covered by 1 cubic yard (27 cu ft) at each depth —
           exact arithmetic (324 ÷ depth in inches):
@@ -192,7 +226,7 @@ export default function TopsoilCalculatorPage() {
           </tbody>
         </table>
 
-        <h2>Topsoil for common raised beds</h2>
+        <h2 id="raised-beds">Topsoil for common raised beds</h2>
         <p>Exact volumes — add 10–30% for settling when ordering bulk:</p>
         <table>
           <thead>
@@ -243,7 +277,7 @@ export default function TopsoilCalculatorPage() {
           </tbody>
         </table>
 
-        <h2>The formulas</h2>
+        <h2 id="formulas">The formulas</h2>
         <h3>Volume (both modes)</h3>
         <p>
           <strong>V = Length × Width × Depth</strong> — all in feet, depth
@@ -262,7 +296,7 @@ export default function TopsoilCalculatorPage() {
           don&apos;t exist at the register.
         </p>
 
-        <h2>Frequently asked questions</h2>
+        <h2 id="faqs">Frequently asked questions</h2>
         {FAQ_ITEMS.map((f) => (
           <div key={f.q} className="mb-6">
             <h3 className="!mt-6">{f.q}</h3>
@@ -270,7 +304,7 @@ export default function TopsoilCalculatorPage() {
           </div>
         ))}
 
-        <h2>Settling and the order-over allowance</h2>
+        <h2 id="settling">Settling and the order-over allowance</h2>
         <p>
           Freshly delivered bulk topsoil is loose; once spread, rained on, and
           walked on, it typically settles about 20–30% (typical guidance).
@@ -281,7 +315,16 @@ export default function TopsoilCalculatorPage() {
           subgrade. Bagged soil needs no such allowance — you buy the exact
           cubic footage, which is one reason bags are simpler for small beds.
         </p>
+          </div>
+        </div>
+        <aside className="hidden lg:block">
+          <div className="sticky top-24">
+            <TableOfContents items={TOC_ITEMS} />
+          </div>
+        </aside>
       </div>
+
+      <RelatedCalculators items={RELATED_ITEMS} />
     </article>
   );
 }

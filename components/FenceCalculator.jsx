@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import CostEstimator from "@/components/CostEstimator";
 import { postHoleConcrete } from "@/lib/concreteMath";
 
 const PICKET_COVERAGE_IN = 5.5; // actual coverage of a 1x6 picket
@@ -271,7 +272,15 @@ export default function FenceCalculator() {
         </div>
 
         {/* Results */}
-        <div className="space-y-5">
+        <div className="space-y-5 lg:sticky lg:top-24 self-start">
+          <CostEstimator
+            lines={[
+              { id: "posts", label: "Fence posts", quantity: calc.totalPosts, unit: "posts", pricePlaceholder: "10.00" },
+              { id: "pickets", label: "Pickets", quantity: calc.pickets, unit: "pickets", pricePlaceholder: "3.00" },
+              { id: "rails", label: "Rails", quantity: calc.rails, unit: "rails", pricePlaceholder: "6.00" },
+              { id: "bags", label: "80-lb concrete bags", quantity: calc.totalBags, unit: "bags", pricePlaceholder: "6.50" },
+            ]}
+          />
           <div className="rounded-xl bg-slate-900 p-5 text-white">
             <p className="text-sm uppercase tracking-wide text-slate-400">
               Material takeoff

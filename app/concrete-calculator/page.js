@@ -2,6 +2,9 @@ import Link from "next/link";
 import ConcreteCalcHub from "@/components/ConcreteCalcHub";
 import AdSlot from "@/components/AdSlot";
 import JsonLd from "@/components/JsonLd";
+import AuthorByline from "@/components/AuthorByline";
+import TableOfContents from "@/components/TableOfContents";
+import RelatedCalculators from "@/components/RelatedCalculators";
 import { SITE_URL, SITE_NAME } from "@/lib/siteConfig";
 
 export const metadata = {
@@ -82,6 +85,33 @@ const breadcrumbJsonLd = {
   ],
 };
 
+const TOC_ITEMS = [
+    { id: "calculator", label: "Calculator" },
+    { id: "worked-example", label: "Worked example" },
+    { id: "yard-coverage", label: "Yard coverage" },
+    { id: "bags-vs-readymix", label: "Bags vs ready-mix" },
+    { id: "formulas", label: "Formulas" },
+    { id: "faqs", label: "FAQs" }
+];
+
+const RELATED_ITEMS = [
+    {
+      href: "/concrete-bags-calculator",
+      title: "Concrete Bags Calculator",
+      desc: "Convert any pour into 40, 60, and 80 lb bag counts.",
+    },
+    {
+      href: "/gravel-calculator",
+      title: "Gravel Calculator",
+      desc: "Cubic yards and tons of gravel for your slab base.",
+    },
+    {
+      href: "/sand-calculator",
+      title: "Sand Calculator",
+      desc: "Cubic yards and tons of sand for bases and bedding.",
+    }
+];
+
 export default function ConcreteCalculatorPage() {
   return (
     <article className="mx-auto max-w-content px-4 py-10 sm:px-6">
@@ -93,6 +123,7 @@ export default function ConcreteCalculatorPage() {
         <span aria-current="page">Concrete Calculator</span>
       </nav>
 
+      <p className="eyebrow">Free calculator</p>
       <h1 className="max-w-3xl text-3xl sm:text-4xl">
         Concrete Calculator: Cubic Yards, Volume &amp; Cost
       </h1>
@@ -104,14 +135,18 @@ export default function ConcreteCalculatorPage() {
         Try the <Link href="/concrete-bags-calculator">concrete bags calculator</Link> instead.
       </p>
 
-      <div className="mt-8">
-        <ConcreteCalcHub />
+      <div className="mt-4">
+        <AuthorByline />
       </div>
 
-      <AdSlot label="Advertisement" className="my-8 h-28" />
+      <div className="mt-10 grid gap-10 lg:grid-cols-[minmax(0,1fr)_260px]">
+        <div className="min-w-0">
+          <ConcreteCalcHub />
 
-      <div className="prose-hmb mt-12 max-w-3xl">
-        <h2>Worked example: 12×12 ft patio at 6 inches thick</h2>
+          <AdSlot label="Advertisement" className="my-8 h-28" />
+
+          <div className="prose-hmb mt-12 max-w-3xl">
+        <h2 id="worked-example">Worked example: 12×12 ft patio at 6 inches thick</h2>
         <p>
           A driveway-grade patio slab is a classic ready-mix candidate. Here is
           the full arithmetic:
@@ -139,7 +174,7 @@ export default function ConcreteCalculatorPage() {
           — mixing 132 bags by hand would take a full crew all day.
         </p>
 
-        <h2>Worked example: footing 30 ft long</h2>
+        <h2 id="footing-example">Worked example: footing 30 ft long</h2>
         <p>
           For a 30-foot footing, 16 inches wide and 12 inches deep:
         </p>
@@ -162,7 +197,7 @@ export default function ConcreteCalculatorPage() {
           </li>
         </ol>
 
-        <h2>What one cubic yard of concrete covers</h2>
+        <h2 id="yard-coverage">What one cubic yard of concrete covers</h2>
         <p>
           A yard goes further than most people expect at thinner depths. Area
           covered = 324 ÷ thickness in inches:
@@ -183,7 +218,7 @@ export default function ConcreteCalculatorPage() {
           </tbody>
         </table>
 
-        <h2>Bags or ready-mix? A rule of thumb</h2>
+        <h2 id="bags-vs-readymix">Bags or ready-mix? A rule of thumb</h2>
         <p>
           These bands are a planning guide, not a price quote — labor and
           local fees swing the real break-even point:
@@ -204,7 +239,7 @@ export default function ConcreteCalculatorPage() {
           </tbody>
         </table>
 
-        <h2>The formulas</h2>
+        <h2 id="formulas">The formulas</h2>
         <h3>Slab, wall, or footing (rectangle)</h3>
         <p>
           <strong>V = Length × Width × Thickness</strong> — all in feet.
@@ -228,7 +263,7 @@ export default function ConcreteCalculatorPage() {
           estimate; delivery and short-load fees aren&apos;t included.
         </p>
 
-        <h2>Frequently asked questions</h2>
+        <h2 id="faqs">Frequently asked questions</h2>
         {FAQ_ITEMS.map((f) => (
           <div key={f.q} className="mb-6">
             <h3 className="!mt-6">{f.q}</h3>
@@ -236,7 +271,7 @@ export default function ConcreteCalculatorPage() {
           </div>
         ))}
 
-        <h2>Before you call the batch plant</h2>
+        <h2 id="batch-plant">Before you call the batch plant</h2>
         <p>
           Plants schedule trucks by the day and usually quote in whole or
           quarter-yard increments, with minimum orders and short-load fees that
@@ -246,7 +281,16 @@ export default function ConcreteCalculatorPage() {
           bagged premix from the home center is usually the simpler path — no
           truck, no scheduling, no minimums.
         </p>
+          </div>
+        </div>
+        <aside className="hidden lg:block">
+          <div className="sticky top-24">
+            <TableOfContents items={TOC_ITEMS} />
+          </div>
+        </aside>
       </div>
+
+      <RelatedCalculators items={RELATED_ITEMS} />
     </article>
   );
 }

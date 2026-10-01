@@ -15,10 +15,18 @@ const PAGES = [
   { path: "/paver-calculator", priority: 0.9, changeFrequency: "monthly" },
   { path: "/sod-calculator", priority: 0.9, changeFrequency: "monthly" },
   { path: "/topsoil-calculator", priority: 0.9, changeFrequency: "monthly" },
+  { path: "/gravel-calculator", priority: 0.9, changeFrequency: "monthly" },
+  { path: "/sand-calculator", priority: 0.9, changeFrequency: "monthly" },
+  { path: "/tile-calculator", priority: 0.9, changeFrequency: "monthly" },
   { path: "/guides", priority: 0.8, changeFrequency: "weekly" },
   { path: "/guides/how-to-pour-a-concrete-slab", priority: 0.7, changeFrequency: "monthly" },
   { path: "/guides/fence-planning-guide", priority: 0.7, changeFrequency: "monthly" },
   { path: "/guides/mulch-installation-guide", priority: 0.7, changeFrequency: "monthly" },
+  { path: "/guides/concrete-slab-cost-guide", priority: 0.7, changeFrequency: "monthly" },
+  { path: "/guides/deck-cost-guide", priority: 0.7, changeFrequency: "monthly" },
+  { path: "/guides/fence-cost-guide", priority: 0.7, changeFrequency: "monthly" },
+  { path: "/guides/bags-vs-readymix-guide", priority: 0.7, changeFrequency: "monthly" },
+  { path: "/methodology", priority: 0.4, changeFrequency: "yearly" },
   { path: "/about", priority: 0.4, changeFrequency: "yearly" },
   { path: "/contact", priority: 0.4, changeFrequency: "yearly" },
   { path: "/privacy", priority: 0.4, changeFrequency: "yearly" },
@@ -27,7 +35,7 @@ const PAGES = [
 ];
 
 export default function sitemap() {
-  const lastModified = new Date("2026-10-01");
+  const lastModified = new Date("2026-10-02");
   return PAGES.map((p) => ({
     url: `${BASE_URL}${p.path}`,
     lastModified,

@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import CostEstimator from "@/components/CostEstimator";
 
 /* Paint math constants (standard, verifiable US figures):
    - Wall area for a rectangular room = 2 × (L + W) × H (exact geometry)
@@ -279,7 +280,12 @@ export default function PaintCalculator() {
         </div>
 
         {/* Results */}
-        <div className="space-y-5">
+        <div className="space-y-5 lg:sticky lg:top-24 self-start">
+          <CostEstimator
+            lines={[
+              { id: "paint", label: "Paint", quantity: calc.gallons, unit: "gal", pricePlaceholder: "45.00" },
+            ]}
+          />
           <div className="rounded-xl bg-slate-900 p-5 text-white">
             <p className="text-sm uppercase tracking-wide text-slate-400">
               You need

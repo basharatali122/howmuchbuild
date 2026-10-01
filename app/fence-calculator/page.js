@@ -2,6 +2,9 @@ import Link from "next/link";
 import FenceCalculator from "@/components/FenceCalculator";
 import AdSlot from "@/components/AdSlot";
 import JsonLd from "@/components/JsonLd";
+import AuthorByline from "@/components/AuthorByline";
+import TableOfContents from "@/components/TableOfContents";
+import RelatedCalculators from "@/components/RelatedCalculators";
 import { SITE_URL, SITE_NAME } from "@/lib/siteConfig";
 
 export const metadata = {
@@ -78,6 +81,32 @@ const breadcrumbJsonLd = {
   ],
 };
 
+const TOC_ITEMS = [
+    { id: "calculator", label: "Calculator" },
+    { id: "worked-example", label: "Worked example" },
+    { id: "posts-chart", label: "Material charts" },
+    { id: "formulas", label: "Formulas" },
+    { id: "faqs", label: "FAQs" }
+];
+
+const RELATED_ITEMS = [
+    {
+      href: "/concrete-bags-calculator",
+      title: "Concrete Bags Calculator",
+      desc: "Bags per post hole, with post displacement subtracted.",
+    },
+    {
+      href: "/deck-calculator",
+      title: "Deck Calculator",
+      desc: "Material takeoff for the deck inside the fence.",
+    },
+    {
+      href: "/paint-calculator",
+      title: "Paint Calculator",
+      desc: "Stain and paint gallons for the finished fence.",
+    }
+];
+
 export default function FenceCalculatorPage() {
   return (
     <article className="mx-auto max-w-content px-4 py-10 sm:px-6">
@@ -89,6 +118,7 @@ export default function FenceCalculatorPage() {
         <span aria-current="page">Fence Calculator</span>
       </nav>
 
+      <p className="eyebrow">Free calculator</p>
       <h1 className="max-w-3xl text-3xl sm:text-4xl">
         Fence Calculator: Posts, Pickets, Rails &amp; Concrete
       </h1>
@@ -100,14 +130,18 @@ export default function FenceCalculatorPage() {
         is shown in full.
       </p>
 
-      <div className="mt-8">
-        <FenceCalculator />
+      <div className="mt-4">
+        <AuthorByline />
       </div>
 
-      <AdSlot label="Advertisement" className="my-8 h-28" />
+      <div className="mt-10 grid gap-10 lg:grid-cols-[minmax(0,1fr)_260px]">
+        <div className="min-w-0">
+          <FenceCalculator />
 
-      <div className="prose-hmb mt-12 max-w-3xl">
-        <h2>Worked example: 100 ft privacy fence, 6 ft tall</h2>
+          <AdSlot label="Advertisement" className="my-8 h-28" />
+
+          <div className="prose-hmb mt-12 max-w-3xl">
+        <h2 id="worked-example">Worked example: 100 ft privacy fence, 6 ft tall</h2>
         <p>
           One straight 100-ft run, 8-ft post spacing, 1 gate, 12″-diameter
           holes 36″ deep, 4×4 posts:
@@ -142,7 +176,7 @@ export default function FenceCalculatorPage() {
           </li>
         </ol>
 
-        <h2>Posts per 100 ft by spacing</h2>
+        <h2 id="posts-chart">Posts per 100 ft by spacing</h2>
         <table>
           <thead>
             <tr>
@@ -158,7 +192,7 @@ export default function FenceCalculatorPage() {
           </tbody>
         </table>
 
-        <h2>Pickets per 100 ft by style</h2>
+        <h2 id="pickets-chart">Pickets per 100 ft by style</h2>
         <table>
           <thead>
             <tr>
@@ -173,7 +207,7 @@ export default function FenceCalculatorPage() {
           </tbody>
         </table>
 
-        <h2>80-lb bags per post (12″ dia × 36″ deep hole)</h2>
+        <h2 id="bags-chart">80-lb bags per post (12″ dia × 36″ deep hole)</h2>
         <table>
           <thead>
             <tr>
@@ -188,7 +222,7 @@ export default function FenceCalculatorPage() {
           </tbody>
         </table>
 
-        <h2>The formulas</h2>
+        <h2 id="formulas">The formulas</h2>
         <h3>Sections and posts</h3>
         <p>
           <strong>Sections = ⌈ total feet ÷ post spacing ⌉</strong>;{" "}
@@ -215,7 +249,7 @@ export default function FenceCalculatorPage() {
           <strong>Bags = ⌈ V ÷ 0.60 ⌉</strong> for 80-lb bags.
         </p>
 
-        <h2>Frequently asked questions</h2>
+        <h2 id="faqs">Frequently asked questions</h2>
         {FAQ_ITEMS.map((f) => (
           <div key={f.q} className="mb-6">
             <h3 className="!mt-6">{f.q}</h3>
@@ -223,7 +257,7 @@ export default function FenceCalculatorPage() {
           </div>
         ))}
 
-        <h2>Before you dig</h2>
+        <h2 id="before-you-dig">Before you dig</h2>
         <p>
           Call your local utility-locating service (811 in most US states)
           before any post hole goes in the ground. Confirm property lines and
@@ -233,7 +267,16 @@ export default function FenceCalculatorPage() {
           frames aren&apos;t in the material list above, so budget for those
           separately.
         </p>
+          </div>
+        </div>
+        <aside className="hidden lg:block">
+          <div className="sticky top-24">
+            <TableOfContents items={TOC_ITEMS} />
+          </div>
+        </aside>
       </div>
+
+      <RelatedCalculators items={RELATED_ITEMS} />
     </article>
   );
 }

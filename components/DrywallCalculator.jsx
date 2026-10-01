@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import CostEstimator from "@/components/CostEstimator";
 
 /* Drywall math constants:
    VERIFIABLE:
@@ -270,7 +271,14 @@ export default function DrywallCalculator() {
         </div>
 
         {/* Results */}
-        <div className="space-y-5">
+        <div className="space-y-5 lg:sticky lg:top-24 self-start">
+          <CostEstimator
+            lines={[
+              { id: "sheets", label: "Drywall sheets (4×8 ft)", quantity: calc.sheets, unit: "sheets", pricePlaceholder: "15.00" },
+              { id: "compound", label: "Joint compound", quantity: calc.compoundGal, unit: "gal", pricePlaceholder: "20.00" },
+              { id: "tape", label: "Joint tape", quantity: calc.tapeRolls, unit: "rolls", pricePlaceholder: "8.00" },
+            ]}
+          />
           <div className="rounded-xl bg-slate-900 p-5 text-white">
             <p className="text-sm uppercase tracking-wide text-slate-400">
               You need

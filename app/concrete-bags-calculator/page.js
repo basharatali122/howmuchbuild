@@ -2,6 +2,9 @@ import Link from "next/link";
 import ConcreteBagsCalculator from "@/components/ConcreteBagsCalculator";
 import AdSlot from "@/components/AdSlot";
 import JsonLd from "@/components/JsonLd";
+import AuthorByline from "@/components/AuthorByline";
+import TableOfContents from "@/components/TableOfContents";
+import RelatedCalculators from "@/components/RelatedCalculators";
 import { SITE_URL, SITE_NAME } from "@/lib/siteConfig";
 
 export const metadata = {
@@ -82,6 +85,33 @@ const breadcrumbJsonLd = {
   ],
 };
 
+const TOC_ITEMS = [
+    { id: "calculator", label: "Calculator" },
+    { id: "worked-example", label: "Worked example" },
+    { id: "coverage-chart", label: "Coverage chart" },
+    { id: "quick-answers", label: "Quick answers" },
+    { id: "formulas", label: "Formulas" },
+    { id: "faqs", label: "FAQs" }
+];
+
+const RELATED_ITEMS = [
+    {
+      href: "/concrete-calculator",
+      title: "Concrete Calculator",
+      desc: "Total cubic yards for slabs, walls, footings, and columns — for ready-mix orders.",
+    },
+    {
+      href: "/fence-calculator",
+      title: "Fence Calculator",
+      desc: "Posts, pickets, rails, and concrete per hole for any fence run.",
+    },
+    {
+      href: "/deck-calculator",
+      title: "Deck Calculator",
+      desc: "Full material takeoff: decking, joists, posts, and screws.",
+    }
+];
+
 export default function ConcreteBagsCalculatorPage() {
   return (
     <article className="mx-auto max-w-content px-4 py-10 sm:px-6">
@@ -93,6 +123,7 @@ export default function ConcreteBagsCalculatorPage() {
         <span aria-current="page">Concrete Bags Calculator</span>
       </nav>
 
+      <p className="eyebrow">Free calculator</p>
       <h1 className="max-w-3xl text-3xl sm:text-4xl">
         How Many Bags of Concrete Do I Need?
       </h1>
@@ -104,14 +135,18 @@ export default function ConcreteBagsCalculatorPage() {
         your browser.
       </p>
 
-      <div className="mt-8">
-        <ConcreteBagsCalculator />
+      <div className="mt-4">
+        <AuthorByline />
       </div>
 
-      <AdSlot label="Advertisement" className="my-8 h-28" />
+      <div className="mt-10 grid gap-10 lg:grid-cols-[minmax(0,1fr)_260px]">
+        <div className="min-w-0">
+          <ConcreteBagsCalculator />
 
-      <div className="prose-hmb mt-12 max-w-3xl">
-        <h2>Worked example: 10×10 ft slab at 4 inches thick</h2>
+          <AdSlot label="Advertisement" className="my-8 h-28" />
+
+          <div className="prose-hmb mt-12 max-w-3xl">
+        <h2 id="worked-example">Worked example: 10×10 ft slab at 4 inches thick</h2>
         <p>
           This is the most common DIY pour — a patio or shed slab. Here is the
           full arithmetic, step by step:
@@ -139,7 +174,7 @@ export default function ConcreteBagsCalculatorPage() {
           waste) or <strong>112 forty-pound bags</strong> (123 with waste).
         </p>
 
-        <h2>Worked example: fence post holes (with post displacement)</h2>
+        <h2 id="fence-post-example">Worked example: fence post holes (with post displacement)</h2>
         <p>
           A 4×4 post sitting in the hole displaces concrete — skip this and
           you will overbuy. For 8 holes, each 12 inches in diameter and 36
@@ -167,7 +202,7 @@ export default function ConcreteBagsCalculatorPage() {
           </li>
         </ol>
 
-        <h2>Concrete bag yield &amp; coverage chart</h2>
+        <h2 id="coverage-chart">Concrete bag yield &amp; coverage chart</h2>
         <p>
           Standard US premix bags yield these cured-concrete volumes (printed
           on the bag):
@@ -207,7 +242,7 @@ export default function ConcreteBagsCalculatorPage() {
           </tbody>
         </table>
 
-        <h2>Quick answers for common projects</h2>
+        <h2 id="quick-answers">Quick answers for common projects</h2>
         <p>
           Bag counts below use 80&nbsp;lb bags and include a 10% waste
           allowance:
@@ -251,7 +286,7 @@ export default function ConcreteBagsCalculatorPage() {
           </tbody>
         </table>
 
-        <h2>The formulas</h2>
+        <h2 id="formulas">The formulas</h2>
         <h3>Slab, wall, or footing (rectangle)</h3>
         <p>
           <strong>V = Length × Width × Thickness</strong> — all in feet. A
@@ -276,7 +311,7 @@ export default function ConcreteBagsCalculatorPage() {
           exactly 27 cubic feet.
         </p>
 
-        <h2>Frequently asked questions</h2>
+        <h2 id="faqs">Frequently asked questions</h2>
         {FAQ_ITEMS.map((f) => (
           <div key={f.q} className="mb-6">
             <h3 className="!mt-6">{f.q}</h3>
@@ -284,7 +319,7 @@ export default function ConcreteBagsCalculatorPage() {
           </div>
         ))}
 
-        <h2>When to order ready-mix instead</h2>
+        <h2 id="ready-mix">When to order ready-mix instead</h2>
         <p>
           Bagged concrete makes sense up to about 1–2 cubic yards (roughly
           45–90 eighty-pound bags). Beyond that, a ready-mix truck is usually
@@ -292,7 +327,16 @@ export default function ConcreteBagsCalculatorPage() {
           over ~2 cubic yards, call a local batch plant for a quote before
           buying pallets of bags.
         </p>
+          </div>
+        </div>
+        <aside className="hidden lg:block">
+          <div className="sticky top-24">
+            <TableOfContents items={TOC_ITEMS} />
+          </div>
+        </aside>
       </div>
+
+      <RelatedCalculators items={RELATED_ITEMS} />
     </article>
   );
 }

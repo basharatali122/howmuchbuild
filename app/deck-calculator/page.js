@@ -2,6 +2,9 @@ import Link from "next/link";
 import DeckCalculator from "@/components/DeckCalculator";
 import AdSlot from "@/components/AdSlot";
 import JsonLd from "@/components/JsonLd";
+import AuthorByline from "@/components/AuthorByline";
+import TableOfContents from "@/components/TableOfContents";
+import RelatedCalculators from "@/components/RelatedCalculators";
 import { SITE_URL, SITE_NAME } from "@/lib/siteConfig";
 
 export const metadata = {
@@ -82,6 +85,32 @@ const breadcrumbJsonLd = {
   ],
 };
 
+const TOC_ITEMS = [
+    { id: "calculator", label: "Calculator" },
+    { id: "worked-example", label: "Worked example" },
+    { id: "board-reference", label: "Board reference" },
+    { id: "formulas", label: "Formulas" },
+    { id: "faqs", label: "FAQs" }
+];
+
+const RELATED_ITEMS = [
+    {
+      href: "/concrete-bags-calculator",
+      title: "Concrete Bags Calculator",
+      desc: "Bag counts for deck footings and post holes.",
+    },
+    {
+      href: "/fence-calculator",
+      title: "Fence Calculator",
+      desc: "Plan a matching fence once the deck is done.",
+    },
+    {
+      href: "/paint-calculator",
+      title: "Paint Calculator",
+      desc: "Gallons of stain or paint for the finished deck.",
+    }
+];
+
 export default function DeckCalculatorPage() {
   return (
     <article className="mx-auto max-w-content px-4 py-10 sm:px-6">
@@ -93,6 +122,7 @@ export default function DeckCalculatorPage() {
         <span aria-current="page">Deck Calculator</span>
       </nav>
 
+      <p className="eyebrow">Free calculator</p>
       <h1 className="max-w-3xl text-3xl sm:text-4xl">
         Deck Calculator: Full Material Takeoff
       </h1>
@@ -104,14 +134,18 @@ export default function DeckCalculatorPage() {
         your browser.
       </p>
 
-      <div className="mt-8">
-        <DeckCalculator />
+      <div className="mt-4">
+        <AuthorByline />
       </div>
 
-      <AdSlot label="Advertisement" className="my-8 h-28" />
+      <div className="mt-10 grid gap-10 lg:grid-cols-[minmax(0,1fr)_260px]">
+        <div className="min-w-0">
+          <DeckCalculator />
 
-      <div className="prose-hmb mt-12 max-w-3xl">
-        <h2>Worked example: 12×10 ft deck, 5/4×6 decking, 16″ joists</h2>
+          <AdSlot label="Advertisement" className="my-8 h-28" />
+
+          <div className="prose-hmb mt-12 max-w-3xl">
+        <h2 id="worked-example">Worked example: 12×10 ft deck, 5/4×6 decking, 16″ joists</h2>
         <p>
           Boards run along the 12-ft length, joists spaced 16″ on center,
           stock lumber in 12-ft lengths, 20 linear feet of railing, 2 post
@@ -150,7 +184,7 @@ export default function DeckCalculatorPage() {
           </li>
         </ol>
 
-        <h2>Decking board reference</h2>
+        <h2 id="board-reference">Decking board reference</h2>
         <p>
           Coverage below assumes the typical ¼″ decking gap:
         </p>
@@ -179,7 +213,7 @@ export default function DeckCalculatorPage() {
           </tbody>
         </table>
 
-        <h2>Joists per 12 ft of run</h2>
+        <h2 id="joist-chart">Joists per 12 ft of run</h2>
         <table>
           <thead>
             <tr>
@@ -194,7 +228,7 @@ export default function DeckCalculatorPage() {
           </tbody>
         </table>
 
-        <h2>Balusters by railing length (3.5″ gap)</h2>
+        <h2 id="baluster-chart">Balusters by railing length (3.5″ gap)</h2>
         <table>
           <thead>
             <tr>
@@ -210,7 +244,7 @@ export default function DeckCalculatorPage() {
           </tbody>
         </table>
 
-        <h2>The formulas</h2>
+        <h2 id="formulas">The formulas</h2>
         <h3>Decking boards</h3>
         <p>
           <strong>Rows = ⌈ width ÷ (5.5″ + gap) ⌉</strong>, where width is the
@@ -237,7 +271,7 @@ export default function DeckCalculatorPage() {
           the 3.5″ gap stays under the IRC 4-inch-sphere rule.
         </p>
 
-        <h2>Frequently asked questions</h2>
+        <h2 id="faqs">Frequently asked questions</h2>
         {FAQ_ITEMS.map((f) => (
           <div key={f.q} className="mb-6">
             <h3 className="!mt-6">{f.q}</h3>
@@ -245,7 +279,7 @@ export default function DeckCalculatorPage() {
           </div>
         ))}
 
-        <h2>What this calculator doesn&apos;t size</h2>
+        <h2 id="limitations">What this calculator doesn&apos;t size</h2>
         <p>
           Counting boards and screws is geometry; sizing the frame is
           engineering. Joist, beam, and footing spans and sizes depend on
@@ -255,7 +289,16 @@ export default function DeckCalculatorPage() {
           hire someone to) against your local code before you pour or frame
           anything.
         </p>
+          </div>
+        </div>
+        <aside className="hidden lg:block">
+          <div className="sticky top-24">
+            <TableOfContents items={TOC_ITEMS} />
+          </div>
+        </aside>
       </div>
+
+      <RelatedCalculators items={RELATED_ITEMS} />
     </article>
   );
 }

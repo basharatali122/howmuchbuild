@@ -47,6 +47,28 @@
     @apply inline-flex items-center justify-center rounded-lg border border-stone-300 bg-white px-5 py-2.5 font-medium text-slate-800 transition hover:border-stone-400;
   }
 
+  .btn-dark {
+    @apply inline-flex items-center justify-center rounded-lg bg-amber-400 px-5 py-2.5 font-medium text-slate-950 transition hover:bg-amber-300 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-offset-2 focus:ring-offset-slate-950;
+  }
+
+  /* Small uppercase section label used above display headings */
+  .eyebrow {
+    @apply text-xs font-semibold uppercase tracking-widest text-orange-700;
+  }
+
+  .eyebrow-dark {
+    @apply text-xs font-semibold uppercase tracking-widest text-amber-400;
+  }
+
+  /* Subtle blueprint grid for dark (slate-950) sections — pure CSS, no images */
+  .blueprint-grid {
+    background-color: #020617;
+    background-image:
+      linear-gradient(rgba(148, 163, 184, 0.09) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(148, 163, 184, 0.09) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+
   .disclaimer-strip {
     @apply mt-6 rounded-lg border border-amber-300/60 bg-amber-50 p-4 text-sm leading-relaxed text-amber-900;
   }

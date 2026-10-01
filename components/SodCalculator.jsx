@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import CostEstimator from "@/components/CostEstimator";
 
 // --- Math constants ---
 // Sod pallet coverage varies by supplier, roll size, and grass type:
@@ -247,7 +248,13 @@ export default function SodCalculator() {
         </div>
 
         {/* Results */}
-        <div className="space-y-5">
+        <div className="space-y-5 lg:sticky lg:top-24 self-start">
+          <CostEstimator
+            lines={[
+              { id: "pallets", label: "Sod pallets", quantity: calc.pallets, unit: "pallets", pricePlaceholder: "350.00" },
+              { id: "rolls", label: "Sod rolls (10 sq ft)", quantity: calc.rolls, unit: "rolls", pricePlaceholder: "8.00" },
+            ]}
+          />
           <div className="rounded-xl bg-slate-900 p-5 text-white">
             <p className="text-sm uppercase tracking-wide text-slate-400">
               You need
