@@ -2,6 +2,7 @@ import Link from "next/link";
 import AdSlot from "@/components/AdSlot";
 import JsonLd from "@/components/JsonLd";
 import AuthorByline from "@/components/AuthorByline";
+import TableOfContents from "@/components/TableOfContents";
 import { SITE_URL, SITE_NAME } from "@/lib/siteConfig";
 
 export const metadata = {
@@ -21,6 +22,15 @@ export const metadata = {
 };
 
 const PAGE_URL = `${SITE_URL}/methodology`;
+
+const TOC_ITEMS = [
+  { id: "how-it-works", label: "How the calculators work" },
+  { id: "constants", label: "Published constants" },
+  { id: "rounding", label: "Rounding-up policy" },
+  { id: "cost-rules", label: "Cost estimates" },
+  { id: "review", label: "Review process" },
+  { id: "limitations", label: "Limitations" },
+];
 
 const breadcrumbJsonLd = {
   "@context": "https://schema.org",
@@ -55,8 +65,9 @@ export default function MethodologyPage() {
         <AuthorByline />
       </div>
 
-      <div className="prose-hmb mt-10 max-w-3xl">
-        <h2>How the calculators work</h2>
+      <div className="mt-10 grid gap-10 lg:grid-cols-[1fr_260px]">
+        <div className="prose-hmb max-w-3xl">
+        <h2 id="how-it-works">How the calculators work</h2>
         <p>
           Every calculator on this site follows the same pipeline: your
           dimensions go in, standard geometry converts them to a volume or
@@ -73,7 +84,7 @@ export default function MethodologyPage() {
 
         <AdSlot label="Advertisement" className="my-8 h-28" />
 
-        <h2>Published constants we use</h2>
+        <h2 id="constants">Published constants we use</h2>
         <p>
           We use standard, verifiable figures — never guesses. The core
           constants:
@@ -126,7 +137,7 @@ export default function MethodologyPage() {
           than an exact conversion, the page says so.
         </p>
 
-        <h2>Rounding-up policy</h2>
+        <h2 id="rounding">Rounding-up policy</h2>
         <p>
           Bags, boards, sheets, tiles, and boxes are always rounded{" "}
           <strong>up</strong> — you cannot buy a fraction of a bag, and
@@ -135,7 +146,7 @@ export default function MethodologyPage() {
           ordering from bulk suppliers, who sell fractional yards.
         </p>
 
-        <h2>Cost estimates</h2>
+        <h2 id="cost-rules">Cost estimates</h2>
         <p>
           Cost figures follow strict honesty rules:
         </p>
@@ -155,7 +166,7 @@ export default function MethodologyPage() {
           </li>
         </ul>
 
-        <h2>Review process</h2>
+        <h2 id="review">Review process</h2>
         <p>
           Every calculator is reviewed by the {SITE_NAME} editorial team
           before publishing: the formulas are checked against the
@@ -165,7 +176,7 @@ export default function MethodologyPage() {
           each page reflects its last review.
         </p>
 
-        <h2>Limitations</h2>
+        <h2 id="limitations">Limitations</h2>
         <ul>
           <li>
             Results are <strong>planning estimates, not quotes</strong> and
@@ -186,6 +197,12 @@ export default function MethodologyPage() {
           Questions about our math? <Link href="/contact">Contact us</Link>{" "}
           — we&apos;d rather fix an error than defend one.
         </p>
+        </div>
+        <aside className="hidden lg:block">
+          <div className="sticky top-24">
+            <TableOfContents items={TOC_ITEMS} />
+          </div>
+        </aside>
       </div>
     </article>
   );

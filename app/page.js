@@ -22,6 +22,8 @@ import {
   IconGravel,
   IconSand,
   IconTile,
+  IconStair,
+  IconAsphalt,
 } from "@/components/SvgDiagrams";
 
 export const metadata = {
@@ -47,6 +49,8 @@ const ICONS = {
   gravel: IconGravel,
   sand: IconSand,
   tile: IconTile,
+  stair: IconStair,
+  asphalt: IconAsphalt,
 };
 
 const HOW_IT_WORKS = [
@@ -169,7 +173,7 @@ export default function HomePage() {
         <p className="eyebrow">Free tools</p>
         <h2 className="mt-2 text-4xl">Project calculators</h2>
         <p className="mt-3 max-w-2xl leading-relaxed text-slate-600">
-          Thirteen calculators covering the materials DIY builders and
+          Fifteen calculators covering the materials DIY builders and
           contractors buy most — concrete, lumber, fencing, paint, and more.
         </p>
         <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">

@@ -1,10 +1,18 @@
 import Link from "next/link";
 import { SITE_NAME, AUTHOR_NAME } from "@/lib/siteConfig";
+import TableOfContents from "@/components/TableOfContents";
 
 export const metadata = {
   title: "About",
   description: `About ${SITE_NAME} — free DIY and contractor calculators built for accuracy. Our mission, coverage, and editorial standards.`,
 };
+
+const TOC_ITEMS = [
+  { id: "mission", label: "Our mission" },
+  { id: "coverage", label: "What the site covers" },
+  { id: "standards", label: "Editorial standards" },
+  { id: "not", label: "What this site is not" },
+];
 
 export default function AboutPage() {
   return (
@@ -17,7 +25,8 @@ export default function AboutPage() {
       <p className="eyebrow">About</p>
       <h1 className="mt-2 text-3xl sm:text-4xl">About {SITE_NAME}</h1>
 
-      <div className="prose-hmb mt-6 max-w-3xl">
+      <div className="mt-6 grid gap-10 lg:grid-cols-[1fr_260px]">
+        <div className="prose-hmb max-w-3xl">
         <p className="text-lg">
           {SITE_NAME} is a small, independent project by {AUTHOR_NAME}. We
           build free calculators for DIY builders, homeowners, and
@@ -26,7 +35,7 @@ export default function AboutPage() {
           what it will all cost.
         </p>
 
-        <h2>Our mission</h2>
+        <h2 id="mission">Our mission</h2>
         <p>
           Home-improvement projects fail on arithmetic more often than on
           skill: the wrong bag count, the short load of gravel, the budget
@@ -36,7 +45,7 @@ export default function AboutPage() {
           never have to take our word for it.
         </p>
 
-        <h2>What the site covers</h2>
+        <h2 id="coverage">What the site covers</h2>
         <p>
           Thirteen free calculators across the materials DIY builders buy
           most: concrete (bags and ready-mix volume), decking, fencing,
@@ -50,7 +59,7 @@ export default function AboutPage() {
           <Link href="/guides">Browse all guides</Link>
         </p>
 
-        <h2>Editorial standards</h2>
+        <h2 id="standards">Editorial standards</h2>
         <ul>
           <li>
             <strong>Standard math only.</strong> Every constant we use (bag
@@ -80,12 +89,27 @@ export default function AboutPage() {
           </li>
         </ul>
 
-        <h2>What this site is not</h2>
+        <h2 id="not">What this site is not</h2>
         <p>
           Our calculators are planning estimates, not engineering or
           professional advice. For structural work, permits, or anything
           load-bearing, consult a licensed professional in your area.
         </p>
+        </div>
+        <aside className="hidden lg:block">
+          <div className="sticky top-24 space-y-5">
+            <TableOfContents items={TOC_ITEMS} />
+            <div className="card !p-5">
+              <p className="eyebrow">Start here</p>
+              <ul className="mt-3 space-y-2 text-sm">
+                <li><Link href="/calculators" className="text-slate-600 hover:text-orange-700">All calculators</Link></li>
+                <li><Link href="/guides" className="text-slate-600 hover:text-orange-700">Project guides</Link></li>
+                <li><Link href="/methodology" className="text-slate-600 hover:text-orange-700">How we calculate</Link></li>
+                <li><Link href="/contact" className="text-slate-600 hover:text-orange-700">Contact us</Link></li>
+              </ul>
+            </div>
+          </div>
+        </aside>
       </div>
     </article>
   );

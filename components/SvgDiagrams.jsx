@@ -412,3 +412,21 @@ export function IconTile({ className }) {
     </IconSvg>
   );
 }
+
+export function IconStair({ className }) {
+  return (
+    <IconSvg className={className}>
+      <path d="M6 42 h9 v-9 h9 v-9 h9 v-9 h9" />
+      <line x1="6" y1="42" x2="42" y2="42" />
+    </IconSvg>
+  );
+}
+
+export function IconAsphalt({ className }) {
+  return (
+    <IconSvg className={className}>
+      <path d="M10 38 L20 12 h18 L28 38 Z" />
+      <line x1="24" y1="16" x2="19" y2="34" strokeDasharray="4 3" />
+    </IconSvg>
+  );
+}

@@ -18,6 +18,8 @@ const PAGES = [
   { path: "/gravel-calculator", priority: 0.9, changeFrequency: "monthly" },
   { path: "/sand-calculator", priority: 0.9, changeFrequency: "monthly" },
   { path: "/tile-calculator", priority: 0.9, changeFrequency: "monthly" },
+  { path: "/stair-calculator", priority: 0.9, changeFrequency: "monthly" },
+  { path: "/asphalt-calculator", priority: 0.9, changeFrequency: "monthly" },
   { path: "/guides", priority: 0.8, changeFrequency: "weekly" },
   { path: "/guides/how-to-pour-a-concrete-slab", priority: 0.7, changeFrequency: "monthly" },
   { path: "/guides/fence-planning-guide", priority: 0.7, changeFrequency: "monthly" },

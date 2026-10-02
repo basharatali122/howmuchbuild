@@ -17,12 +17,14 @@ import {
   IconGravel,
   IconSand,
   IconTile,
+  IconStair,
+  IconAsphalt,
 } from "@/components/SvgDiagrams";
 
 export const metadata = {
   title: "All Calculators",
   description:
-    `Every ${SITE_NAME} calculator: concrete bags, concrete volume, deck, fence, mulch, paint, drywall, paver, sod, topsoil, gravel, sand & tile — each with full material takeoffs, waste allowances, cost estimates, and worked examples.`,
+    `Every ${SITE_NAME} calculator: concrete bags, concrete volume, deck, fence, mulch, paint, drywall, paver, sod, topsoil, gravel, sand, tile, stairs & asphalt — each with full material takeoffs, waste allowances, cost estimates, and worked examples.`,
   alternates: {
     canonical: `${SITE_URL}/calculators`,
   },
@@ -42,6 +44,8 @@ const ICONS = {
   gravel: IconGravel,
   sand: IconSand,
   tile: IconTile,
+  stair: IconStair,
+  asphalt: IconAsphalt,
 };
 
 export default function CalculatorsHubPage() {
@@ -56,7 +60,7 @@ export default function CalculatorsHubPage() {
       <p className="mt-4 max-w-3xl text-lg leading-relaxed text-slate-600">
         Every {SITE_NAME} tool shows its work: full material takeoffs, waste
         allowances, cost estimates, and step-by-step arithmetic — not
-        one-field widgets. Thirteen calculators, all free, no sign-up.
+        one-field widgets. Fifteen calculators, all free, no sign-up.
       </p>
 
       <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">

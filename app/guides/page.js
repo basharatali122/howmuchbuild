@@ -138,7 +138,7 @@ export default function GuidesIndexPage() {
 
       <AdSlot label="Advertisement" className="my-8 h-28" />
 
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {GUIDES.map((g) => (
           <div
             key={g.slug}

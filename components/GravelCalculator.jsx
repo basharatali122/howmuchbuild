@@ -52,6 +52,47 @@ function InchesField({ label, value, onChange, hint }) {
   );
 }
 
+function GravelDiagram() {
+  const stones = [
+    [70, 112], [105, 120], [140, 110], [175, 118], [210, 112], [245, 120],
+    [280, 110], [315, 118], [90, 124], [130, 126], [170, 124], [230, 126],
+    [270, 124], [305, 126],
+  ];
+  return (
+    <svg
+      viewBox="0 0 380 210"
+      role="img"
+      aria-label="Cross-section diagram of a gravel layer showing depth over an area"
+      className="h-auto w-full rounded-xl border border-stone-200 bg-white p-2"
+    >
+      <text x="190" y="22" textAnchor="middle" fontSize="14" fill="#44403c" fontWeight="700">
+        Gravel layer — cross-section
+      </text>
+      {/* soil */}
+      <rect x="40" y="140" width="300" height="34" fill="#e9e0cd" stroke="#a8a29e" strokeWidth="1" />
+      <text x="190" y="162" textAnchor="middle" fontSize="12" fill="#78716c">existing soil / subgrade</text>
+      {/* gravel layer */}
+      <rect x="40" y="106" width="300" height="34" fill="#c9c2b4" stroke="#78716c" strokeWidth="1.5" />
+      {stones.map(([x, y], i) => (
+        <circle key={i} cx={x} cy={y} r="4.5" fill="#8a8378" opacity="0.85" />
+      ))}
+      <text x="190" y="100" textAnchor="middle" fontSize="12.5" fill="#57534e" fontWeight="600">
+        gravel — order by depth × area
+      </text>
+      {/* depth arrow */}
+      <line x1="356" y1="106" x2="356" y2="140" stroke="#c2410c" strokeWidth="2" />
+      <polygon points="356,100 351,110 361,110" fill="#c2410c" />
+      <polygon points="356,146 351,136 361,136" fill="#c2410c" />
+      <text x="368" y="128" fontSize="12" fill="#c2410c" fontWeight="600">depth</text>
+      {/* length dimension */}
+      <line x1="40" y1="192" x2="340" y2="192" stroke="#57534e" strokeWidth="1.5" />
+      <polygon points="40,192 50,188 50,196" fill="#57534e" />
+      <polygon points="340,192 330,188 330,196" fill="#57534e" />
+      <text x="190" y="206" textAnchor="middle" fontSize="12" fill="#57534e">length × width = area</text>
+    </svg>
+  );
+}
+
 export default function GravelCalculator() {
   const [shape, setShape] = useState("rectangle");
   const [length, setLength] = useState("12");
@@ -250,6 +291,9 @@ export default function GravelCalculator() {
               ))}
             </ol>
           </div>
+
+
+          <GravelDiagram />
 
           <p className="disclaimer-strip">
             Estimates for planning. Gravel weight varies by stone type, size,
