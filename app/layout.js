@@ -2,6 +2,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Layout from "@/components/Layout";
 import JsonLd from "@/components/JsonLd";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 import { SITE_URL, SITE_NAME } from "@/lib/siteConfig";
 
 const inter = Inter({
@@ -52,6 +53,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={inter.variable}>
       <body className="min-h-screen bg-stone-50 font-sans">
+        <GoogleAnalytics />
         <JsonLd data={orgJsonLd} />
         <Layout>{children}</Layout>
       </body>

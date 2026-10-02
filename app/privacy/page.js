@@ -19,9 +19,13 @@ export default function PrivacyPage() {
       </p>
       <h2>Analytics</h2>
       <p>
-        We may use privacy-respecting, aggregated analytics to understand which
-        pages are visited, so we know what to build next. This data cannot
-        identify you personally.
+        We use Google Analytics 4 to understand which pages are visited in
+        aggregate, so we know what to build next. Google Analytics uses
+        cookies and collects usage data as described in{" "}
+        <a href="https://business.safety.google/partners/">
+          how Google uses information from partner sites
+        </a>
+        . This data cannot identify you personally.
       </p>
       <h2>Cookies</h2>
       <p>
