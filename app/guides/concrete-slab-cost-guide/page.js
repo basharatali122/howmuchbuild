@@ -30,11 +30,11 @@ const FAQ_ITEMS = [
   },
   {
     q: "What is the cheapest way to pour a concrete slab?",
-    a: "Do the site prep and forming yourself and order ready-mix for the pour (guidance). Excavation, gravel base, and form-building are labor-heavy but skill-light; the concrete itself and the finishing are where pro experience pays off. Keep the shape a simple rectangle and the finish a basic broom texture.",
+    a: "Do the site prep and forming yourself and order ready-mix for the pour. Excavation, gravel base, and form-building are labor-heavy but skill-light; the concrete itself and the finishing are where pro experience pays off. Keep the shape a simple rectangle and the finish a basic broom texture.",
   },
   {
     q: "Does slab thickness change the cost much?",
-    a: "Yes — concrete is the biggest material line item, and going from 4″ to 6″ thick adds 50% more concrete. A 4-inch slab suits patios and walkways; driveways and heavy loads typically call for 5–6 inches (guidance). Don't thin a slab to save money if it will carry vehicles.",
+    a: "Yes — concrete is the biggest material line item, and going from 4″ to 6″ thick adds 50% more concrete. A 4-inch slab suits patios and walkways; driveways and heavy loads typically call for 5–6 inches. Don't thin a slab to save money if it will carry vehicles.",
   },
   {
     q: "Why do concrete quotes vary so much?",

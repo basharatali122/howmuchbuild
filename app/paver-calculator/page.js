@@ -132,7 +132,7 @@ export default function PaverCalculatorPage() {
         joints. Enter your patio dimensions, paver size, and laying pattern
         below and this tool figures all four — pavers rounded up with typical
         pattern waste, and base/sand tonnages labeled as estimates. No
-        sign-up, no tracking: the math runs entirely in your browser.
+        sign-up: the math runs entirely in your browser, and your inputs never leave your device.
       </p>
 
       <div className="mt-4">

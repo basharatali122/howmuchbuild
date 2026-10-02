@@ -162,8 +162,9 @@ export default function DeckCalculatorPage() {
           </li>
           <li>
             <strong>Joists:</strong> ⌊144″ ÷ 16″⌋ + 1 = 9 + 1 ={" "}
-            <strong>10 joists</strong>, each 10 ft → 100 lin ft →{" "}
-            <strong>9 pieces</strong> (9 × 12 = 108 ft covers 100)
+            <strong>10 joists</strong>, each 10 ft → <strong>10 pieces</strong>{" "}
+            (one continuous board per joist — joists must never be spliced
+            mid-span)
           </li>
           <li>
             <strong>Rim boards:</strong> 2 × (12 + 10) = 44 lin ft → ⌈44 ÷ 12⌉

@@ -183,12 +183,15 @@ export default function DeckCalculator() {
       `Decking = ${boardRows} rows × ${parallelFt.toFixed(2)} ft = ${deckingLF.toFixed(1)} lin ft → ⌈${deckingLF.toFixed(1)} ÷ ${stock}⌉ = ${deckingPieces} boards`
     );
 
-    // Joists: spaced along the parallel dimension, each as long as the perpendicular dim
+    // Joists: spaced along the parallel dimension, each as long as the perpendicular dim.
+    // Each joist must be ONE continuous board — a butt joint mid-span is not
+    // structural — so pieces = joist count, never total-LF ÷ stock length.
     const joists = parallelIn > 0 ? Math.floor(parallelIn / spacingIn) + 1 : 0;
     const joistLF = joists * perpFt;
-    const joistPieces = joistLF > 0 ? Math.ceil(joistLF / stock) : 0;
+    const joistPieces = joists;
+    const spanExceedsStock = perpFt > 0 && stock > 0 && perpFt > stock;
     steps.push(
-      `Joists = ⌊${Math.round(parallelIn)}″ ÷ ${spacingIn}″⌋ + 1 = ${joists} joists × ${perpFt.toFixed(2)} ft = ${joistLF.toFixed(1)} lin ft → ${joistPieces} pieces`
+      `Joists = ⌊${Math.round(parallelIn)}″ ÷ ${spacingIn}″⌋ + 1 = ${joists} joists × ${perpFt.toFixed(2)} ft = ${joistLF.toFixed(1)} lin ft → ${joistPieces} pieces (one continuous board per joist)`
     );
 
     // Rim / band boards around the perimeter
@@ -227,7 +230,7 @@ export default function DeckCalculator() {
 
     return {
       boardRows, deckingLF, deckingPieces,
-      joists, joistLF, joistPieces,
+      joists, joistLF, joistPieces, spanExceedsStock,
       rimLF, rimPieces,
       postsPerRow, posts, footings,
       screws, pickets, steps,
@@ -289,7 +292,7 @@ export default function DeckCalculator() {
               value: l,
               label: `${l} ft boards`,
             }))}
-            hint="Pieces are rounded up from total linear feet — plan for offcuts and butt joints."
+            hint="Decking and rim pieces are rounded up from total linear feet (butt joints land on framing). Each joist needs one continuous board — joists are never spliced mid-span."
           />
 
           <div className="grid grid-cols-2 gap-4">
@@ -336,9 +339,17 @@ export default function DeckCalculator() {
               ))}
             </div>
             <p className="mt-3 text-xs text-slate-400">
-              Pieces are rounded up and include no cutting waste — add ~10% for
-              offcuts and butt joints on the decking.
+              Decking pieces are rounded up and include no cutting waste — add
+              ~10% for offcuts and butt joints on the decking. Joists are
+              counted as one continuous board each.
             </p>
+            {calc.spanExceedsStock ? (
+              <p className="mt-3 rounded-lg border border-amber-400/60 bg-amber-400/10 p-3 text-xs leading-relaxed text-amber-200">
+                <strong>Heads up:</strong> your joist span is longer than the
+                longest boards you selected. Use longer lumber or engineered
+                joists, and verify spans with your local building department.
+              </p>
+            ) : null}
           </div>
 
           <div className="overflow-hidden rounded-xl border border-stone-200">

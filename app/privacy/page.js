@@ -37,8 +37,12 @@ export default function PrivacyPage() {
         enables it and its partners to serve ads to you based on your visit
         to our site and/or other sites on the Internet. You may opt out of
         personalized advertising by visiting Google&apos;s Ads Settings
-        (google.com/settings/ads). This disclosure is required for AdSense
-        program participation.
+        (google.com/settings/ads). See also how Google uses information from
+        sites that use its services:{" "}
+        <a href="https://business.safety.google/partners/">
+          business.safety.google/partners
+        </a>
+        . This disclosure is required for AdSense program participation.
       </p>
       <h2>Contact</h2>
       <p>

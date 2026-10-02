@@ -30,11 +30,11 @@ const FAQ_ITEMS = [
   },
   {
     q: "Is composite decking worth the extra cost?",
-    a: "It depends on your horizon (guidance). Composite costs roughly double up front but needs no staining or sealing and resists rot and insects. If you'll keep the deck 15+ years and dislike maintenance, the lifetime math often favors composite; for a budget build or a short stay, pressure-treated wood wins.",
+    a: "It depends on your horizon. Composite costs roughly double up front but needs no staining or sealing and resists rot and insects. If you'll keep the deck 15+ years and dislike maintenance, the lifetime math often favors composite; for a budget build or a short stay, pressure-treated wood wins.",
   },
   {
     q: "What is the cheapest way to build a deck?",
-    a: "Build it yourself with pressure-treated lumber, keep it low to the ground (shorter posts, simpler footings, possibly no railing required by code), use a simple rectangular shape, and skip built-ins like benches and planters (guidance). DIY typically cuts the installed price roughly in half.",
+    a: "Build it yourself with pressure-treated lumber, keep it low to the ground (shorter posts, simpler footings, possibly no railing required by code), use a simple rectangular shape, and skip built-ins like benches and planters. DIY typically cuts the installed price roughly in half.",
   },
   {
     q: "Do I need a permit for a deck?",
@@ -193,7 +193,7 @@ export default function DeckCostGuide() {
         <h2>Wood vs. composite: lifetime math</h2>
         <p>
           Pressure-treated wood needs staining or sealing every 2–3 years —
-          figure a weekend and a few hundred dollars each cycle (guidance).
+          figure a weekend and a few hundred dollars each cycle.
           Composite needs little more than washing. Over 15–20 years, the
           maintenance savings narrow the upfront gap considerably, and
           composite&apos;s fade/stain warranties add peace of mind. If you love

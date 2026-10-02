@@ -131,7 +131,7 @@ export default function MulchCalculatorPage() {
         Pick your bed shape, punch in the size and depth, and get the exact
         cubic yards you need — plus a bags-vs-bulk comparison using standard
         2 cu ft bags, always rounded up. The math runs entirely in your
-        browser: no sign-up, no tracking.
+        browser: no sign-up, and your inputs never leave your device.
       </p>
 
       <div className="mt-4">

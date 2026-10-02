@@ -30,7 +30,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "What is the cheapest fence to install?",
-    a: "Chain-link is usually the cheapest installed option per linear foot, followed by basic wood privacy. But compare lifetime cost: wood needs staining and eventual board replacement, while vinyl costs more up front and then nearly nothing (guidance).",
+    a: "Chain-link is usually the cheapest installed option per linear foot, followed by basic wood privacy. But compare lifetime cost: wood needs staining and eventual board replacement, while vinyl costs more up front and then nearly nothing.",
   },
   {
     q: "How much do fence gates add to the cost?",
@@ -38,11 +38,11 @@ const FAQ_ITEMS = [
   },
   {
     q: "Does a sloped yard cost more to fence?",
-    a: "Yes (guidance). Stepped fencing needs more posts and careful layout; racked fencing needs panels that follow the grade. Either way, slopes slow the crew down, and most installers charge extra for significant grade changes.",
+    a: "Yes. Stepped fencing needs more posts and careful layout; racked fencing needs panels that follow the grade. Either way, slopes slow the crew down, and most installers charge extra for significant grade changes.",
   },
   {
     q: "Should I remove the old fence myself to save money?",
-    a: "Often yes (guidance). Old-fence tear-out and disposal is straightforward labor that contractors bill by the hour. Haul it yourself if you have a truck or trailer — just confirm what's underneath first so you don't discover the old posts were the only thing holding up the neighbor's side.",
+    a: "Often yes. Old-fence tear-out and disposal is straightforward labor that contractors bill by the hour. Haul it yourself if you have a truck or trailer — just confirm what's underneath first so you don't discover the old posts were the only thing holding up the neighbor's side.",
   },
 ];
 
@@ -195,7 +195,7 @@ export default function FenceCostGuide() {
           A fence is one of the most DIY-friendly pro-priced projects:
           the work is simple (dig, set, attach) but brutally repetitive —
           a 150-foot fence means 20+ holes. DIY saves roughly half the
-          installed price (guidance) at the cost of several weekends and
+          installed price at the cost of several weekends and
           sore everything. The middle path many homeowners take: hire out
           the post-setting (the skilled, back-breaking part) and hang the
           rails and pickets themselves. Also read our{" "}

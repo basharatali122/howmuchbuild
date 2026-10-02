@@ -53,7 +53,7 @@ const HOW_IT_WORKS = [
   {
     step: "1",
     title: "Enter your dimensions",
-    desc: "Length, width, thickness — whatever your project needs. No account, no setup, no tracking.",
+    desc: "Length, width, thickness — whatever your project needs. No account, no setup — your inputs stay in your browser.",
   },
   {
     step: "2",
@@ -275,7 +275,7 @@ export default function HomePage() {
             </li>
             <li className="flex gap-3">
               <span aria-hidden="true" className="text-amber-400">✓</span>
-              No account, no tracking of your project data.
+              No account — your project data never leaves your browser.
             </li>
           </ul>
           <Link href="/methodology" className="btn-dark mt-8">

@@ -36,19 +36,19 @@ const FAQ_ITEMS = [
   },
   {
     q: "What kind of sand goes under pavers?",
-    a: "Coarse concrete sand or mason sand (guidance) — the angular grains compact and lock together. Play sand is too fine and rounded for bedding; it shifts under load. Check what your local yard stocks as “paver bedding sand.”",
+    a: "Coarse concrete sand or mason sand — the angular grains compact and lock together. Play sand is too fine and rounded for bedding; it shifts under load. Check what your local yard stocks as “paver bedding sand.”",
   },
   {
     q: "How deep should paver bedding sand be?",
-    a: "About 1 inch, screeded level (guidance). The sand is a setting bed, not the structural base — that job belongs to 4+ inches of compacted gravel underneath. More than an inch of sand invites settling and wavy pavers.",
+    a: "About 1 inch, screeded level. The sand is a setting bed, not the structural base — that job belongs to 4+ inches of compacted gravel underneath. More than an inch of sand invites settling and wavy pavers.",
   },
   {
     q: "What's the difference between mason sand and concrete sand?",
-    a: "Mostly regional naming (guidance). Both are coarse, washed sands that work for bedding and mixing. Bag labels vary by market — what matters is that it's coarse and angular, not fine play sand.",
+    a: "Mostly regional naming. Both are coarse, washed sands that work for bedding and mixing. Bag labels vary by market — what matters is that it's coarse and angular, not fine play sand.",
   },
   {
     q: "Can I use sand instead of gravel for a shed base?",
-    a: "Not as the whole base (guidance). Sand shifts and holds water; a compacted gravel base drains and stays put. A thin sand layer over gravel is fine for leveling, but the gravel does the structural work.",
+    a: "Not as the whole base. Sand shifts and holds water; a compacted gravel base drains and stays put. A thin sand layer over gravel is fine for leveling, but the gravel does the structural work.",
   },
 ];
 

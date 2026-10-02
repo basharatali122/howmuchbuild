@@ -38,7 +38,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "Can I mix a whole slab with bags in a mixer?",
-    a: "You can, but it's slow, exhausting work (guidance). A 10×10 ft, 4-inch slab needs 56+ bags — that's over two tons of dry mix to haul, mix, and place before any of it sets. For pours over ~1 yard, most DIYers either order ready-mix or split the work across days with cold joints.",
+    a: "You can, but it's slow, exhausting work. A 10×10 ft, 4-inch slab needs 56+ bags — that's over two tons of dry mix to haul, mix, and place before any of it sets. For pours over ~1 yard, most DIYers either order ready-mix or split the work across days with cold joints.",
   },
   {
     q: "How do I convert my project to cubic yards?",
@@ -176,7 +176,7 @@ export default function BagsVsReadymixGuide() {
           </tbody>
         </table>
         <p>
-          These are rules of thumb (guidance), not laws — a $50 short-load
+          These are rules of thumb, not laws — a $50 short-load
           fee on a 2-yard pour still beats 90 bags at $6 each ($540 vs.
           ~$390). Run your own numbers with the all-in prices from your
           local plant and store.
@@ -217,7 +217,7 @@ export default function BagsVsReadymixGuide() {
           Price isn&apos;t only dollars. Mixing 45+ bags means hauling over a
           ton and a half of dry mix, mixing batch after batch, and placing
           it all before the first batches set — genuinely exhausting work
-          on a deadline (guidance). A ready-mix truck places a yard in
+          on a deadline. A ready-mix truck places a yard in
           minutes. For fence posts and tiny pads, bags are convenient;
           for anything slab-sized, value your weekend too.
         </p>

@@ -40,15 +40,15 @@ const FAQ_ITEMS = [
   },
   {
     q: "Should I stagger the seams when laying sod?",
-    a: "Yes — lay rolls like brickwork with staggered seams (guidance). Staggering keeps seams from opening into long cracks and helps the lawn knit together faster.",
+    a: "Yes — lay rolls like brickwork with staggered seams. Staggering keeps seams from opening into long cracks and helps the lawn knit together faster.",
   },
   {
     q: "How soon after laying sod should I water it?",
-    a: "Immediately — water each section as you finish laying it, not after the whole lawn is done (guidance). Soak it thoroughly enough that moisture reaches through the sod into the soil below.",
+    a: "Immediately — water each section as you finish laying it, not after the whole lawn is done. Soak it thoroughly enough that moisture reaches through the sod into the soil below.",
   },
   {
     q: "How do I measure an irregularly shaped lawn?",
-    a: "Divide it into rectangles and circles, measure each with this calculator, and add them up — then use a 10% waste allowance to cover the odd edges (guidance). For very curved lawns, measure a rectangle that contains the whole area and accept the extra waste.",
+    a: "Divide it into rectangles and circles, measure each with this calculator, and add them up — then use a 10% waste allowance to cover the odd edges. For very curved lawns, measure a rectangle that contains the whole area and accept the extra waste.",
   },
   {
     q: "How many rolls come on a pallet of sod?",
@@ -56,7 +56,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "Can I lay sod a day after delivery?",
-    a: "Lay it the same day if you can (guidance). If you must wait, keep the rolls stacked in shade and watered — harvested sod heats up fast in the middle of a pallet and can go bad within a day or two in warm weather.",
+    a: "Lay it the same day if you can. If you must wait, keep the rolls stacked in shade and watered — harvested sod heats up fast in the middle of a pallet and can go bad within a day or two in warm weather.",
   },
 ];
 
@@ -135,7 +135,7 @@ export default function SodCalculatorPage() {
         so the math is area, plus a cutting allowance, rounded up to whole
         pallets. Measure your lawn below (rectangle or circle), pick your
         pallet coverage, and get the order quantity with a waste slider. No
-        sign-up, no tracking: the math runs entirely in your browser.
+        sign-up: the math runs entirely in your browser, and your inputs never leave your device.
       </p>
 
       <div className="mt-4">

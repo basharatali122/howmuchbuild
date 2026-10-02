@@ -131,7 +131,7 @@ export default function ConcreteBagsCalculatorPage() {
         Enter your slab, wall, footing, sonotube, or fence-post dimensions
         below and get an exact bag count for 40, 60, and 80&nbsp;lb bags —
         always rounded up, with an adjustable waste allowance and an optional
-        cost estimate. No sign-up, no tracking: the math runs entirely in
+        cost estimate. No sign-up: the math runs entirely in your browser, and the dimensions you enter never leave your device.
         your browser.
       </p>
 

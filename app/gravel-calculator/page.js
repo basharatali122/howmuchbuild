@@ -40,15 +40,15 @@ const FAQ_ITEMS = [
   },
   {
     q: "How deep should gravel be for a driveway?",
-    a: "As a rule of thumb (guidance): about 4 inches of compacted gravel over a prepared, compacted subgrade is common for residential driveways. Walkways and landscape beds are often fine at 2–3 inches. Deeper isn't automatically better — compaction matters more than thickness.",
+    a: "As a rule of thumb: about 4 inches of compacted gravel over a prepared, compacted subgrade is common for residential driveways. Walkways and landscape beds are often fine at 2–3 inches. Deeper isn't automatically better — compaction matters more than thickness.",
   },
   {
     q: "Crushed stone or pea gravel for a driveway?",
-    a: "Crushed stone (guidance). Its angular edges lock together under compaction, so it stays put under tires. Pea gravel is rounded and shifts — it's better suited to landscape beds and paths where you want a softer look.",
+    a: "Crushed stone. Its angular edges lock together under compaction, so it stays put under tires. Pea gravel is rounded and shifts — it's better suited to landscape beds and paths where you want a softer look.",
   },
   {
     q: "Do I need landscape fabric under gravel?",
-    a: "It helps in beds (guidance): fabric slows weeds and keeps gravel from sinking into soil. Under driveways it's debated — fabric can clog and trap water over time. A well-compacted subgrade matters more than fabric in either case.",
+    a: "It helps in beds: fabric slows weeds and keeps gravel from sinking into soil. Under driveways it's debated — fabric can clog and trap water over time. A well-compacted subgrade matters more than fabric in either case.",
   },
 ];
 

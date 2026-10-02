@@ -32,15 +32,15 @@ const FAQ_ITEMS = [
   },
   {
     q: "Should I use 10% or 15% waste?",
-    a: "10% is standard for a straight lay in a rectangular room (guidance). Choose 15% for diagonal layouts, large-format tile, or rooms with many corners and cuts — every cut risks a broken tile.",
+    a: "10% is standard for a straight lay in a rectangular room. Choose 15% for diagonal layouts, large-format tile, or rooms with many corners and cuts — every cut risks a broken tile.",
   },
   {
     q: "How do I measure an L-shaped room?",
-    a: "Split it into rectangles, calculate each area separately, and add them (guidance). Never guess the area of an irregular room — measure each rectangle's length and width, then sum the square footage before entering it here.",
+    a: "Split it into rectangles, calculate each area separately, and add them. Never guess the area of an irregular room — measure each rectangle's length and width, then sum the square footage before entering it here.",
   },
   {
     q: "Why buy extra tiles beyond the waste allowance?",
-    a: "For future repairs (guidance). Tile dye lots vary in shade between production runs, so a cracked tile replaced a year later may not match. The waste allowance usually leaves spares — keep them, labeled, from the same lot.",
+    a: "For future repairs. Tile dye lots vary in shade between production runs, so a cracked tile replaced a year later may not match. The waste allowance usually leaves spares — keep them, labeled, from the same lot.",
   },
   {
     q: "How many tiles come in a box?",
@@ -48,7 +48,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "Does grout line width change the tile count?",
-    a: "Barely (guidance). Grout joints are typically 1/8″–1/4″ and their area is absorbed by the waste allowance. Don't shrink your order to account for grout — the 10–15% allowance already covers it.",
+    a: "Barely. Grout joints are typically 1/8″–1/4″ and their area is absorbed by the waste allowance. Don't shrink your order to account for grout — the 10–15% allowance already covers it.",
   },
 ];
 

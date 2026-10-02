@@ -44,15 +44,15 @@ const FAQ_ITEMS = [
   },
   {
     q: "How deep should topsoil be for a new lawn?",
-    a: "As a rule of thumb (guidance): 3–4 inches of quality topsoil is common for topdressing or renovation, and 4–6 inches of workable soil for a brand-new lawn bed. Deeper than that, blend with what's underneath rather than stacking pure topsoil.",
+    a: "As a rule of thumb: 3–4 inches of quality topsoil is common for topdressing or renovation, and 4–6 inches of workable soil for a brand-new lawn bed. Deeper than that, blend with what's underneath rather than stacking pure topsoil.",
   },
   {
     q: "Is it cheaper to buy topsoil in bulk or in bags?",
-    a: "Bags win for small jobs; bulk wins once you're near a cubic yard or more (guidance). A bagged cubic yard costs far more per yard than bulk delivered — but a bulk delivery has a minimum and a delivery fee, so small beds are cheaper in bags.",
+    a: "Bags win for small jobs; bulk wins once you're near a cubic yard or more. A bagged cubic yard costs far more per yard than bulk delivered — but a bulk delivery has a minimum and a delivery fee, so small beds are cheaper in bags.",
   },
   {
     q: "Can I fill a raised bed with topsoil alone?",
-    a: "You can, but it's not ideal (guidance). Straight topsoil compacts over a season and drains slowly. A common approach is roughly 60% topsoil blended with 40% compost and aeration material — better drainage, better roots.",
+    a: "You can, but it's not ideal. Straight topsoil compacts over a season and drains slowly. A common approach is roughly 60% topsoil blended with 40% compost and aeration material — better drainage, better roots.",
   },
 ];
 
@@ -131,7 +131,7 @@ export default function TopsoilCalculatorPage() {
         cubic foot, and your project is measured in feet and inches — this
         tool bridges all three. Pick your project type (lawn area or raised
         bed), add an order-over allowance for settling, and get cubic yards
-        plus exact bag equivalents. No sign-up, no tracking: the math runs
+        plus exact bag equivalents. No sign-up: the math runs
         entirely in your browser.
       </p>
 
