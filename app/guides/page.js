@@ -85,6 +85,24 @@ const GUIDES = [
     calculatorLabel: "Concrete calculator",
     tag: "Cost",
   },
+  {
+    slug: "/guides/mulch-cost-guide",
+    title: "How Much Does Mulch Cost?",
+    description:
+      "Typical price ranges for mulch: bulk per cubic yard vs. bagged, delivery fees and minimums, how depth changes the cost, and a worked 500 sq ft example.",
+    calculator: "/mulch-calculator",
+    calculatorLabel: "Mulch calculator",
+    tag: "Cost",
+  },
+  {
+    slug: "/guides/paint-cost-guide",
+    title: "How Much Does It Cost to Paint a Room?",
+    description:
+      "Typical price ranges to paint a room: paint per gallon, primer, supplies, what drives the price, DIY vs. pro bands, and a worked 12×12 ft example.",
+    calculator: "/paint-calculator",
+    calculatorLabel: "Paint calculator",
+    tag: "Cost",
+  },
 ];
 
 const breadcrumbJsonLd = {

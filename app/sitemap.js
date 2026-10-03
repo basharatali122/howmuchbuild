@@ -28,6 +28,8 @@ const PAGES = [
   { path: "/guides/deck-cost-guide", priority: 0.7, changeFrequency: "monthly" },
   { path: "/guides/fence-cost-guide", priority: 0.7, changeFrequency: "monthly" },
   { path: "/guides/bags-vs-readymix-guide", priority: 0.7, changeFrequency: "monthly" },
+  { path: "/guides/mulch-cost-guide", priority: 0.7, changeFrequency: "monthly" },
+  { path: "/guides/paint-cost-guide", priority: 0.7, changeFrequency: "monthly" },
   { path: "/methodology", priority: 0.4, changeFrequency: "yearly" },
   { path: "/about", priority: 0.4, changeFrequency: "yearly" },
   { path: "/contact", priority: 0.4, changeFrequency: "yearly" },
