@@ -1,13 +1,13 @@
 /**
  * AuthorByline — editorial byline used on calculator and guide pages.
- * No fake person names; the editorial team stands behind every page.
+ * Real founder name; never a fake persona.
  */
 export default function AuthorByline({ updated = "October 2026" }) {
   return (
     <p className="text-sm text-slate-500">
       By{" "}
       <span className="font-medium text-slate-700">
-        HowMuchBuild Editorial Team
+        basharat ali, Founder
       </span>
       <span aria-hidden="true"> · </span>
       Calculation reviewed

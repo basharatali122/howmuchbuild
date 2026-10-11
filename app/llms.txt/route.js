@@ -39,6 +39,10 @@ enters — the site never invents prices. Methodology: ${SITE_URL}/methodology
 - [How Much Does a Fence Cost?](${SITE_URL}/guides/fence-cost-guide)
 - [Fence Planning Guide](${SITE_URL}/guides/fence-planning-guide)
 - [Mulch Installation Guide](${SITE_URL}/guides/mulch-installation-guide)
+- [How Much Does Mulch Cost?](${SITE_URL}/guides/mulch-cost-guide)
+- [How Much Does It Cost to Paint a Room?](${SITE_URL}/guides/paint-cost-guide)
+- [How Much Does Tile Flooring Cost?](${SITE_URL}/guides/tile-cost-guide)
+- [How Much Does a Paver Patio Cost?](${SITE_URL}/guides/paver-cost-guide)
 
 ## Trust
 

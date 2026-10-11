@@ -103,6 +103,24 @@ const GUIDES = [
     calculatorLabel: "Paint calculator",
     tag: "Cost",
   },
+  {
+    slug: "/guides/tile-cost-guide",
+    title: "How Much Does Tile Flooring Cost?",
+    description:
+      "Typical price ranges for tile flooring: tile per square foot by material, setting materials, labor, DIY vs. pro bands, and a worked 10×12 ft example.",
+    calculator: "/tile-calculator",
+    calculatorLabel: "Tile calculator",
+    tag: "Cost",
+  },
+  {
+    slug: "/guides/paver-cost-guide",
+    title: "How Much Does a Paver Patio Cost?",
+    description:
+      "Typical price ranges for a paver patio: pavers per square foot, base gravel, sand, what drives the price, DIY vs. pro bands, and a worked 12×16 ft example.",
+    calculator: "/paver-calculator",
+    calculatorLabel: "Paver calculator",
+    tag: "Cost",
+  },
 ];
 
 const breadcrumbJsonLd = {

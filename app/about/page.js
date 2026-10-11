@@ -10,6 +10,7 @@ export const metadata = {
 const TOC_ITEMS = [
   { id: "mission", label: "Our mission" },
   { id: "coverage", label: "What the site covers" },
+  { id: "founder", label: "Who's behind it" },
   { id: "standards", label: "Editorial standards" },
   { id: "not", label: "What this site is not" },
 ];
@@ -49,14 +50,26 @@ export default function AboutPage() {
         <p>
           Thirteen free calculators across the materials DIY builders buy
           most: concrete (bags and ready-mix volume), decking, fencing,
-          mulch, paint, drywall, pavers, sod, topsoil, gravel, sand, and
-          floor tile. Seven project guides pair with the tools —
-          step-by-step build walkthroughs and cost-range breakdowns for
-          the most common projects.
+          mulch, paint, drywall, pavers, sod, topsoil, gravel, sand, floor
+          tile, stairs, and asphalt. Eleven project guides pair with the
+          tools — step-by-step build walkthroughs and cost-range breakdowns
+          for the most common projects.
         </p>
         <p>
           <Link href="/calculators">Browse all calculators</Link> ·{" "}
           <Link href="/guides">Browse all guides</Link>
+        </p>
+
+        <h2 id="founder">Who&apos;s behind it</h2>
+        <p>
+          Hi, I&apos;m <strong>basharat ali</strong>, the founder of{" "}
+          {SITE_NAME}. I started this site to answer one simple question
+          well: <em>how much material does a project actually need?</em>{" "}
+          Every calculator here shows its formulas, rounds every count up,
+          and never invents a price — because running short mid-pour is
+          the worst feeling on a job site. New tools and guides are added
+          every week. If you spot a wrong number,{" "}
+          <Link href="/contact">tell me</Link> — I read every message.
         </p>
 
         <h2 id="standards">Editorial standards</h2>
