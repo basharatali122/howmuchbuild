@@ -29,6 +29,9 @@ enters — the site never invents prices. Methodology: ${SITE_URL}/methodology
 - [Gravel Calculator](${SITE_URL}/gravel-calculator): Gravel tonnage and cubic yards for driveways, bases, and beds.
 - [Sand Calculator](${SITE_URL}/sand-calculator): Sand tonnage and cubic yards for bases, bedding, and play areas.
 - [Tile Calculator](${SITE_URL}/tile-calculator): Floor tile counts with waste allowance and boxes from tiles-per-box.
+- [Concrete Block Calculator](${SITE_URL}/concrete-block-calculator): CMU block counts, mortar bags, and pallets for walls with openings.
+- [Lumber Calculator](${SITE_URL}/lumber-calculator): Board feet, wall-framing stud counts, and board quantities; nominal vs. actual sizes.
+- [Brick Calculator](${SITE_URL}/brick-calculator): US modular brick counts, mortar bags, and a fire-pit ring mode.
 
 ## Guides
 

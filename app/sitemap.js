@@ -20,6 +20,9 @@ const PAGES = [
   { path: "/tile-calculator", priority: 0.9, changeFrequency: "monthly" },
   { path: "/stair-calculator", priority: 0.9, changeFrequency: "monthly" },
   { path: "/asphalt-calculator", priority: 0.9, changeFrequency: "monthly" },
+  { path: "/concrete-block-calculator", priority: 0.9, changeFrequency: "monthly" },
+  { path: "/lumber-calculator", priority: 0.9, changeFrequency: "monthly" },
+  { path: "/brick-calculator", priority: 0.9, changeFrequency: "monthly" },
   { path: "/guides", priority: 0.8, changeFrequency: "weekly" },
   { path: "/guides/how-to-pour-a-concrete-slab", priority: 0.7, changeFrequency: "monthly" },
   { path: "/guides/fence-planning-guide", priority: 0.7, changeFrequency: "monthly" },
@@ -41,7 +44,8 @@ const PAGES = [
 ];
 
 export default function sitemap() {
-  const lastModified = new Date("2026-10-02");
+  // Dynamic: lastModified = build date, so new/updated pages always report fresh
+  const lastModified = new Date();
   return PAGES.map((p) => ({
     url: `${BASE_URL}${p.path}`,
     lastModified,

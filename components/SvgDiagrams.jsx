@@ -430,3 +430,40 @@ export function IconAsphalt({ className }) {
     </IconSvg>
   );
 }
+
+/** Concrete block (CMU) — running-bond block wall. */
+export function IconBlock({ className }) {
+  return (
+    <IconSvg className={className}>
+      <rect x="8" y="14" width="16" height="10" />
+      <rect x="26" y="14" width="16" height="10" />
+      <rect x="17" y="26" width="16" height="10" />
+      <line x1="8" y1="14" x2="8" y2="36" />
+      <line x1="42" y1="14" x2="42" y2="36" />
+    </IconSvg>
+  );
+}
+
+/** Lumber — stacked boards. */
+export function IconLumber({ className }) {
+  return (
+    <IconSvg className={className}>
+      <path d="M8 18 L40 18 L40 24 L8 24 Z" />
+      <path d="M8 27 L40 27 L40 33 L8 33 Z" />
+      <path d="M8 36 L32 36 L32 41 L8 41 Z" />
+    </IconSvg>
+  );
+}
+
+/** Brick — brick wall with mortar joints. */
+export function IconBrick({ className }) {
+  return (
+    <IconSvg className={className}>
+      <rect x="8" y="12" width="14" height="8" />
+      <rect x="24" y="12" width="14" height="8" />
+      <rect x="8" y="22" width="14" height="8" />
+      <rect x="24" y="22" width="14" height="8" />
+      <rect x="16" y="32" width="14" height="8" />
+    </IconSvg>
+  );
+}

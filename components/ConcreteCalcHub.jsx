@@ -333,6 +333,12 @@ export default function ConcreteCalcHub() {
                 quantity: calc.withWasteYd,
                 unit: "cu yd",
                 pricePlaceholder: "170.00",
+                typical: {
+                  low: 140,
+                  high: 200,
+                  unit: "per cu yd, delivered",
+                  source: "/guides/bags-vs-readymix-guide",
+                },
               },
             ]}
           />

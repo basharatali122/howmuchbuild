@@ -323,8 +323,8 @@ export default function MulchCalculator() {
         <div className="space-y-5 lg:sticky lg:top-24 self-start">
           <CostEstimator
             lines={[
-              { id: "bulk", label: "Bulk mulch", quantity: calc.cuYdWaste, unit: "cu yd", pricePlaceholder: "45.00" },
-              { id: "bags", label: "Bagged mulch", quantity: calc.bagsWaste, unit: "bags", pricePlaceholder: "4.00" },
+              { id: "bulk", label: "Bulk mulch", quantity: calc.cuYdWaste, unit: "cu yd", pricePlaceholder: "45.00", typical: { low: 30, high: 65, unit: "per cu yd", source: "/guides/mulch-cost-guide" } },
+              { id: "bags", label: "Bagged mulch", quantity: calc.bagsWaste, unit: "bags", pricePlaceholder: "4.00", typical: { low: 3, high: 6, unit: "per 2-cu-ft bag", source: "/guides/mulch-cost-guide" } },
             ]}
           />
           <div className="rounded-xl bg-slate-900 p-5 text-white">

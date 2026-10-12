@@ -6,7 +6,9 @@
  *   only after the visitor enters a price — we never invent material prices.
  * - Every figure is labeled an estimate; prices vary by store and region.
  *
- * props: lines = [{ id, label, quantity, unit, pricePlaceholder }]
+ * props: lines = [{ id, label, quantity, unit, pricePlaceholder,
+ *   typical: { low, high, unit, source } (optional — honest typical range
+ *   from our own published cost guides; never invented) }]
  */
 "use client";
 
@@ -62,6 +64,18 @@ export default function CostEstimator({ lines = [] }) {
                 <p className="text-xs text-slate-500">
                   {fmt(line.quantity)} {line.unit}
                 </p>
+                {line.typical && (
+                  <p className="mt-0.5 text-xs text-slate-500">
+                    Typical ${line.typical.low}–${line.typical.high}{" "}
+                    {line.typical.unit} ·{" "}
+                    <a
+                      href={line.typical.source}
+                      className="underline decoration-dotted underline-offset-2 hover:text-slate-700"
+                    >
+                      our cost guide
+                    </a>
+                  </p>
+                )}
               </div>
               <label className="flex items-center gap-1.5 text-sm">
                 <span className="sr-only">Unit price for {line.label}</span>

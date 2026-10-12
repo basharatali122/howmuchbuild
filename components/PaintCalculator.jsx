@@ -283,7 +283,7 @@ export default function PaintCalculator() {
         <div className="space-y-5 lg:sticky lg:top-24 self-start">
           <CostEstimator
             lines={[
-              { id: "paint", label: "Paint", quantity: calc.gallons, unit: "gal", pricePlaceholder: "45.00" },
+              { id: "paint", label: "Paint", quantity: calc.gallons, unit: "gal", pricePlaceholder: "45.00", typical: { low: 25, high: 70, unit: "per gallon", source: "/guides/paint-cost-guide" } },
             ]}
           />
           <div className="rounded-xl bg-slate-900 p-5 text-white">

@@ -438,6 +438,16 @@ export default function ConcreteBagsCalculator() {
                 quantity: results.bags[bagSize].withWaste,
                 unit: "bags",
                 pricePlaceholder: "6.50",
+                ...(bagSize === "80"
+                  ? {
+                      typical: {
+                        low: 5,
+                        high: 8,
+                        unit: "per 80-lb bag",
+                        source: "/guides/bags-vs-readymix-guide",
+                      },
+                    }
+                  : {}),
               },
             ]}
           />

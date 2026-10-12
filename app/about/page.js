@@ -48,12 +48,13 @@ export default function AboutPage() {
 
         <h2 id="coverage">What the site covers</h2>
         <p>
-          Thirteen free calculators across the materials DIY builders buy
+          Eighteen free calculators across the materials DIY builders buy
           most: concrete (bags and ready-mix volume), decking, fencing,
           mulch, paint, drywall, pavers, sod, topsoil, gravel, sand, floor
-          tile, stairs, and asphalt. Eleven project guides pair with the
-          tools — step-by-step build walkthroughs and cost-range breakdowns
-          for the most common projects.
+          tile, stairs, asphalt, concrete block, lumber, and brick. Eleven
+          project guides pair with the tools — step-by-step build
+          walkthroughs and cost-range breakdowns for the most common
+          projects.
         </p>
         <p>
           <Link href="/calculators">Browse all calculators</Link> ·{" "}
