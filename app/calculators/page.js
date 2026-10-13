@@ -77,6 +77,7 @@ export default function CalculatorsHubPage() {
             title={c.title}
             desc={c.desc}
             icon={ICONS[c.iconName]}
+            badge={c.badge}
           />
         ))}
       </div>

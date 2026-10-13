@@ -148,7 +148,7 @@ export default function HomePage() {
               your browser.
             </p>
             <div id="site-search" className="mt-7 max-w-xl scroll-mt-24">
-              <SiteSearch placeholder="Try “concrete”, “deck”, or “fence”… " />
+              <SiteSearch placeholder="Try “concrete” or “deck”… " />
             </div>
             <div className="mt-6 flex flex-wrap gap-3">
               <Link href="/calculators" className="btn-dark">
@@ -190,6 +190,7 @@ export default function HomePage() {
               title={c.title}
               desc={c.desc}
               icon={ICONS[c.iconName]}
+              badge={c.badge}
             />
           ))}
         </div>
