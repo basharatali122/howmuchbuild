@@ -31,6 +31,11 @@ export const metadata = {
     index: true,
     follow: true,
   },
+  verification: {
+    other: {
+      "p:domain_verify": "395d1f21a143ef174b6cfbbdbb9e571b",
+    },
+  },
 };
 
 export const viewport = {
