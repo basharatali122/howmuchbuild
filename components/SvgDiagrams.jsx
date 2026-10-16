@@ -518,3 +518,55 @@ export function IconRoofPitch({ className }) {
     </IconSvg>
   );
 }
+
+export function IconSiding({ className }) {
+  return (
+    <IconSvg className={className}>
+      <rect x="8" y="30" width="32" height="8" rx="1" />
+      <rect x="8" y="20" width="32" height="8" rx="1" />
+      <rect x="8" y="10" width="32" height="8" rx="1" />
+    </IconSvg>
+  );
+}
+
+export function IconFlooring({ className }) {
+  return (
+    <IconSvg className={className}>
+      <rect x="8" y="8" width="32" height="32" rx="2" />
+      <line x1="8" y1="20" x2="40" y2="20" />
+      <line x1="8" y1="30" x2="40" y2="30" />
+      <line x1="24" y1="8" x2="24" y2="20" />
+      <line x1="16" y1="20" x2="16" y2="30" />
+      <line x1="32" y1="30" x2="32" y2="40" />
+    </IconSvg>
+  );
+}
+
+export function IconInsulation({ className }) {
+  return (
+    <IconSvg className={className}>
+      <rect x="10" y="12" width="28" height="24" rx="3" />
+      <path d="M10 20 q7 -4 14 0 t14 0" />
+      <path d="M10 28 q7 -4 14 0 t14 0" />
+    </IconSvg>
+  );
+}
+
+export function IconExcavation({ className }) {
+  return (
+    <IconSvg className={className}>
+      <path d="M8 14 h32 v8 h-32 Z" />
+      <path d="M12 22 l4 14 h16 l4 -14" />
+    </IconSvg>
+  );
+}
+
+export function IconRoofShingles({ className }) {
+  return (
+    <IconSvg className={className}>
+      <path d="M8 16 L24 8 L40 16 L40 40 L8 40 Z" />
+      <line x1="8" y1="24" x2="40" y2="24" />
+      <line x1="8" y1="32" x2="40" y2="32" />
+    </IconSvg>
+  );
+}

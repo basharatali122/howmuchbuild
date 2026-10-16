@@ -27,6 +27,11 @@ import {
   IconRetainingWall,
   IconWallpaper,
   IconRoofPitch,
+  IconSiding,
+  IconFlooring,
+  IconInsulation,
+  IconExcavation,
+  IconRoofShingles,
 } from "@/components/SvgDiagrams";
 
 export const metadata = {
@@ -62,6 +67,11 @@ const ICONS = {
   retainingwall: IconRetainingWall,
   wallpaper: IconWallpaper,
   roofpitch: IconRoofPitch,
+  siding: IconSiding,
+  flooring: IconFlooring,
+  insulation: IconInsulation,
+  excavation: IconExcavation,
+  roofshingles: IconRoofShingles,
 };
 
 export default function CalculatorsHubPage() {
@@ -76,7 +86,7 @@ export default function CalculatorsHubPage() {
       <p className="mt-4 max-w-3xl text-lg leading-relaxed text-slate-600">
         Every {SITE_NAME} tool shows its work: full material takeoffs, waste
         allowances, cost estimates, and step-by-step arithmetic — not
-        one-field widgets. Twenty-three calculators, all free, no sign-up.
+        one-field widgets. Twenty-eight calculators, all free, no sign-up.
       </p>
 
       <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
