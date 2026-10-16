@@ -499,3 +499,22 @@ export function IconRetainingWall({ className }) {
     </IconSvg>
   );
 }
+
+export function IconWallpaper({ className }) {
+  return (
+    <IconSvg className={className}>
+      <circle cx="16" cy="24" r="11" />
+      <circle cx="16" cy="24" r="4" />
+      <path d="M27 24 h13 v10 h-13" />
+    </IconSvg>
+  );
+}
+
+export function IconRoofPitch({ className }) {
+  return (
+    <IconSvg className={className}>
+      <path d="M8 36 L24 12 L40 36 Z" />
+      <line x1="24" y1="36" x2="24" y2="22" />
+    </IconSvg>
+  );
+}

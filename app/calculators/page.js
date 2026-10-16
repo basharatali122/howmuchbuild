@@ -25,12 +25,14 @@ import {
   IconRebar,
   IconBaluster,
   IconRetainingWall,
+  IconWallpaper,
+  IconRoofPitch,
 } from "@/components/SvgDiagrams";
 
 export const metadata = {
   title: "All Calculators",
   description:
-    `Every ${SITE_NAME} calculator: concrete bags, concrete volume, deck, fence, mulch, paint, drywall, paver, sod, topsoil, gravel, sand, tile, stairs, asphalt, concrete block, lumber, brick, rebar, baluster spacing & retaining walls — each with full material takeoffs, waste allowances, cost estimates, and worked examples.`,
+    `Every ${SITE_NAME} calculator: concrete bags, concrete volume, deck, fence, mulch, paint, drywall, paver, sod, topsoil, gravel, sand, tile, stairs, asphalt, concrete block, lumber, brick, rebar, baluster spacing, retaining walls, wallpaper brick, rebar, baluster spacing & retaining walls roof pitch — each with full material takeoffs, waste allowances, cost estimates, and worked examples.`,
   alternates: {
     canonical: `${SITE_URL}/calculators`,
   },
@@ -58,6 +60,8 @@ const ICONS = {
   rebar: IconRebar,
   baluster: IconBaluster,
   retainingwall: IconRetainingWall,
+  wallpaper: IconWallpaper,
+  roofpitch: IconRoofPitch,
 };
 
 export default function CalculatorsHubPage() {
@@ -72,7 +76,7 @@ export default function CalculatorsHubPage() {
       <p className="mt-4 max-w-3xl text-lg leading-relaxed text-slate-600">
         Every {SITE_NAME} tool shows its work: full material takeoffs, waste
         allowances, cost estimates, and step-by-step arithmetic — not
-        one-field widgets. Twenty-one calculators, all free, no sign-up.
+        one-field widgets. Twenty-three calculators, all free, no sign-up.
       </p>
 
       <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">

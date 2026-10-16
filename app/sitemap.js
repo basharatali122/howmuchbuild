@@ -26,6 +26,8 @@ const PAGES = [
   { path: "/rebar-calculator", priority: 0.9, changeFrequency: "monthly" },
   { path: "/baluster-spacing-calculator", priority: 0.9, changeFrequency: "monthly" },
   { path: "/retaining-wall-calculator", priority: 0.9, changeFrequency: "monthly" },
+  { path: "/wallpaper-calculator", priority: 0.9, changeFrequency: "monthly" },
+  { path: "/roof-pitch-calculator", priority: 0.9, changeFrequency: "monthly" },
   { path: "/guides", priority: 0.8, changeFrequency: "weekly" },
   { path: "/guides/how-to-pour-a-concrete-slab", priority: 0.7, changeFrequency: "monthly" },
   { path: "/guides/fence-planning-guide", priority: 0.7, changeFrequency: "monthly" },
