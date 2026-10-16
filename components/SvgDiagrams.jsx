@@ -467,3 +467,35 @@ export function IconBrick({ className }) {
     </IconSvg>
   );
 }
+
+export function IconRebar({ className }) {
+  return (
+    <IconSvg className={className}>
+      <rect x="6" y="9" width="36" height="5" rx="2" />
+      <rect x="6" y="21" width="36" height="5" rx="2" />
+      <rect x="6" y="33" width="36" height="5" rx="2" />
+    </IconSvg>
+  );
+}
+
+export function IconBaluster({ className }) {
+  return (
+    <IconSvg className={className}>
+      <rect x="6" y="7" width="36" height="4" rx="2" />
+      <rect x="10" y="13" width="4" height="23" rx="2" />
+      <rect x="22" y="13" width="4" height="23" rx="2" />
+      <rect x="34" y="13" width="4" height="23" rx="2" />
+      <rect x="6" y="38" width="36" height="4" rx="2" />
+    </IconSvg>
+  );
+}
+
+export function IconRetainingWall({ className }) {
+  return (
+    <IconSvg className={className}>
+      <rect x="8" y="32" width="32" height="9" rx="2" />
+      <rect x="12" y="21" width="32" height="9" rx="2" />
+      <rect x="8" y="10" width="32" height="9" rx="2" />
+    </IconSvg>
+  );
+}

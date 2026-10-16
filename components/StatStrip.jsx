@@ -4,7 +4,7 @@
  */
 
 const DEFAULT_STATS = [
-  { value: "18", label: "Free project calculators" },
+  { value: "21", label: "Free project calculators" },
   { value: "100%", label: "Free — no sign-up" },
   { value: "Private", label: "Math runs in your browser" },
   { value: "Rounded up", label: "Every material estimate" },

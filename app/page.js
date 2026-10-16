@@ -179,7 +179,7 @@ export default function HomePage() {
         <p className="eyebrow">Free tools</p>
         <h2 className="mt-2 text-4xl">Project calculators</h2>
         <p className="mt-3 max-w-2xl leading-relaxed text-slate-600">
-          Eighteen calculators covering the materials DIY builders and
+          Twenty-one calculators covering the materials DIY builders and
           contractors buy most — concrete, lumber, fencing, paint, and more.
         </p>
         <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
