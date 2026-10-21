@@ -16,6 +16,18 @@ export const metadata = {
       "Prep, depth, spreading technique, and exactly how much mulch to order — the full installation guide.",
     url: `${SITE_URL}/guides/mulch-installation-guide`,
     type: "article",
+    images: [
+      {
+        url:
+          "/og?title=" +
+          encodeURIComponent(`Mulch Installation Guide | ${SITE_NAME} Guides`) +
+          "&sub=" +
+          encodeURIComponent("Prep, depth, spreading technique, and exactly how much mulch to order — the full installation guide."),
+        width: 1200,
+        height: 630,
+        alt: `Mulch Installation Guide | ${SITE_NAME} Guides`,
+      },
+    ],
   },
 };
 

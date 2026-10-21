@@ -20,6 +20,18 @@ export const metadata = {
       "How many bundles of shingles? Squares, pitch factor, and bundle counts.",
     url: `${SITE_URL}/roof-shingles-calculator`,
     type: "article",
+    images: [
+      {
+        url:
+          "/og?title=" +
+          encodeURIComponent("Roof Shingle Calculator: Bundles, Squares & Waste") +
+          "&sub=" +
+          encodeURIComponent("How many bundles of shingles? Squares, pitch factor, and bundle counts."),
+        width: 1200,
+        height: 630,
+        alt: "Roof Shingle Calculator: Bundles, Squares & Waste",
+      },
+    ],
   },
 };
 

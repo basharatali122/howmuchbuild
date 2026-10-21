@@ -17,6 +17,18 @@ export const metadata = {
       "Typical price ranges for building a deck — wood vs. composite, and the factors that move your quote.",
     url: `${SITE_URL}/guides/deck-cost-guide`,
     type: "article",
+    images: [
+      {
+        url:
+          "/og?title=" +
+          encodeURIComponent(`How Much Does a Deck Cost? | ${SITE_NAME} Guides`) +
+          "&sub=" +
+          encodeURIComponent("Typical price ranges for building a deck — wood vs. composite, and the factors that move your quote."),
+        width: 1200,
+        height: 630,
+        alt: `How Much Does a Deck Cost? | ${SITE_NAME} Guides`,
+      },
+    ],
   },
 };
 

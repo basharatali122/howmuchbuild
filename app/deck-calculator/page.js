@@ -20,6 +20,18 @@ export const metadata = {
       "Enter deck dimensions and get a complete material takeoff — boards, joists, posts, screws, and balusters — with the full arithmetic shown.",
     url: `${SITE_URL}/deck-calculator`,
     type: "article",
+    images: [
+      {
+        url:
+          "/og?title=" +
+          encodeURIComponent("Deck Calculator: Boards, Joists, Posts & Screws (Free)") +
+          "&sub=" +
+          encodeURIComponent("Enter deck dimensions and get a complete material takeoff — boards, joists, posts, screws, and balusters — with the full arithmetic shown."),
+        width: 1200,
+        height: 630,
+        alt: "Deck Calculator: Boards, Joists, Posts & Screws (Free)",
+      },
+    ],
   },
 };
 

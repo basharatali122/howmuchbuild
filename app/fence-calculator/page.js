@@ -20,6 +20,18 @@ export const metadata = {
       "Enter linear feet, height, and style — get posts, pickets, rails, and 80-lb concrete bags with the full arithmetic.",
     url: `${SITE_URL}/fence-calculator`,
     type: "article",
+    images: [
+      {
+        url:
+          "/og?title=" +
+          encodeURIComponent("Fence Calculator: Posts, Pickets, Rails & Concrete (Free)") +
+          "&sub=" +
+          encodeURIComponent("Enter linear feet, height, and style — get posts, pickets, rails, and 80-lb concrete bags with the full arithmetic."),
+        width: 1200,
+        height: 630,
+        alt: "Fence Calculator: Posts, Pickets, Rails & Concrete (Free)",
+      },
+    ],
   },
 };
 

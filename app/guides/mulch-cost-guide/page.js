@@ -18,6 +18,18 @@ export const metadata = {
       "Typical price ranges for mulch — bulk vs. bags, delivery, and what depth really costs.",
     url: `${SITE_URL}/guides/mulch-cost-guide`,
     type: "article",
+    images: [
+      {
+        url:
+          "/og?title=" +
+          encodeURIComponent(`How Much Does Mulch Cost? | ${SITE_NAME} Guides`) +
+          "&sub=" +
+          encodeURIComponent("Typical price ranges for mulch — bulk vs. bags, delivery, and what depth really costs."),
+        width: 1200,
+        height: 630,
+        alt: `How Much Does Mulch Cost? | ${SITE_NAME} Guides`,
+      },
+    ],
   },
 };
 

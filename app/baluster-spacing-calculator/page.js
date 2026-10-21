@@ -20,6 +20,18 @@ export const metadata = {
       "Even baluster spacing for deck and stair railings — with the 4-inch sphere check.",
     url: `${SITE_URL}/baluster-spacing-calculator`,
     type: "article",
+    images: [
+      {
+        url:
+          "/og?title=" +
+          encodeURIComponent("Baluster Spacing Calculator: Even Spacing That Passes Code") +
+          "&sub=" +
+          encodeURIComponent("Even baluster spacing for deck and stair railings — with the 4-inch sphere check."),
+        width: 1200,
+        height: 630,
+        alt: "Baluster Spacing Calculator: Even Spacing That Passes Code",
+      },
+    ],
   },
 };
 

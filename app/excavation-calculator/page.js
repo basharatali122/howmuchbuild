@@ -20,6 +20,18 @@ export const metadata = {
       "How much dirt to dig out? Bank yards, swell, and truckloads.",
     url: `${SITE_URL}/excavation-calculator`,
     type: "article",
+    images: [
+      {
+        url:
+          "/og?title=" +
+          encodeURIComponent("Excavation Calculator: Dirt Yards, Swell & Truckloads") +
+          "&sub=" +
+          encodeURIComponent("How much dirt to dig out? Bank yards, swell, and truckloads."),
+        width: 1200,
+        height: 630,
+        alt: "Excavation Calculator: Dirt Yards, Swell & Truckloads",
+      },
+    ],
   },
 };
 

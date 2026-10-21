@@ -20,6 +20,18 @@ export const metadata = {
       "Enter your room or total area — get sheet counts rounded up, plus screw, mud, and tape estimates.",
     url: `${SITE_URL}/drywall-calculator`,
     type: "article",
+    images: [
+      {
+        url:
+          "/og?title=" +
+          encodeURIComponent("Drywall Calculator — Sheets, Screws, Mud & Tape") +
+          "&sub=" +
+          encodeURIComponent("Enter your room or total area — get sheet counts rounded up, plus screw, mud, and tape estimates."),
+        width: 1200,
+        height: 630,
+        alt: "Drywall Calculator — Sheets, Screws, Mud & Tape",
+      },
+    ],
   },
 };
 

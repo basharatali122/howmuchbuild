@@ -16,6 +16,18 @@ export const metadata = {
       "Step-by-step guides for concrete, fencing, and mulching — with free calculators for every project.",
     url: `${SITE_URL}/guides`,
     type: "website",
+    images: [
+      {
+        url:
+          "/og?title=" +
+          encodeURIComponent(`Project Guides | ${SITE_NAME}`) +
+          "&sub=" +
+          encodeURIComponent("Step-by-step guides for concrete, fencing, and mulching — with free calculators for every project."),
+        width: 1200,
+        height: 630,
+        alt: `Project Guides | ${SITE_NAME}`,
+      },
+    ],
   },
 };
 

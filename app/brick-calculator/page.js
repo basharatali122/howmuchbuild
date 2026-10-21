@@ -20,6 +20,18 @@ export const metadata = {
       "Brick counts, mortar bags, and fire-pit rings — US modular brick with ⅜-in joints.",
     url: `${SITE_URL}/brick-calculator`,
     type: "article",
+    images: [
+      {
+        url:
+          "/og?title=" +
+          encodeURIComponent("Brick Calculator: How Many Bricks Do I Need?") +
+          "&sub=" +
+          encodeURIComponent("Brick counts, mortar bags, and fire-pit rings — US modular brick with ⅜-in joints."),
+        width: 1200,
+        height: 630,
+        alt: "Brick Calculator: How Many Bricks Do I Need?",
+      },
+    ],
   },
 };
 

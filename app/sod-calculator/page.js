@@ -20,6 +20,18 @@ export const metadata = {
       "Lawn area to pallet count with waste allowance, laying tips, and a pallet coverage chart.",
     url: `${SITE_URL}/sod-calculator`,
     type: "article",
+    images: [
+      {
+        url:
+          "/og?title=" +
+          encodeURIComponent("Sod Calculator: How Many Pallets of Sod Do I Need?") +
+          "&sub=" +
+          encodeURIComponent("Lawn area to pallet count with waste allowance, laying tips, and a pallet coverage chart."),
+        width: 1200,
+        height: 630,
+        alt: "Sod Calculator: How Many Pallets of Sod Do I Need?",
+      },
+    ],
   },
 };
 

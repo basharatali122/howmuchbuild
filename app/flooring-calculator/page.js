@@ -20,6 +20,18 @@ export const metadata = {
       "How many boxes of flooring? Room area, layout waste, and box counts.",
     url: `${SITE_URL}/flooring-calculator`,
     type: "article",
+    images: [
+      {
+        url:
+          "/og?title=" +
+          encodeURIComponent("Flooring Calculator: Boxes, Waste & Layout") +
+          "&sub=" +
+          encodeURIComponent("How many boxes of flooring? Room area, layout waste, and box counts."),
+        width: 1200,
+        height: 630,
+        alt: "Flooring Calculator: Boxes, Waste & Layout",
+      },
+    ],
   },
 };
 

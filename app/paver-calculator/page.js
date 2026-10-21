@@ -20,6 +20,18 @@ export const metadata = {
       "Paver counts with pattern waste, gravel base tons, bedding sand, and polymeric sand bags — plus a worked example and coverage chart.",
     url: `${SITE_URL}/paver-calculator`,
     type: "article",
+    images: [
+      {
+        url:
+          "/og?title=" +
+          encodeURIComponent("Paver Calculator: How Many Pavers, Gravel & Sand Do I Need?") +
+          "&sub=" +
+          encodeURIComponent("Paver counts with pattern waste, gravel base tons, bedding sand, and polymeric sand bags — plus a worked example and coverage chart."),
+        width: 1200,
+        height: 630,
+        alt: "Paver Calculator: How Many Pavers, Gravel & Sand Do I Need?",
+      },
+    ],
   },
 };
 

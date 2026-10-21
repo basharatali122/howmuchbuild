@@ -20,6 +20,18 @@ export const metadata = {
       "Enter your bed dimensions and depth — get cubic yards, bag counts, and a bags-vs-bulk breakdown, always rounded up.",
     url: `${SITE_URL}/mulch-calculator`,
     type: "article",
+    images: [
+      {
+        url:
+          "/og?title=" +
+          encodeURIComponent("Mulch Calculator — How Many Bags or Cubic Yards Do I Need?") +
+          "&sub=" +
+          encodeURIComponent("Enter your bed dimensions and depth — get cubic yards, bag counts, and a bags-vs-bulk breakdown, always rounded up."),
+        width: 1200,
+        height: 630,
+        alt: "Mulch Calculator — How Many Bags or Cubic Yards Do I Need?",
+      },
+    ],
   },
 };
 

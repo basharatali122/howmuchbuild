@@ -17,6 +17,18 @@ export const metadata = {
       "The break-even math between bagged concrete and a ready-mix truck — with a worked slab example.",
     url: `${SITE_URL}/guides/bags-vs-readymix-guide`,
     type: "article",
+    images: [
+      {
+        url:
+          "/og?title=" +
+          encodeURIComponent(`Concrete Bags vs. Ready-Mix: Which Is Cheaper? | ${SITE_NAME} Guides`) +
+          "&sub=" +
+          encodeURIComponent("The break-even math between bagged concrete and a ready-mix truck — with a worked slab example."),
+        width: 1200,
+        height: 630,
+        alt: `Concrete Bags vs. Ready-Mix: Which Is Cheaper? | ${SITE_NAME} Guides`,
+      },
+    ],
   },
 };
 

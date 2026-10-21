@@ -20,6 +20,18 @@ export const metadata = {
       "How much insulation? Thickness, bag counts, and R-value targets.",
     url: `${SITE_URL}/insulation-calculator`,
     type: "article",
+    images: [
+      {
+        url:
+          "/og?title=" +
+          encodeURIComponent("Insulation Calculator: R-Value, Thickness & Bags") +
+          "&sub=" +
+          encodeURIComponent("How much insulation? Thickness, bag counts, and R-value targets."),
+        width: 1200,
+        height: 630,
+        alt: "Insulation Calculator: R-Value, Thickness & Bags",
+      },
+    ],
   },
 };
 

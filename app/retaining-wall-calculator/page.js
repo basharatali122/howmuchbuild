@@ -20,6 +20,18 @@ export const metadata = {
       "Block counts, caps, base gravel and drainage stone for segmental retaining walls.",
     url: `${SITE_URL}/retaining-wall-calculator`,
     type: "article",
+    images: [
+      {
+        url:
+          "/og?title=" +
+          encodeURIComponent("Retaining Wall Calculator: Blocks, Caps & Drainage Stone") +
+          "&sub=" +
+          encodeURIComponent("Block counts, caps, base gravel and drainage stone for segmental retaining walls."),
+        width: 1200,
+        height: 630,
+        alt: "Retaining Wall Calculator: Blocks, Caps & Drainage Stone",
+      },
+    ],
   },
 };
 

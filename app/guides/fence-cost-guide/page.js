@@ -17,6 +17,18 @@ export const metadata = {
       "Typical price ranges for a new fence by material — and the factors that move your quote up or down.",
     url: `${SITE_URL}/guides/fence-cost-guide`,
     type: "article",
+    images: [
+      {
+        url:
+          "/og?title=" +
+          encodeURIComponent(`How Much Does a Fence Cost? | ${SITE_NAME} Guides`) +
+          "&sub=" +
+          encodeURIComponent("Typical price ranges for a new fence by material — and the factors that move your quote up or down."),
+        width: 1200,
+        height: 630,
+        alt: `How Much Does a Fence Cost? | ${SITE_NAME} Guides`,
+      },
+    ],
   },
 };
 

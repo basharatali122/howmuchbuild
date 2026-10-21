@@ -16,6 +16,18 @@ export const metadata = {
       "From property lines to the last post cap: plan a fence that stands straight for years.",
     url: `${SITE_URL}/guides/fence-planning-guide`,
     type: "article",
+    images: [
+      {
+        url:
+          "/og?title=" +
+          encodeURIComponent(`Fence Planning Guide | ${SITE_NAME} Guides`) +
+          "&sub=" +
+          encodeURIComponent("From property lines to the last post cap: plan a fence that stands straight for years."),
+        width: 1200,
+        height: 630,
+        alt: `Fence Planning Guide | ${SITE_NAME} Guides`,
+      },
+    ],
   },
 };
 

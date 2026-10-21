@@ -20,6 +20,18 @@ export const metadata = {
       "How many squares of siding? Walls, gables, openings, and box counts.",
     url: `${SITE_URL}/siding-calculator`,
     type: "article",
+    images: [
+      {
+        url:
+          "/og?title=" +
+          encodeURIComponent("Siding Calculator: Squares, Boxes & Waste") +
+          "&sub=" +
+          encodeURIComponent("How many squares of siding? Walls, gables, openings, and box counts."),
+        width: 1200,
+        height: 630,
+        alt: "Siding Calculator: Squares, Boxes & Waste",
+      },
+    ],
   },
 };
 

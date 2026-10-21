@@ -18,6 +18,18 @@ export const metadata = {
       "Typical price ranges for a paver patio — pavers, base, sand, DIY vs. pro.",
     url: `${SITE_URL}/guides/paver-cost-guide`,
     type: "article",
+    images: [
+      {
+        url:
+          "/og?title=" +
+          encodeURIComponent(`How Much Does a Paver Patio Cost? | ${SITE_NAME} Guides`) +
+          "&sub=" +
+          encodeURIComponent("Typical price ranges for a paver patio — pavers, base, sand, DIY vs. pro."),
+        width: 1200,
+        height: 630,
+        alt: `How Much Does a Paver Patio Cost? | ${SITE_NAME} Guides`,
+      },
+    ],
   },
 };
 

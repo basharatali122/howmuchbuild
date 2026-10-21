@@ -16,6 +16,18 @@ export const metadata = {
       "Plan, form, pour, finish, and cure a small concrete slab yourself — the full DIY sequence explained.",
     url: `${SITE_URL}/guides/how-to-pour-a-concrete-slab`,
     type: "article",
+    images: [
+      {
+        url:
+          "/og?title=" +
+          encodeURIComponent(`How to Pour a Concrete Slab | ${SITE_NAME} Guides`) +
+          "&sub=" +
+          encodeURIComponent("Plan, form, pour, finish, and cure a small concrete slab yourself — the full DIY sequence explained."),
+        width: 1200,
+        height: 630,
+        alt: `How to Pour a Concrete Slab | ${SITE_NAME} Guides`,
+      },
+    ],
   },
 };
 

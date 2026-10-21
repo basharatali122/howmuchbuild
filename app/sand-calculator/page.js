@@ -20,6 +20,18 @@ export const metadata = {
       "Tons, cubic yards, and bag counts for paver bedding, bases, and fill — with a coverage-per-ton chart.",
     url: `${SITE_URL}/sand-calculator`,
     type: "article",
+    images: [
+      {
+        url:
+          "/og?title=" +
+          encodeURIComponent("Sand Calculator: How Much Sand Do I Need") +
+          "&sub=" +
+          encodeURIComponent("Tons, cubic yards, and bag counts for paver bedding, bases, and fill — with a coverage-per-ton chart."),
+        width: 1200,
+        height: 630,
+        alt: "Sand Calculator: How Much Sand Do I Need",
+      },
+    ],
   },
 };
 

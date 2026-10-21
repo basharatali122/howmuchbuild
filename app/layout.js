@@ -23,6 +23,20 @@ export const metadata = {
     type: "website",
     siteName: SITE_NAME,
     locale: "en_US",
+    images: [
+      {
+        url:
+          "/og?title=" +
+          encodeURIComponent(SITE_NAME) +
+          "&sub=" +
+          encodeURIComponent(
+            "Free DIY & contractor calculators - concrete, deck, fence, mulch, paint, and more. No sign-up."
+          ),
+        width: 1200,
+        height: 630,
+        alt: `${SITE_NAME} - Free DIY & Contractor Calculators`,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",

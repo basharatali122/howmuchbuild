@@ -20,6 +20,18 @@ export const metadata = {
       "Board feet, framing studs, and board counts — with the nominal vs. actual size table built in.",
     url: `${SITE_URL}/lumber-calculator`,
     type: "article",
+    images: [
+      {
+        url:
+          "/og?title=" +
+          encodeURIComponent("Lumber Calculator: Board Feet, Studs & Board Counts") +
+          "&sub=" +
+          encodeURIComponent("Board feet, framing studs, and board counts — with the nominal vs. actual size table built in."),
+        width: 1200,
+        height: 630,
+        alt: "Lumber Calculator: Board Feet, Studs & Board Counts",
+      },
+    ],
   },
 };
 

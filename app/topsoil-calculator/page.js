@@ -20,6 +20,18 @@ export const metadata = {
       "Cubic yards and bag counts for lawns and raised beds, with a worked 4×8 bed example and a coverage chart.",
     url: `${SITE_URL}/topsoil-calculator`,
     type: "article",
+    images: [
+      {
+        url:
+          "/og?title=" +
+          encodeURIComponent("Topsoil Calculator: Cubic Yards, Bags & Raised Bed Soil") +
+          "&sub=" +
+          encodeURIComponent("Cubic yards and bag counts for lawns and raised beds, with a worked 4×8 bed example and a coverage chart."),
+        width: 1200,
+        height: 630,
+        alt: "Topsoil Calculator: Cubic Yards, Bags & Raised Bed Soil",
+      },
+    ],
   },
 };
 

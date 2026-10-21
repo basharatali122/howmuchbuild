@@ -20,6 +20,18 @@ export const metadata = {
       "Rebar counts, linear feet, and weight for slabs and footings — #3 to #11 bars.",
     url: `${SITE_URL}/rebar-calculator`,
     type: "article",
+    images: [
+      {
+        url:
+          "/og?title=" +
+          encodeURIComponent("Rebar Calculator: How Much Rebar Do I Need?") +
+          "&sub=" +
+          encodeURIComponent("Rebar counts, linear feet, and weight for slabs and footings — #3 to #11 bars."),
+        width: 1200,
+        height: 630,
+        alt: "Rebar Calculator: How Much Rebar Do I Need?",
+      },
+    ],
   },
 };
 

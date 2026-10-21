@@ -20,6 +20,18 @@ export const metadata = {
       "Enter your dimensions, get exact 40/60/80 lb bag counts with waste and cost — plus worked examples and coverage charts.",
     url: `${SITE_URL}/concrete-bags-calculator`,
     type: "article",
+    images: [
+      {
+        url:
+          "/og?title=" +
+          encodeURIComponent("How Many Bags of Concrete Do I Need? (Calculator + Chart)") +
+          "&sub=" +
+          encodeURIComponent("Enter your dimensions, get exact 40/60/80 lb bag counts with waste and cost — plus worked examples and coverage charts."),
+        width: 1200,
+        height: 630,
+        alt: "How Many Bags of Concrete Do I Need? (Calculator + Chart)",
+      },
+    ],
   },
 };
 

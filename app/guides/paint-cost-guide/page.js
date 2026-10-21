@@ -18,6 +18,18 @@ export const metadata = {
       "Typical price ranges for painting a room — paint, primer, supplies, DIY vs. pro.",
     url: `${SITE_URL}/guides/paint-cost-guide`,
     type: "article",
+    images: [
+      {
+        url:
+          "/og?title=" +
+          encodeURIComponent(`How Much Does It Cost to Paint a Room? | ${SITE_NAME} Guides`) +
+          "&sub=" +
+          encodeURIComponent("Typical price ranges for painting a room — paint, primer, supplies, DIY vs. pro."),
+        width: 1200,
+        height: 630,
+        alt: `How Much Does It Cost to Paint a Room? | ${SITE_NAME} Guides`,
+      },
+    ],
   },
 };
 

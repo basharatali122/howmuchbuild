@@ -20,6 +20,18 @@ export const metadata = {
       "Room or exterior walls, doors and windows subtracted, 1 or 2 coats — get your gallon count rounded up, with a per-coat breakdown.",
     url: `${SITE_URL}/paint-calculator`,
     type: "article",
+    images: [
+      {
+        url:
+          "/og?title=" +
+          encodeURIComponent("Paint Calculator — How Many Gallons Do I Need?") +
+          "&sub=" +
+          encodeURIComponent("Room or exterior walls, doors and windows subtracted, 1 or 2 coats — get your gallon count rounded up, with a per-coat breakdown."),
+        width: 1200,
+        height: 630,
+        alt: "Paint Calculator — How Many Gallons Do I Need?",
+      },
+    ],
   },
 };
 

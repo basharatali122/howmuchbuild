@@ -20,6 +20,18 @@ export const metadata = {
       "Wallpaper roll counts for rooms and walls — with pattern-repeat waste.",
     url: `${SITE_URL}/wallpaper-calculator`,
     type: "article",
+    images: [
+      {
+        url:
+          "/og?title=" +
+          encodeURIComponent("Wallpaper Calculator: How Many Rolls Do I Need?") +
+          "&sub=" +
+          encodeURIComponent("Wallpaper roll counts for rooms and walls — with pattern-repeat waste."),
+        width: 1200,
+        height: 630,
+        alt: "Wallpaper Calculator: How Many Rolls Do I Need?",
+      },
+    ],
   },
 };
 

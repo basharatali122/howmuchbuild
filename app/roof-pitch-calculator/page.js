@@ -20,6 +20,18 @@ export const metadata = {
       "Roof pitch in x/12, angle degrees, and rafter length from rise and run.",
     url: `${SITE_URL}/roof-pitch-calculator`,
     type: "article",
+    images: [
+      {
+        url:
+          "/og?title=" +
+          encodeURIComponent("Roof Pitch Calculator: Pitch, Angle & Rafter Length") +
+          "&sub=" +
+          encodeURIComponent("Roof pitch in x/12, angle degrees, and rafter length from rise and run."),
+        width: 1200,
+        height: 630,
+        alt: "Roof Pitch Calculator: Pitch, Angle & Rafter Length",
+      },
+    ],
   },
 };
 

@@ -20,6 +20,18 @@ export const metadata = {
       "CMU block counts, mortar bags, and pallets for walls — openings subtracted, waste included.",
     url: `${SITE_URL}/concrete-block-calculator`,
     type: "article",
+    images: [
+      {
+        url:
+          "/og?title=" +
+          encodeURIComponent("Concrete Block Calculator: How Many Blocks Do I Need?") +
+          "&sub=" +
+          encodeURIComponent("CMU block counts, mortar bags, and pallets for walls — openings subtracted, waste included."),
+        width: 1200,
+        height: 630,
+        alt: "Concrete Block Calculator: How Many Blocks Do I Need?",
+      },
+    ],
   },
 };
 

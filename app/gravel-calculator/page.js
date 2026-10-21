@@ -20,6 +20,18 @@ export const metadata = {
       "Tons, cubic yards, and bag counts for driveways, patios, and beds — with a coverage-per-ton chart.",
     url: `${SITE_URL}/gravel-calculator`,
     type: "article",
+    images: [
+      {
+        url:
+          "/og?title=" +
+          encodeURIComponent("Gravel Calculator: How Much Gravel Do I Need") +
+          "&sub=" +
+          encodeURIComponent("Tons, cubic yards, and bag counts for driveways, patios, and beds — with a coverage-per-ton chart."),
+        width: 1200,
+        height: 630,
+        alt: "Gravel Calculator: How Much Gravel Do I Need",
+      },
+    ],
   },
 };
 

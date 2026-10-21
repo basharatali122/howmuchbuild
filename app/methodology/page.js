@@ -18,6 +18,18 @@ export const metadata = {
       "Every formula shown, every result rounded up. How our calculators work.",
     url: `${SITE_URL}/methodology`,
     type: "article",
+    images: [
+      {
+        url:
+          "/og?title=" +
+          encodeURIComponent(`Methodology | ${SITE_NAME}`) +
+          "&sub=" +
+          encodeURIComponent("Every formula shown, every result rounded up. How our calculators work."),
+        width: 1200,
+        height: 630,
+        alt: `Methodology | ${SITE_NAME}`,
+      },
+    ],
   },
 };
 

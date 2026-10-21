@@ -20,6 +20,18 @@ export const metadata = {
       "Tile counts with waste allowance and box quantities for any floor — plus a tiles-per-100-sq-ft chart.",
     url: `${SITE_URL}/tile-calculator`,
     type: "article",
+    images: [
+      {
+        url:
+          "/og?title=" +
+          encodeURIComponent("Tile Calculator: How Many Tiles Do I Need") +
+          "&sub=" +
+          encodeURIComponent("Tile counts with waste allowance and box quantities for any floor — plus a tiles-per-100-sq-ft chart."),
+        width: 1200,
+        height: 630,
+        alt: "Tile Calculator: How Many Tiles Do I Need",
+      },
+    ],
   },
 };
 

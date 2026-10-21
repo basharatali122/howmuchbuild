@@ -20,6 +20,18 @@ export const metadata = {
       "Enter dimensions, get cubic yards, bag equivalents, and an estimated ready-mix cost — plus worked examples and coverage charts.",
     url: `${SITE_URL}/concrete-calculator`,
     type: "article",
+    images: [
+      {
+        url:
+          "/og?title=" +
+          encodeURIComponent("Concrete Calculator: Cubic Yards, Volume & Cost (Free)") +
+          "&sub=" +
+          encodeURIComponent("Enter dimensions, get cubic yards, bag equivalents, and an estimated ready-mix cost — plus worked examples and coverage charts."),
+        width: 1200,
+        height: 630,
+        alt: "Concrete Calculator: Cubic Yards, Volume & Cost (Free)",
+      },
+    ],
   },
 };
 

@@ -18,6 +18,18 @@ export const metadata = {
       "Typical price ranges for tile flooring — tile, setting materials, labor, DIY vs. pro.",
     url: `${SITE_URL}/guides/tile-cost-guide`,
     type: "article",
+    images: [
+      {
+        url:
+          "/og?title=" +
+          encodeURIComponent(`How Much Does Tile Flooring Cost? | ${SITE_NAME} Guides`) +
+          "&sub=" +
+          encodeURIComponent("Typical price ranges for tile flooring — tile, setting materials, labor, DIY vs. pro."),
+        width: 1200,
+        height: 630,
+        alt: `How Much Does Tile Flooring Cost? | ${SITE_NAME} Guides`,
+      },
+    ],
   },
 };
 

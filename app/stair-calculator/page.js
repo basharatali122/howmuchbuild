@@ -20,6 +20,18 @@ export const metadata = {
       "Enter total rise and get risers, treads, total run, stringer length, and angle — with the full arithmetic shown.",
     url: `${SITE_URL}/stair-calculator`,
     type: "article",
+    images: [
+      {
+        url:
+          "/og?title=" +
+          encodeURIComponent("Stair Calculator: Rise, Run, Treads & Stringers (Free)") +
+          "&sub=" +
+          encodeURIComponent("Enter total rise and get risers, treads, total run, stringer length, and angle — with the full arithmetic shown."),
+        width: 1200,
+        height: 630,
+        alt: "Stair Calculator: Rise, Run, Treads & Stringers (Free)",
+      },
+    ],
   },
 };
 

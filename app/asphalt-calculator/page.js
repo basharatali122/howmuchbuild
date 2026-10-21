@@ -20,6 +20,18 @@ export const metadata = {
       "Enter driveway dimensions and get tons, cubic yards, and estimated weight — with the full arithmetic shown.",
     url: `${SITE_URL}/asphalt-calculator`,
     type: "article",
+    images: [
+      {
+        url:
+          "/og?title=" +
+          encodeURIComponent("Asphalt Calculator: How Much Asphalt Do I Need? (Free)") +
+          "&sub=" +
+          encodeURIComponent("Enter driveway dimensions and get tons, cubic yards, and estimated weight — with the full arithmetic shown."),
+        width: 1200,
+        height: 630,
+        alt: "Asphalt Calculator: How Much Asphalt Do I Need? (Free)",
+      },
+    ],
   },
 };
 
