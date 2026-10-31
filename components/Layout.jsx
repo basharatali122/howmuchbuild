@@ -10,6 +10,27 @@ const HEADER_NAV = [
   { href: "/about", label: "About" },
 ];
 
+/**
+ * Footer shows only the most popular calculators plus an "All calculators"
+ * link. The full 28-calculator list still lives on /calculators, the
+ * homepage grid, hub, search, and sitemap. This is a footer-only trim:
+ * lib/nav.js stays untouched so the shared list is unchanged elsewhere.
+ */
+const FOOTER_CALCULATOR_HREFS = new Set([
+  "/concrete-bags-calculator",
+  "/deck-calculator",
+  "/fence-calculator",
+  "/mulch-calculator",
+  "/paint-calculator",
+  "/gravel-calculator",
+  "/sand-calculator",
+  "/tile-calculator",
+]);
+
+const FOOTER_CALCULATORS = calculatorNav.filter((link) =>
+  FOOTER_CALCULATOR_HREFS.has(link.href)
+);
+
 /** Original logo mark: an isometric concrete cube drawn by hand (no stock art). */
 function LogoMark() {
   return (
@@ -151,13 +172,21 @@ function SiteFooter() {
           <nav aria-label="Calculator links">
             <p className="text-sm font-semibold text-slate-900">Calculators</p>
             <ul className="mt-3 space-y-2 text-sm text-slate-500">
-              {calculatorNav.map((link) => (
+              {FOOTER_CALCULATORS.map((link) => (
                 <li key={link.href}>
                   <Link href={link.href} className="hover:text-orange-600">
                     {link.title}
                   </Link>
                 </li>
               ))}
+              <li>
+                <Link
+                  href="/calculators"
+                  className="font-medium text-orange-600 hover:text-orange-700"
+                >
+                  All calculators →
+                </Link>
+              </li>
             </ul>
           </nav>
           <nav aria-label="Guide links">
