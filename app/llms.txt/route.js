@@ -46,6 +46,11 @@ enters — the site never invents prices. Methodology: ${SITE_URL}/methodology
 - [How Much Does It Cost to Paint a Room?](${SITE_URL}/guides/paint-cost-guide)
 - [How Much Does Tile Flooring Cost?](${SITE_URL}/guides/tile-cost-guide)
 - [How Much Does a Paver Patio Cost?](${SITE_URL}/guides/paver-cost-guide)
+- [How Much Does Drywall Cost?](${SITE_URL}/guides/drywall-cost-guide)
+- [How Much Does Flooring Cost?](${SITE_URL}/guides/flooring-cost-guide)
+- [How Much Does a New Roof Cost?](${SITE_URL}/guides/roofing-cost-guide)
+- [How Much Does House Siding Cost?](${SITE_URL}/guides/siding-cost-guide)
+- [How Much Does Gravel Cost?](${SITE_URL}/guides/gravel-cost-guide)
 
 ## Trust
 
