@@ -133,6 +133,51 @@ const GUIDES = [
     calculatorLabel: "Paver calculator",
     tag: "Cost",
   },
+  {
+    slug: "/guides/drywall-cost-guide",
+    title: "How Much Does Drywall Cost?",
+    description:
+      "Typical price ranges for drywall: hanging and finishing per square foot, texture, DIY vs. pro bands, and a worked 12x12 ft room example.",
+    calculator: "/drywall-calculator",
+    calculatorLabel: "Drywall calculator",
+    tag: "Cost",
+  },
+  {
+    slug: "/guides/flooring-cost-guide",
+    title: "How Much Does Flooring Cost?",
+    description:
+      "Typical price ranges for flooring per square foot: laminate, vinyl plank, hardwood, tile, and carpet, installed vs. DIY, with a worked 10x12 ft example.",
+    calculator: "/flooring-calculator",
+    calculatorLabel: "Flooring calculator",
+    tag: "Cost",
+  },
+  {
+    slug: "/guides/roofing-cost-guide",
+    title: "How Much Does a New Roof Cost?",
+    description:
+      "Typical roofing price ranges per square: asphalt shingles vs. metal, tear-off, what drives the price, and a worked 1,500 sq ft example.",
+    calculator: "/roof-shingles-calculator",
+    calculatorLabel: "Roof shingles calculator",
+    tag: "Cost",
+  },
+  {
+    slug: "/guides/siding-cost-guide",
+    title: "How Much Does House Siding Cost?",
+    description:
+      "Typical siding price ranges per square foot: vinyl, fiber cement, wood, and metal, installed vs. DIY, with a worked 1,500 sq ft example.",
+    calculator: "/siding-calculator",
+    calculatorLabel: "Siding calculator",
+    tag: "Cost",
+  },
+  {
+    slug: "/guides/gravel-cost-guide",
+    title: "How Much Does Gravel Cost?",
+    description:
+      "Typical gravel price ranges per cubic yard and per load: crushed stone, pea gravel, delivery fees, and a worked driveway example.",
+    calculator: "/gravel-calculator",
+    calculatorLabel: "Gravel calculator",
+    tag: "Cost",
+  },
 ];
 
 const breadcrumbJsonLd = {
