@@ -86,7 +86,7 @@ export default function CalculatorsHubPage() {
       <p className="mt-4 max-w-3xl text-lg leading-relaxed text-slate-600">
         Every {SITE_NAME} tool shows its work: full material takeoffs, waste
         allowances, cost estimates, and step-by-step arithmetic — not
-        one-field widgets. Twenty-eight calculators, all free, no sign-up.
+        one-field widgets. Thirty calculators, all free, no sign-up.
       </p>
 
       <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
