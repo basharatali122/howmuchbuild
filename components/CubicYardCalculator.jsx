@@ -115,7 +115,9 @@ export default function CubicYardCalculator() {
     const volumeCuYd = withWasteCuFt / CU_FT_PER_CU_YD;
     // Round the order up to the nearest half yard, the way bulk yards sell.
     const orderCuYd = Math.ceil(volumeCuYd * 2) / 2;
-    const bags = Math.ceil(withWasteCuFt / CU_FT_PER_BAG);
+    // Epsilon guard: float math can turn an exact 110 into 110.0000000001,
+    // which would wrongly round up to 111 bags.
+    const bags = Math.ceil(withWasteCuFt / CU_FT_PER_BAG - 1e-9);
 
     steps.push(
       `Volume = ${round2(areaSqFt)} sq ft x ${round2(dFt)} ft (${depth || 0} in) = ${round2(volumeCuFt)} cu ft`
@@ -252,7 +254,7 @@ export default function CubicYardCalculator() {
             <div className="grid grid-cols-3 gap-3 text-center">
               {[
                 { v: round2(calc.withWasteCuFt), u: "cu ft" },
-                { v: round1(calc.volumeCuYd), u: "cu yd (exact)" },
+                { v: round2(calc.volumeCuYd), u: "cu yd (exact)" },
                 { v: calc.bags, u: "0.5 cu ft bags" },
               ].map((x) => (
                 <div
