@@ -63,7 +63,7 @@ export default function AboutPage() {
 
         <h2 id="founder">Who&apos;s behind it</h2>
         <p>
-          Hi, I&apos;m <strong>basharat ali</strong>, the founder of{" "}
+          Hi, I&apos;m <strong>Basharat Ali</strong>, the founder of{" "}
           {SITE_NAME}. I started this site to answer one simple question
           well: <em>how much material does a project actually need?</em>{" "}
           Every calculator here shows its formulas, rounds every count up,

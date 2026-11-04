@@ -33,6 +33,8 @@ const PAGES = [
   { path: "/insulation-calculator", priority: 0.9, changeFrequency: "monthly" },
   { path: "/excavation-calculator", priority: 0.9, changeFrequency: "monthly" },
   { path: "/roof-shingles-calculator", priority: 0.9, changeFrequency: "monthly" },
+  { path: "/square-footage-calculator", priority: 0.9, changeFrequency: "monthly" },
+  { path: "/cubic-yard-calculator", priority: 0.9, changeFrequency: "monthly" },
   { path: "/guides", priority: 0.8, changeFrequency: "weekly" },
   { path: "/guides/how-to-pour-a-concrete-slab", priority: 0.7, changeFrequency: "monthly" },
   { path: "/guides/fence-planning-guide", priority: 0.7, changeFrequency: "monthly" },

@@ -66,7 +66,7 @@ export default function RootLayout({ children }) {
     url: SITE_URL,
     description:
       "Free, client-side calculators for DIY builders and contractors: concrete, decking, fencing, mulch, paint, and more.",
-    sameAs: [],
+    sameAs: ["https://www.pinterest.com/basharatalideveloper/", "https://www.youtube.com/@howmuchbuild"],
   };
 
   return (

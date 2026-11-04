@@ -7,7 +7,7 @@ export default function AuthorByline({ updated = "October 2026" }) {
     <p className="text-sm text-slate-500">
       By{" "}
       <span className="font-medium text-slate-700">
-        basharat ali, Founder
+        Basharat Ali, Founder
       </span>
       <span aria-hidden="true"> · </span>
       Calculation reviewed
