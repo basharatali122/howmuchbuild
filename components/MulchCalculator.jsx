@@ -2,6 +2,15 @@
 
 import { useMemo, useState } from "react";
 import CostEstimator from "@/components/CostEstimator";
+import UnitToggle from "@/components/UnitToggle";
+import { useCalculatorEvents } from "@/lib/useCalculatorEvents";
+import {
+  cmToInches,
+  feetToMetres,
+  inchesToCm,
+  metresToFeet,
+} from "@/lib/metricUnits";
+
 
 /* Mulch math constants (standard, verifiable US figures):
    - 1 cubic yard = 27 cubic feet (exact)
@@ -21,7 +30,18 @@ const MODES = [
 
 const round2 = (n) => Math.round((Number(n) || 0) * 100) / 100;
 
-function NumField({ label, value, onChange, unit, hint }) {
+function NumField({ label, value, onChange, unit, hint, unitSystem, kind }) {
+  const metric = unitSystem === "metric" && (kind === "feet" || kind === "inches");
+  const shown = metric
+    ? kind === "feet"
+      ? feetToMetres(value)
+      : inchesToCm(value)
+    : value;
+  const unitLabel = metric
+    ? kind === "feet"
+      ? "metres"
+      : "cm"
+    : hint || unit || "feet";
   return (
     <div>
       <label className="mb-1 block text-sm font-medium text-slate-700">
@@ -31,12 +51,12 @@ function NumField({ label, value, onChange, unit, hint }) {
         type="number"
         min="0"
         step="any"
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
+        value={shown}
+        onChange={(e) => onChange(metric ? (kind === "feet" ? metresToFeet(e.target.value) : cmToInches(e.target.value)) : e.target.value)}
         className="text-center"
       />
       <p className="mt-1 text-center text-xs text-slate-400">
-        {hint || unit || "feet"}
+        {unitLabel}
       </p>
     </div>
   );
@@ -174,6 +194,7 @@ function TriangleBedDiagram({ depthIn }) {
 
 export default function MulchCalculator() {
   const [mode, setMode] = useState("rect");
+  const [unit, setUnit] = useState("imperial");
 
   // Dimensions (feet) per shape
   const [rectL, setRectL] = useState("10");
@@ -246,8 +267,15 @@ export default function MulchCalculator() {
     };
   }, [mode, rectL, rectW, dia, triBase, triH, depth, waste]);
 
+const pos = (v) => v !== "" && v != null && Number.isFinite(Number(v)) && Number(v) > 0;
+  const inputsValid = (mode === "rect" ? pos(rectL) && pos(rectW) : mode === "circle" ? pos(dia) : pos(triBase) && pos(triH)) && pos(depth);
+  const inputsKey = JSON.stringify([mode, rectL, rectW, dia, triBase, triH, depth, waste]);
+  useCalculatorEvents({ slug: "mulch", valid: inputsValid, inputsKey, unit });
+
+
   return (
     <div className="card" id="calculator">
+      <UnitToggle unit={unit} onChange={setUnit} />
       {/* Mode tabs */}
       <div
         role="tablist"
@@ -276,24 +304,24 @@ export default function MulchCalculator() {
         <div className="space-y-5">
           {mode === "rect" && (
             <>
-              <NumField label="Bed length" value={rectL} onChange={setRectL} hint="feet" />
-              <NumField label="Bed width" value={rectW} onChange={setRectW} hint="feet" />
+              <NumField label="Bed length" value={rectL} onChange={setRectL} unitSystem={unit} kind="feet" hint="feet" />
+              <NumField label="Bed width" value={rectW} onChange={setRectW} unitSystem={unit} kind="feet" hint="feet" />
             </>
           )}
           {mode === "circle" && (
-            <NumField label="Bed diameter" value={dia} onChange={setDia} hint="feet — measure straight across the widest point" />
+            <NumField label="Bed diameter" value={dia} onChange={setDia} unitSystem={unit} kind="feet" hint="feet — measure straight across the widest point" />
           )}
           {mode === "triangle" && (
             <>
-              <NumField label="Triangle base" value={triBase} onChange={setTriBase} hint="feet" />
-              <NumField label="Triangle height" value={triH} onChange={setTriH} hint="feet — the perpendicular height, not the slanted edge" />
+              <NumField label="Triangle base" value={triBase} onChange={setTriBase} unitSystem={unit} kind="feet" hint="feet" />
+              <NumField label="Triangle height" value={triH} onChange={setTriH} unitSystem={unit} kind="feet" hint="feet — the perpendicular height, not the slanted edge" />
             </>
           )}
 
           <NumField
             label="Mulch depth"
             value={depth}
-            onChange={setDepth}
+            onChange={setDepth} unitSystem={unit} kind="inches"
             hint="inches — 2–3″ is typical for maintained beds"
           />
 

@@ -2,6 +2,13 @@
 
 import { useMemo, useState } from "react";
 import CostEstimator from "@/components/CostEstimator";
+import UnitToggle from "@/components/UnitToggle";
+import { useCalculatorEvents } from "@/lib/useCalculatorEvents";
+import {
+  feetToMetres,
+  metresToFeet,
+} from "@/lib/metricUnits";
+
 
 /* Paint math constants (standard, verifiable US figures):
    - Wall area for a rectangular room = 2 × (L + W) × H (exact geometry)
@@ -26,7 +33,18 @@ const COVERAGE_OPTIONS = [
 
 const round2 = (n) => Math.round((Number(n) || 0) * 100) / 100;
 
-function NumField({ label, value, onChange, unit, hint }) {
+function NumField({ label, value, onChange, unit, hint, unitSystem, kind }) {
+  const metric = unitSystem === "metric" && (kind === "feet" || kind === "inches");
+  const shown = metric
+    ? kind === "feet"
+      ? feetToMetres(value)
+      : inchesToCm(value)
+    : value;
+  const unitLabel = metric
+    ? kind === "feet"
+      ? "metres"
+      : "cm"
+    : hint || unit || "";
   return (
     <div>
       <label className="mb-1 block text-sm font-medium text-slate-700">
@@ -36,12 +54,12 @@ function NumField({ label, value, onChange, unit, hint }) {
         type="number"
         min="0"
         step="any"
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
+        value={shown}
+        onChange={(e) => onChange(metric ? (kind === "feet" ? metresToFeet(e.target.value) : cmToInches(e.target.value)) : e.target.value)}
         className="text-center"
       />
       <p className="mt-1 text-center text-xs text-slate-400">
-        {hint || unit || ""}
+        {unitLabel}
       </p>
     </div>
   );
@@ -120,6 +138,7 @@ function ExteriorPaintDiagram() {
 
 export default function PaintCalculator() {
   const [mode, setMode] = useState("room");
+  const [unit, setUnit] = useState("imperial");
 
   // Room mode
   const [len, setLen] = useState("12");
@@ -189,8 +208,15 @@ export default function PaintCalculator() {
     };
   }, [mode, len, wid, hgt, doors, windows, extArea, coats, coverage]);
 
+const pos = (v) => v !== "" && v != null && Number.isFinite(Number(v)) && Number(v) > 0;
+  const inputsValid = mode === "room" ? pos(len) && pos(wid) && pos(hgt) : pos(extArea);
+  const inputsKey = JSON.stringify([mode, len, wid, hgt, doors, windows, extArea, coats, coverage]);
+  useCalculatorEvents({ slug: "paint", valid: inputsValid, inputsKey, unit });
+
+
   return (
     <div className="card" id="calculator">
+      <UnitToggle unit={unit} onChange={setUnit} />
       {/* Mode tabs */}
       <div
         role="tablist"
@@ -219,9 +245,9 @@ export default function PaintCalculator() {
         <div className="space-y-5">
           {mode === "room" && (
             <>
-              <NumField label="Room length" value={len} onChange={setLen} hint="feet" />
-              <NumField label="Room width" value={wid} onChange={setWid} hint="feet" />
-              <NumField label="Ceiling height" value={hgt} onChange={setHgt} hint="feet — 8 ft is standard" />
+              <NumField label="Room length" value={len} onChange={setLen} unitSystem={unit} kind="feet" hint="feet" />
+              <NumField label="Room width" value={wid} onChange={setWid} unitSystem={unit} kind="feet" hint="feet" />
+              <NumField label="Ceiling height" value={hgt} onChange={setHgt} unitSystem={unit} kind="feet" hint="feet — 8 ft is standard" />
               <div className="grid grid-cols-2 gap-4">
                 <NumField label="Doors" value={doors} onChange={setDoors} hint="≈ 21 sq ft each (typical)" />
                 <NumField label="Windows" value={windows} onChange={setWindows} hint="≈ 15 sq ft each (typical)" />

@@ -2,6 +2,15 @@
 
 import { useMemo, useState } from "react";
 import CostEstimator from "@/components/CostEstimator";
+import UnitToggle from "@/components/UnitToggle";
+import { useCalculatorEvents } from "@/lib/useCalculatorEvents";
+import {
+  cmToInches,
+  feetToMetres,
+  inchesToCm,
+  metresToFeet,
+} from "@/lib/metricUnits";
+
 
 const CU_FT_PER_CU_YD = 27;
 /** Tons of dry sand per cubic yard — typical range, varies by sand type and moisture. */
@@ -12,7 +21,8 @@ const CU_FT_PER_BAG = 0.5;
 const round1 = (n) => Math.round(n * 10) / 10;
 const round2 = (n) => Math.round(n * 100) / 100;
 
-function FtField({ label, value, onChange, hint }) {
+function FtField({ label, value, onChange, hint, unitSystem }) {
+  const metric = unitSystem === "metric";
   return (
     <div>
       <label className="mb-1 block text-sm font-medium text-slate-700">
@@ -22,16 +32,31 @@ function FtField({ label, value, onChange, hint }) {
         type="number"
         min="0"
         step="any"
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
+        value={metric ? feetToMetres(value) : value}
+        onChange={(e) => onChange(metric ? metresToFeet(e.target.value) : e.target.value)}
         className="text-center"
       />
-      <p className="mt-1 text-center text-xs text-slate-400">{hint || "feet"}</p>
+      <p className="mt-1 text-center text-xs text-slate-400">{metric ? "metres" : (hint || "feet")}</p>
     </div>
   );
 }
 
-function InchesField({ label, value, onChange, hint }) {
+function InchesField({ label, value, onChange, hint, unit }) {
+  if (unit === "metric") {
+    return (
+      <div>
+        <label className="mb-1 block text-sm font-medium text-slate-700">
+          {label}
+        </label>
+        <input type="number" min="0" step="any" value={inchesToCm(value)}
+          onChange={(e) => onChange(cmToInches(e.target.value))} className="text-center" />
+        <p className="mt-1 text-center text-xs text-slate-400">
+          {hint ? hint.replace("inches", "cm") : "cm"}
+        </p>
+      </div>
+    );
+  }
+
   return (
     <div>
       <label className="mb-1 block text-sm font-medium text-slate-700">
@@ -87,6 +112,7 @@ function SandDiagram() {
 
 export default function SandCalculator() {
   const [shape, setShape] = useState("rectangle");
+  const [unit, setUnit] = useState("imperial");
   const [length, setLength] = useState("12");
   const [width, setWidth] = useState("12");
   const [diameter, setDiameter] = useState("10");
@@ -141,8 +167,15 @@ export default function SandCalculator() {
     return { areaSqFt, volumeCuFt, withWasteCuFt, volumeCuYd, tonsLow, tonsHigh, orderTons, bags, steps };
   }, [shape, length, width, diameter, depth, waste]);
 
+const pos = (v) => v !== "" && v != null && Number.isFinite(Number(v)) && Number(v) > 0;
+  const inputsValid = (shape === "rectangle" ? pos(length) && pos(width) : pos(diameter)) && pos(depth);
+  const inputsKey = JSON.stringify([shape, length, width, diameter, depth, waste]);
+  useCalculatorEvents({ slug: "sand", valid: inputsValid, inputsKey, unit });
+
+
   return (
     <div className="card" id="calculator">
+      <UnitToggle unit={unit} onChange={setUnit} />
       <div
         role="tablist"
         aria-label="Area shape"
@@ -173,20 +206,20 @@ export default function SandCalculator() {
         <div className="space-y-5">
           {shape === "rectangle" ? (
             <>
-              <FtField label="Area length" value={length} onChange={setLength} />
-              <FtField label="Area width" value={width} onChange={setWidth} />
+              <FtField label="Area length" value={length} onChange={setLength} unitSystem={unit} />
+              <FtField label="Area width" value={width} onChange={setWidth} unitSystem={unit} />
             </>
           ) : (
             <FtField
               label="Circle diameter"
               value={diameter}
-              onChange={setDiameter}
+              onChange={setDiameter} unitSystem={unit}
             />
           )}
           <InchesField
             label="Sand depth"
             value={depth}
-            onChange={setDepth}
+            onChange={setDepth} unit={unit}
             hint="inches — 1″ is typical paver bedding"
           />
 

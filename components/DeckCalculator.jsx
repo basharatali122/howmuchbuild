@@ -2,6 +2,15 @@
 
 import { useMemo, useState } from "react";
 import CostEstimator from "@/components/CostEstimator";
+import UnitToggle from "@/components/UnitToggle";
+import { useCalculatorEvents } from "@/lib/useCalculatorEvents";
+import {
+  feetToMetres,
+  ftInToMcm,
+  mcmToFtIn,
+  metresToFeet,
+} from "@/lib/metricUnits";
+
 
 const BOARD_FACE_IN = 5.5; // actual face width of 5/4x6 and 2x6 decking
 const BOARD_GAP_IN = 0.25; // typical decking gap, labeled below
@@ -10,7 +19,32 @@ const PICKET_WIDTH_IN = 1.5; // actual width of a 2x2 baluster
 const PICKET_GAP_IN = 3.5; // under the 4-inch IRC maximum, labeled below
 const SCREWS_PER_BOARD_PER_JOIST = 2; // typical face-screw fastening
 
-function FtInField({ label, ft, inch, onFt, onIn }) {
+function FtInField({ label, ft, inch, onFt, onIn, unit }) {
+  if (unit === "metric") {
+    const mcm = ftInToMcm(ft, inch);
+    return (
+      <div>
+        <label className="mb-1 block text-sm font-medium text-slate-700">
+          {label}
+        </label>
+        <div className="flex gap-2">
+          <div className="flex-1">
+            <input type="number" min="0" step="any" value={mcm.m}
+              onChange={(e) => { const c = mcmToFtIn(e.target.value, mcm.cm); onFt(c.ft); onIn(c.inch); }}
+              aria-label={`${label} (metres)`} className="text-center" />
+            <p className="mt-1 text-center text-xs text-slate-400">m</p>
+          </div>
+          <div className="flex-1">
+            <input type="number" min="0" max="99.9" step="any" value={mcm.cm}
+              onChange={(e) => { const c = mcmToFtIn(mcm.m, e.target.value); onFt(c.ft); onIn(c.inch); }}
+              aria-label={`${label} (centimetres)`} className="text-center" />
+            <p className="mt-1 text-center text-xs text-slate-400">cm</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div>
       <label className="mb-1 block text-sm font-medium text-slate-700">
@@ -56,17 +90,28 @@ function SelectField({ label, value, onChange, options, hint }) {
   );
 }
 
-function NumberField({ label, value, onChange, hint }) {
+function NumberField({ label, value, onChange, hint, unitSystem, kind }) {
+  const metric = unitSystem === "metric" && (kind === "feet" || kind === "inches");
+  const shown = metric
+    ? kind === "feet"
+      ? feetToMetres(value)
+      : inchesToCm(value)
+    : value;
   return (
     <div>
       <label className="mb-1 block text-sm font-medium text-slate-700">
         {label}
       </label>
       <input
-        type="number" min="0" step="any" value={value}
-        onChange={(e) => onChange(e.target.value)}
+        type="number" min="0" step="any" value={shown}
+        onChange={(e) => onChange(metric ? (kind === "feet" ? metresToFeet(e.target.value) : cmToInches(e.target.value)) : e.target.value)}
         className="text-center"
       />
+      {metric ? (
+        <p className="mt-1 text-center text-xs text-slate-400">
+          {kind === "feet" ? "metres" : "cm"}
+        </p>
+      ) : null}
       {hint ? (
         <p className="mt-1 text-center text-xs text-slate-400">{hint}</p>
       ) : null}
@@ -151,6 +196,7 @@ function DeckDiagram() {
 
 export default function DeckCalculator() {
   const [deckL, setDeckL] = useState({ ft: "12", inch: "0" });
+  const [unit, setUnit] = useState("imperial");
   const [deckW, setDeckW] = useState({ ft: "10", inch: "0" });
   const [boardDir, setBoardDir] = useState("L");
   const [boardType, setBoardType] = useState("5/4x6");
@@ -237,18 +283,26 @@ export default function DeckCalculator() {
     };
   }, [deckL, deckW, boardDir, joistSpacing, stockLen, railingLF, postRows]);
 
+const ftInPos = (o) => (Number(o.ft) || 0) * 12 + (Number(o.inch) || 0) > 0;
+const pos = (v) => v !== "" && v != null && Number.isFinite(Number(v)) && Number(v) > 0;
+  const inputsValid = ftInPos(deckL) && ftInPos(deckW) && railingLF !== "" && Number.isFinite(Number(railingLF)) && Number(railingLF) >= 0 && pos(postRows);
+  const inputsKey = JSON.stringify([deckL, deckW, boardDir, boardType, joistSpacing, stockLen, railingLF, postRows]);
+  useCalculatorEvents({ slug: "deck", valid: inputsValid, inputsKey, unit });
+
+
   return (
     <div className="card" id="calculator">
+      <UnitToggle unit={unit} onChange={setUnit} />
       <div className="grid gap-8 lg:grid-cols-2">
         {/* Inputs */}
         <div className="space-y-5">
           <div className="grid grid-cols-2 gap-4">
             <FtInField label="Deck length" ft={deckL.ft} inch={deckL.inch}
               onFt={(v) => setDeckL({ ...deckL, ft: v })}
-              onIn={(v) => setDeckL({ ...deckL, inch: v })} />
+              onIn={(v) => setDeckL({ ...deckL, inch: v })} unit={unit} />
             <FtInField label="Deck width" ft={deckW.ft} inch={deckW.inch}
               onFt={(v) => setDeckW({ ...deckW, ft: v })}
-              onIn={(v) => setDeckW({ ...deckW, inch: v })} />
+              onIn={(v) => setDeckW({ ...deckW, inch: v })} unit={unit} />
           </div>
 
           <SelectField
@@ -298,7 +352,7 @@ export default function DeckCalculator() {
           <div className="grid grid-cols-2 gap-4">
             <NumberField
               label="Railing length (linear ft)"
-              value={railingLF} onChange={setRailingLF}
+              value={railingLF} onChange={setRailingLF} unitSystem={unit} kind="feet"
               hint="0 if no railing — stairs excluded"
             />
             <NumberField

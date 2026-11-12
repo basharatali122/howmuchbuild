@@ -2,22 +2,42 @@
 
 import { useMemo, useState } from "react";
 import CostEstimator from "@/components/CostEstimator";
+import UnitToggle from "@/components/UnitToggle";
+import { useCalculatorEvents } from "@/lib/useCalculatorEvents";
+import {
+  cmToInches,
+  feetToMetres,
+  inchesToCm,
+  metresToFeet,
+} from "@/lib/metricUnits";
+
 import { postHoleConcrete } from "@/lib/concreteMath";
 
 const PICKET_COVERAGE_IN = 5.5; // actual coverage of a 1x6 picket
 const BAG_YIELD_80LB = 0.6; // cu ft per 80-lb bag, printed on the bag
 
-function NumberField({ label, value, onChange, hint }) {
+function NumberField({ label, value, onChange, hint, unitSystem, kind }) {
+  const metric = unitSystem === "metric" && (kind === "feet" || kind === "inches");
+  const shown = metric
+    ? kind === "feet"
+      ? feetToMetres(value)
+      : inchesToCm(value)
+    : value;
   return (
     <div>
       <label className="mb-1 block text-sm font-medium text-slate-700">
         {label}
       </label>
       <input
-        type="number" min="0" step="any" value={value}
-        onChange={(e) => onChange(e.target.value)}
+        type="number" min="0" step="any" value={shown}
+        onChange={(e) => onChange(metric ? (kind === "feet" ? metresToFeet(e.target.value) : cmToInches(e.target.value)) : e.target.value)}
         className="text-center"
       />
+      {metric ? (
+        <p className="mt-1 text-center text-xs text-slate-400">
+          {kind === "feet" ? "metres" : "cm"}
+        </p>
+      ) : null}
       {hint ? (
         <p className="mt-1 text-center text-xs text-slate-400">{hint}</p>
       ) : null}
@@ -134,6 +154,7 @@ function FenceDiagram() {
 
 export default function FenceCalculator() {
   const [totalLF, setTotalLF] = useState("100");
+  const [unit, setUnit] = useState("imperial");
   const [height, setHeight] = useState("6");
   const [style, setStyle] = useState("privacy");
   const [gap, setGap] = useState("2");
@@ -219,13 +240,20 @@ export default function FenceCalculator() {
     };
   }, [totalLF, height, style, gap, spacing, gates, holeDia, holeDepth, postSize]);
 
+const pos = (v) => v !== "" && v != null && Number.isFinite(Number(v)) && Number(v) > 0;
+  const inputsValid = pos(totalLF) && pos(spacing) && pos(holeDia) && pos(holeDepth) && (style !== "spaced" || pos(gap)) && gates !== "" && Number.isFinite(Number(gates)) && Number(gates) >= 0;
+  const inputsKey = JSON.stringify([totalLF, height, style, gap, spacing, gates, holeDia, holeDepth, postSize]);
+  useCalculatorEvents({ slug: "fence", valid: inputsValid, inputsKey, unit });
+
+
   return (
     <div className="card" id="calculator">
+      <UnitToggle unit={unit} onChange={setUnit} />
       <div className="grid gap-8 lg:grid-cols-2">
         {/* Inputs */}
         <div className="space-y-5">
           <div className="grid grid-cols-2 gap-4">
-            <NumberField label="Total fence length" value={totalLF} onChange={setTotalLF}
+            <NumberField label="Total fence length" value={totalLF} onChange={setTotalLF} unitSystem={unit} kind="feet"
               hint="linear feet — measure the whole run" />
             <SelectField label="Fence height" value={height} onChange={setHeight}
               options={["4", "5", "6"].map((h) => ({ value: h, label: `${h} ft` }))} />
@@ -239,12 +267,12 @@ export default function FenceCalculator() {
             ]} />
 
           {style === "spaced" && (
-            <NumberField label="Gap between pickets" value={gap} onChange={setGap}
+            <NumberField label="Gap between pickets" value={gap} onChange={setGap} unitSystem={unit} kind="inches"
               hint="inches" />
           )}
 
           <div className="grid grid-cols-2 gap-4">
-            <NumberField label="Post spacing" value={spacing} onChange={setSpacing}
+            <NumberField label="Post spacing" value={spacing} onChange={setSpacing} unitSystem={unit} kind="feet"
               hint="feet — 8 ft is typical" />
             <NumberField label="Gates" value={gates} onChange={setGates}
               hint="number of gate openings" />
@@ -255,9 +283,9 @@ export default function FenceCalculator() {
               Post holes (for concrete)
             </p>
             <div className="grid grid-cols-2 gap-4">
-              <NumberField label="Hole diameter" value={holeDia} onChange={setHoleDia}
+              <NumberField label="Hole diameter" value={holeDia} onChange={setHoleDia} unitSystem={unit} kind="inches"
                 hint="inches — 12″ is typical" />
-              <NumberField label="Hole depth" value={holeDepth} onChange={setHoleDepth}
+              <NumberField label="Hole depth" value={holeDepth} onChange={setHoleDepth} unitSystem={unit} kind="inches"
                 hint="inches — go below the frost line" />
             </div>
             <div className="mt-4">

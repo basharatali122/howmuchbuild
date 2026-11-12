@@ -2,6 +2,13 @@
 
 import { useMemo, useState } from "react";
 import CostEstimator from "@/components/CostEstimator";
+import UnitToggle from "@/components/UnitToggle";
+import { useCalculatorEvents } from "@/lib/useCalculatorEvents";
+import {
+  cmToInches,
+  inchesToCm,
+} from "@/lib/metricUnits";
+
 
 /**
  * StairCalculator — IRC-based stair math.
@@ -12,7 +19,8 @@ const MAX_RISER_IN = 7.75;
 const MIN_TREAD_IN = 10;
 const MAX_STOCK_FT = 16; // longest common 2x12 stock
 
-function NumberField({ label, value, onChange, hint, step = "any", min = "0" }) {
+function NumberField({ label, value, onChange, hint, step = "any", min = "0", unitSystem }) {
+  const metric = unitSystem === "metric";
   return (
     <div>
       <label className="mb-1 block text-sm font-medium text-slate-700">
@@ -22,10 +30,13 @@ function NumberField({ label, value, onChange, hint, step = "any", min = "0" }) 
         type="number"
         min={min}
         step={step}
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
+        value={metric ? inchesToCm(value) : value}
+        onChange={(e) => onChange(metric ? cmToInches(e.target.value) : e.target.value)}
         className="text-center"
       />
+      {metric ? (
+        <p className="mt-1 text-center text-xs text-slate-400">cm</p>
+      ) : null}
       {hint ? (
         <p className="mt-1 text-center text-xs text-slate-400">{hint}</p>
       ) : null}
@@ -173,6 +184,7 @@ function fmtFtIn(inches) {
 
 export default function StairCalculator() {
   const [totalRise, setTotalRise] = useState("36");
+  const [unit, setUnit] = useState("imperial");
   const [treadDepth, setTreadDepth] = useState("11");
   const [width, setWidth] = useState("36");
 
@@ -228,15 +240,22 @@ export default function StairCalculator() {
     };
   }, [totalRise, treadDepth, width]);
 
+  const pos = (v) => v !== "" && v != null && Number.isFinite(Number(v)) && Number(v) > 0;
+  const inputsValid = pos(totalRise) && pos(width);
+  const inputsKey = JSON.stringify([totalRise, treadDepth, width]);
+  useCalculatorEvents({ slug: "stair", valid: inputsValid, inputsKey, unit });
+
+
   return (
     <div className="card" id="calculator">
+      <UnitToggle unit={unit} onChange={setUnit} />
       <div className="grid gap-8 lg:grid-cols-2">
         {/* Inputs */}
         <div className="space-y-5">
           <NumberField
             label="Total rise (inches)"
             value={totalRise}
-            onChange={setTotalRise}
+            onChange={setTotalRise} unitSystem={unit}
             hint="Floor-to-floor (or ground-to-deck) height, measured vertically."
           />
           <div className="grid grid-cols-2 gap-4">
@@ -254,7 +273,7 @@ export default function StairCalculator() {
             <NumberField
               label="Stair width (inches)"
               value={width}
-              onChange={setWidth}
+              onChange={setWidth} unitSystem={unit}
               hint="36″ is a typical residential minimum."
             />
           </div>

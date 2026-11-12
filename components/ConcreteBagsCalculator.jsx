@@ -2,6 +2,15 @@
 
 import { useMemo, useState } from "react";
 import CostEstimator from "@/components/CostEstimator";
+import UnitToggle from "@/components/UnitToggle";
+import { useCalculatorEvents } from "@/lib/useCalculatorEvents";
+import {
+  cmToInches,
+  ftInToMcm,
+  inchesToCm,
+  mcmToFtIn,
+} from "@/lib/metricUnits";
+
 import {
   BAG_YIELDS_CU_FT,
   CU_FT_PER_CU_M,
@@ -25,7 +34,33 @@ const MODES = [
   { id: "fence", label: "Fence Post Holes" },
 ];
 
-function FtInField({ label, ft, inch, onFt, onIn, hint }) {
+function FtInField({ label, ft, inch, onFt, onIn, hint, unit }) {
+  if (unit === "metric") {
+    const mcm = ftInToMcm(ft, inch);
+    return (
+      <div>
+        <label className="mb-1 block text-sm font-medium text-slate-700">
+          {label}
+        </label>
+        <div className="flex gap-2">
+          <div className="flex-1">
+            <input type="number" min="0" step="any" value={mcm.m}
+              onChange={(e) => { const c = mcmToFtIn(e.target.value, mcm.cm); onFt(c.ft); onIn(c.inch); }}
+              aria-label={`${label} (metres)`} className="text-center" />
+            <p className="mt-1 text-center text-xs text-slate-400">m</p>
+          </div>
+          <div className="flex-1">
+            <input type="number" min="0" max="99.9" step="any" value={mcm.cm}
+              onChange={(e) => { const c = mcmToFtIn(mcm.m, e.target.value); onFt(c.ft); onIn(c.inch); }}
+              aria-label={`${label} (centimetres)`} className="text-center" />
+            <p className="mt-1 text-center text-xs text-slate-400">cm</p>
+          </div>
+        </div>
+        {hint ? <p className="mt-1 text-xs text-slate-400">{hint}</p> : null}
+      </div>
+    );
+  }
+
   return (
     <div>
       <label className="mb-1 block text-sm font-medium text-slate-700">
@@ -63,7 +98,22 @@ function FtInField({ label, ft, inch, onFt, onIn, hint }) {
   );
 }
 
-function InchesField({ label, value, onChange, hint }) {
+function InchesField({ label, value, onChange, hint, unit }) {
+  if (unit === "metric") {
+    return (
+      <div>
+        <label className="mb-1 block text-sm font-medium text-slate-700">
+          {label}
+        </label>
+        <input type="number" min="0" step="any" value={inchesToCm(value)}
+          onChange={(e) => onChange(cmToInches(e.target.value))} className="text-center" />
+        <p className="mt-1 text-center text-xs text-slate-400">
+          {hint ? hint.replace("inches", "cm") : "cm"}
+        </p>
+      </div>
+    );
+  }
+
   return (
     <div>
       <label className="mb-1 block text-sm font-medium text-slate-700">
@@ -127,6 +177,7 @@ function ColumnDiagram() {
 
 export default function ConcreteBagsCalculator() {
   const [mode, setMode] = useState("slab");
+  const [unit, setUnit] = useState("imperial");
 
   // Slab / Wall / Footing dimensions
   const [slabL, setSlabL] = useState({ ft: "10", inch: "0" });
@@ -236,10 +287,17 @@ export default function ConcreteBagsCalculator() {
     postDia, numHoles, bagSize, waste,
   ]);
 
+const ftInPos = (o) => (Number(o.ft) || 0) * 12 + (Number(o.inch) || 0) > 0;
+const pos = (v) => v !== "" && v != null && Number.isFinite(Number(v)) && Number(v) > 0;
+  const inputsValid = mode === "slab" ? ftInPos(slabL) && ftInPos(slabW) && pos(slabT) : mode === "wall" ? ftInPos(wallL) && ftInPos(wallH) && pos(wallT) : mode === "footing" ? ftInPos(footL) && ftInPos(footW) && pos(footD) : mode === "column" ? pos(colDia) && ftInPos(colH) : pos(holeSize) && pos(holeDepth) && pos(numHoles);
+  const inputsKey = JSON.stringify([mode, slabL, slabW, slabT, wallL, wallH, wallT, footL, footW, footD, colDia, colH, holeShape, holeSize, holeDepth, postKind, postSize, postDia, numHoles, bagSize, waste]);
+  useCalculatorEvents({ slug: "concrete-bags", valid: inputsValid, inputsKey, unit });
+
   const { results, steps } = calc;
 
   return (
     <div className="card" id="calculator">
+      <UnitToggle unit={unit} onChange={setUnit} />
       {/* Mode tabs */}
       <div
         role="tablist"
@@ -270,45 +328,45 @@ export default function ConcreteBagsCalculator() {
             <>
               <FtInField label="Slab length" ft={slabL.ft} inch={slabL.inch}
                 onFt={(v) => setSlabL({ ...slabL, ft: v })}
-                onIn={(v) => setSlabL({ ...slabL, inch: v })} />
+                onIn={(v) => setSlabL({ ...slabL, inch: v })} unit={unit} />
               <FtInField label="Slab width" ft={slabW.ft} inch={slabW.inch}
                 onFt={(v) => setSlabW({ ...slabW, ft: v })}
-                onIn={(v) => setSlabW({ ...slabW, inch: v })} />
+                onIn={(v) => setSlabW({ ...slabW, inch: v })} unit={unit} />
               <InchesField label="Slab thickness" value={slabT} onChange={setSlabT}
-                hint="inches — 4″ is standard for patios & walkways" />
+                hint="inches — 4″ is standard for patios & walkways" unit={unit} />
             </>
           )}
           {mode === "wall" && (
             <>
               <FtInField label="Wall length" ft={wallL.ft} inch={wallL.inch}
                 onFt={(v) => setWallL({ ...wallL, ft: v })}
-                onIn={(v) => setWallL({ ...wallL, inch: v })} />
+                onIn={(v) => setWallL({ ...wallL, inch: v })} unit={unit} />
               <FtInField label="Wall height" ft={wallH.ft} inch={wallH.inch}
                 onFt={(v) => setWallH({ ...wallH, ft: v })}
-                onIn={(v) => setWallH({ ...wallH, inch: v })} />
+                onIn={(v) => setWallH({ ...wallH, inch: v })} unit={unit} />
               <InchesField label="Wall thickness" value={wallT} onChange={setWallT}
-                hint="inches — 8″ is a common block-wall thickness" />
+                hint="inches — 8″ is a common block-wall thickness" unit={unit} />
             </>
           )}
           {mode === "footing" && (
             <>
               <FtInField label="Footing length" ft={footL.ft} inch={footL.inch}
                 onFt={(v) => setFootL({ ...footL, ft: v })}
-                onIn={(v) => setFootL({ ...footL, inch: v })} />
+                onIn={(v) => setFootL({ ...footL, inch: v })} unit={unit} />
               <FtInField label="Footing width" ft={footW.ft} inch={footW.inch}
                 onFt={(v) => setFootW({ ...footW, ft: v })}
-                onIn={(v) => setFootW({ ...footW, inch: v })} />
+                onIn={(v) => setFootW({ ...footW, inch: v })} unit={unit} />
               <InchesField label="Footing depth" value={footD} onChange={setFootD}
-                hint="inches" />
+                hint="inches" unit={unit} />
             </>
           )}
           {mode === "column" && (
             <>
               <InchesField label="Column diameter" value={colDia} onChange={setColDia}
-                hint="inches — a standard sonotube is 8″, 10″, or 12″" />
+                hint="inches — a standard sonotube is 8″, 10″, or 12″" unit={unit} />
               <FtInField label="Column height" ft={colH.ft} inch={colH.inch}
                 onFt={(v) => setColH({ ...colH, ft: v })}
-                onIn={(v) => setColH({ ...colH, inch: v })} />
+                onIn={(v) => setColH({ ...colH, inch: v })} unit={unit} />
             </>
           )}
           {mode === "fence" && (
@@ -336,9 +394,9 @@ export default function ConcreteBagsCalculator() {
               <InchesField
                 label={holeShape === "round" ? "Hole diameter" : "Hole side length"}
                 value={holeSize} onChange={setHoleSize}
-                hint="inches — dig holes ~3× the post width" />
+                hint="inches — dig holes ~3× the post width" unit={unit} />
               <InchesField label="Hole depth" value={holeDepth} onChange={setHoleDepth}
-                hint="inches — go below your local frost line" />
+                hint="inches — go below your local frost line" unit={unit} />
               <div>
                 <label className="mb-1 block text-sm font-medium text-slate-700">
                   Post type
@@ -374,7 +432,7 @@ export default function ConcreteBagsCalculator() {
                 </div>
               ) : (
                 <InchesField label="Post diameter" value={postDia} onChange={setPostDia}
-                  hint="inches" />
+                  hint="inches" unit={unit} />
               )}
               <div>
                 <label className="mb-1 block text-sm font-medium text-slate-700">
