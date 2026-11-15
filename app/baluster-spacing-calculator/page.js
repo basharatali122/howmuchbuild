@@ -17,7 +17,7 @@ export const metadata = {
   openGraph: {
     title: "Baluster Spacing Calculator: Even Spacing That Passes Code",
     description:
-      "Even baluster spacing for deck and stair railings — with the 4-inch sphere check.",
+      "Even baluster spacing for deck and stair railings - with the 4-inch sphere check.",
     url: `${SITE_URL}/baluster-spacing-calculator`,
     type: "article",
     images: [
@@ -26,7 +26,7 @@ export const metadata = {
           "/og?title=" +
           encodeURIComponent("Baluster Spacing Calculator: Even Spacing That Passes Code") +
           "&sub=" +
-          encodeURIComponent("Even baluster spacing for deck and stair railings — with the 4-inch sphere check."),
+          encodeURIComponent("Even baluster spacing for deck and stair railings - with the 4-inch sphere check."),
         width: 1200,
         height: 630,
         alt: "Baluster Spacing Calculator: Even Spacing That Passes Code",
@@ -40,7 +40,7 @@ const PAGE_URL = `${SITE_URL}/baluster-spacing-calculator`;
 const FAQ_ITEMS = [
   {
     q: "What is the 4-inch sphere rule for railings?",
-    a: "Most US building codes (IRC) require that a 4-inch-diameter sphere cannot pass through any opening in a guard railing. That means gaps between balusters must be under 4 inches everywhere — this calculator checks your even spacing against that limit and flags failures.",
+    a: "Most US building codes (IRC) require that a 4-inch-diameter sphere cannot pass through any opening in a guard railing. That means gaps between balusters must be under 4 inches everywhere - this calculator checks your even spacing against that limit and flags failures.",
   },
   {
     q: "How do you space balusters evenly?",
@@ -48,19 +48,19 @@ const FAQ_ITEMS = [
   },
   {
     q: "How many balusters do I need for an 8-foot railing?",
-    a: "With standard 2x2 balusters (1.5 in actual): floor((96 + 4) ÷ (1.5 + 4)) = floor(18.18) = 18 balusters, evenly spaced at 3.63-inch gaps — the largest count whose spacing stays under 4 inches. Always fit the count to the code, never round down to save balusters.",
+    a: "With standard 2x2 balusters (1.5 in actual): floor((96 + 4) ÷ (1.5 + 4)) = floor(18.18) = 18 balusters, evenly spaced at 3.63-inch gaps - the largest count whose spacing stays under 4 inches. Always fit the count to the code, never round down to save balusters.",
   },
   {
     q: "What is the actual width of a 2x2 baluster?",
-    a: "1.5 inches. Like all dimensional lumber, a nominal 2x2 is 1.5 × 1.5 inches actual. The calculator defaults to 1.5 — change it if you're using turned, metal, or cable-style balusters with a different width.",
+    a: "1.5 inches. Like all dimensional lumber, a nominal 2x2 is 1.5 × 1.5 inches actual. The calculator defaults to 1.5 - change it if you're using turned, metal, or cable-style balusters with a different width.",
   },
   {
     q: "How do you space balusters on stairs?",
-    a: "Use the stair's horizontal run length and the same even-spacing math — switch the calculator to stair mode. Note that many inspectors separately check the triangular openings where balusters meet treads against the 4-inch (sometimes 6-inch) sphere rule, so verify with your local code.",
+    a: "Use the stair's horizontal run length and the same even-spacing math - switch the calculator to stair mode. Note that many inspectors separately check the triangular openings where balusters meet treads against the 4-inch (sometimes 6-inch) sphere rule, so verify with your local code.",
   },
   {
     q: "Does this work for cable railing?",
-    a: "No — this calculator is for picket/baluster railings where each baluster has a fixed width. Cable railing spacing follows different rules (cable deflection under load matters as much as spacing), so use the manufacturer's spec for those systems.",
+    a: "No - this calculator is for picket/baluster railings where each baluster has a fixed width. Cable railing spacing follows different rules (cable deflection under load matters as much as spacing), so use the manufacturer's spec for those systems.",
   },
 ];
 
@@ -105,7 +105,7 @@ export default function BalusterSpacingCalculatorPage() {
         Baluster Spacing Calculator: Even Spacing That Passes Code
       </h1>
       <p className="mt-4 max-w-3xl text-lg leading-relaxed text-slate-600">
-        Baluster counts and perfectly even gaps for level and stair railings —
+        Baluster counts and perfectly even gaps for level and stair railings -
         every layout checked against the 4-inch sphere rule. No sign-up; the
         math runs entirely in your browser.
       </p>
@@ -142,11 +142,11 @@ export default function BalusterSpacingCalculatorPage() {
             </li>
             <li>
               <strong>Even gap:</strong> (96 − 18 × 1.5) ÷ 19 = 69 ÷ 19 ={" "}
-              <strong>3.63&Prime;</strong> — under 4&Prime;, passes code
+              <strong>3.63&Prime;</strong> - under 4&Prime;, passes code
             </li>
           </ol>
           <p>
-            End gaps match the middle gaps, so the railing looks symmetric —
+            End gaps match the middle gaps, so the railing looks symmetric -
             that&apos;s the whole point of computing from the count instead of
             guessing.
           </p>
@@ -157,14 +157,14 @@ export default function BalusterSpacingCalculatorPage() {
             <strong>
               n = ⌊ (total inches + max gap) ÷ (baluster width + max gap) ⌋
             </strong>{" "}
-            — the largest count that still fits within the max gap.
+            - the largest count that still fits within the max gap.
           </p>
           <h3>Even spacing</h3>
           <p>
             <strong>
               gap = (total inches − n × baluster width) ÷ (n + 1)
             </strong>{" "}
-            — the +1 accounts for the gaps at both ends.
+            - the +1 accounts for the gaps at both ends.
           </p>
 
           <h2 id="faqs">Frequently asked questions</h2>

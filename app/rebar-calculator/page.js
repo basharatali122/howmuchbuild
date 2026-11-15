@@ -10,14 +10,14 @@ import { SITE_URL, SITE_NAME } from "@/lib/siteConfig";
 export const metadata = {
   title: "Rebar Calculator: How Much Rebar Do I Need?",
   description:
-    "Free rebar calculator: bar counts, total linear feet, and weight in pounds and tons for slab grids and footings — #3 to #11 bar sizes with lap allowance.",
+    "Free rebar calculator: bar counts, total linear feet, and weight in pounds and tons for slab grids and footings - #3 to #11 bar sizes with lap allowance.",
   alternates: {
     canonical: `${SITE_URL}/rebar-calculator`,
   },
   openGraph: {
     title: "Rebar Calculator: How Much Rebar Do I Need?",
     description:
-      "Rebar counts, linear feet, and weight for slabs and footings — #3 to #11 bars.",
+      "Rebar counts, linear feet, and weight for slabs and footings - #3 to #11 bars.",
     url: `${SITE_URL}/rebar-calculator`,
     type: "article",
     images: [
@@ -26,7 +26,7 @@ export const metadata = {
           "/og?title=" +
           encodeURIComponent("Rebar Calculator: How Much Rebar Do I Need?") +
           "&sub=" +
-          encodeURIComponent("Rebar counts, linear feet, and weight for slabs and footings — #3 to #11 bars."),
+          encodeURIComponent("Rebar counts, linear feet, and weight for slabs and footings - #3 to #11 bars."),
         width: 1200,
         height: 630,
         alt: "Rebar Calculator: How Much Rebar Do I Need?",
@@ -40,7 +40,7 @@ const PAGE_URL = `${SITE_URL}/rebar-calculator`;
 const FAQ_ITEMS = [
   {
     q: "What size rebar do I need for a concrete slab?",
-    a: "#4 (1/2-inch) rebar at 18 inches on center is the common residential default for 4-inch slabs. Lighter duty work sometimes uses #3; heavier loads call for #5 or tighter spacing. Rebar sizing is structural — follow your local building code or an engineer's spec, not a rule of thumb alone.",
+    a: "#4 (1/2-inch) rebar at 18 inches on center is the common residential default for 4-inch slabs. Lighter duty work sometimes uses #3; heavier loads call for #5 or tighter spacing. Rebar sizing is structural - follow your local building code or an engineer's spec, not a rule of thumb alone.",
   },
   {
     q: "How much does rebar weigh per foot?",
@@ -48,7 +48,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "How far apart should rebar be spaced in a slab?",
-    a: "12 to 18 inches on center covers most residential slabs; 18 inches is the common default for #4 bars in a 4-inch slab. Footings typically run 2 to 4 continuous bars rather than a grid. Wider spacing saves steel but reduces crack control — when in doubt, check the code.",
+    a: "12 to 18 inches on center covers most residential slabs; 18 inches is the common default for #4 bars in a 4-inch slab. Footings typically run 2 to 4 continuous bars rather than a grid. Wider spacing saves steel but reduces crack control - when in doubt, check the code.",
   },
   {
     q: "How many 20-foot sticks of rebar do I need?",
@@ -56,11 +56,11 @@ const FAQ_ITEMS = [
   },
   {
     q: "Do I need rebar in a small concrete slab?",
-    a: "Not always. Small non-structural slabs (shed pads, walkways) often do fine with welded wire mesh or fiber-reinforced mix instead of rebar. Rebar matters most where the slab carries real loads or spans soft spots. Check local code — some jurisdictions require it regardless of size.",
+    a: "Not always. Small non-structural slabs (shed pads, walkways) often do fine with welded wire mesh or fiber-reinforced mix instead of rebar. Rebar matters most where the slab carries real loads or spans soft spots. Check local code - some jurisdictions require it regardless of size.",
   },
   {
     q: "What is the lap allowance for?",
-    a: "Rebar comes in fixed lengths (usually 20 ft), so long runs need overlapping splices. The lap allowance adds a percentage to the total length to cover those overlaps — 5% is a reasonable planning figure. Lapped splices also have minimum length requirements by bar size in the code.",
+    a: "Rebar comes in fixed lengths (usually 20 ft), so long runs need overlapping splices. The lap allowance adds a percentage to the total length to cover those overlaps - 5% is a reasonable planning figure. Lapped splices also have minimum length requirements by bar size in the code.",
   },
 ];
 
@@ -106,7 +106,7 @@ export default function RebarCalculatorPage() {
       </h1>
       <p className="mt-4 max-w-3xl text-lg leading-relaxed text-slate-600">
         Bar counts, total linear feet, and weight in pounds and tons for slab
-        grids and footings — #3 through #11 bars with a lap allowance for
+        grids and footings - #3 through #11 bars with a lap allowance for
         splices. No sign-up; the math runs entirely in your browser.
       </p>
       <div className="mt-4">
@@ -160,17 +160,17 @@ export default function RebarCalculatorPage() {
             <strong>
               Bars per direction = ⌊ span in inches ÷ spacing ⌋ + 1
             </strong>{" "}
-            — then total feet = (bars₁ × length) + (bars₂ × width), times (1 +
+            - then total feet = (bars₁ × length) + (bars₂ × width), times (1 +
             lap).
           </p>
           <h3>Weight</h3>
           <p>
-            <strong>Pounds = total feet × lb/ft for the bar size</strong> —
+            <strong>Pounds = total feet × lb/ft for the bar size</strong> -
             using published weights (#4 = 0.668 lb/ft). Tons = pounds ÷ 2,000.
           </p>
           <h3>Footing</h3>
           <p>
-            <strong>Total feet = trench length × bars per footing</strong> —
+            <strong>Total feet = trench length × bars per footing</strong> -
             then the same lap and weight math as the slab.
           </p>
 

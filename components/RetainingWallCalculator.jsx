@@ -134,7 +134,7 @@ export default function RetainingWallCalculator() {
         </p>
         <p className="mt-2 text-xs leading-relaxed text-amber-300/90">
           Planning estimate. Walls over 3–4 ft tall (and any wall holding back a
-          slope or driveway) usually need engineering and a permit — check your
+          slope or driveway) usually need engineering and a permit - check your
           local code before stacking higher.
         </p>
       </div>

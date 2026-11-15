@@ -10,7 +10,7 @@ import { SITE_URL, SITE_NAME } from "@/lib/siteConfig";
 export const metadata = {
   title: "Retaining Wall Calculator: Blocks, Caps & Drainage Stone",
   description:
-    "Free retaining wall calculator: wall block counts, cap units, base gravel, and drainage stone for segmental block walls — with waste allowance.",
+    "Free retaining wall calculator: wall block counts, cap units, base gravel, and drainage stone for segmental block walls - with waste allowance.",
   alternates: {
     canonical: `${SITE_URL}/retaining-wall-calculator`,
   },
@@ -44,7 +44,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "How tall can a DIY retaining wall be?",
-    a: "Most manufacturers and codes treat 3 to 4 feet as the DIY limit for segmental block walls without engineering. Taller walls — or any wall holding back a slope, driveway, or structure — usually need geogrid reinforcement, drainage design, and a permit. Check your local code before stacking higher.",
+    a: "Most manufacturers and codes treat 3 to 4 feet as the DIY limit for segmental block walls without engineering. Taller walls - or any wall holding back a slope, driveway, or structure - usually need geogrid reinforcement, drainage design, and a permit. Check your local code before stacking higher.",
   },
   {
     q: "Do I need drainage behind a retaining wall?",
@@ -52,15 +52,15 @@ const FAQ_ITEMS = [
   },
   {
     q: "How deep should the gravel base be under a retaining wall?",
-    a: "6 inches of compacted crushed gravel (compacted in lifts) under the first course, in a trench about twice as wide as the block is deep. Bury the entire first course — the calculator's height input should include that buried course.",
+    a: "6 inches of compacted crushed gravel (compacted in lifts) under the first course, in a trench about twice as wide as the block is deep. Bury the entire first course - the calculator's height input should include that buried course.",
   },
   {
     q: "What are cap units and how many do I need?",
-    a: "Caps are the finished top row — wider, flat units that lock the wall together and shed water. Count = wall length ÷ cap length, rounded up. For a 20-ft wall with 12-inch caps, that's 20 caps. They cost more per unit than wall block, so price them separately.",
+    a: "Caps are the finished top row - wider, flat units that lock the wall together and shed water. Count = wall length ÷ cap length, rounded up. For a 20-ft wall with 12-inch caps, that's 20 caps. They cost more per unit than wall block, so price them separately.",
   },
   {
     q: "Do I need geogrid for my retaining wall?",
-    a: "For walls under 3 feet on flat ground, usually not. Above that, most block manufacturers require geogrid layers extending back into the soil at specified intervals — the exact schedule comes from the block maker's engineering tables for your wall height and soil. This calculator doesn't size geogrid; treat taller walls as engineered work.",
+    a: "For walls under 3 feet on flat ground, usually not. Above that, most block manufacturers require geogrid layers extending back into the soil at specified intervals - the exact schedule comes from the block maker's engineering tables for your wall height and soil. This calculator doesn't size geogrid; treat taller walls as engineered work.",
   },
 ];
 
@@ -106,7 +106,7 @@ export default function RetainingWallCalculatorPage() {
       </h1>
       <p className="mt-4 max-w-3xl text-lg leading-relaxed text-slate-600">
         Wall block counts, cap units, base gravel, and drainage stone for
-        segmental block walls — with a waste allowance for cuts. No sign-up;
+        segmental block walls - with a waste allowance for cuts. No sign-up;
         the math runs entirely in your browser.
       </p>
       <div className="mt-4">
@@ -163,12 +163,12 @@ export default function RetainingWallCalculatorPage() {
             <strong>
               Blocks = ⌈ courses × blocks per course × (1 + waste) ⌉
             </strong>{" "}
-            — courses = ⌈ height ÷ block face height ⌉, per course = ⌈ length ÷
+            - courses = ⌈ height ÷ block face height ⌉, per course = ⌈ length ÷
             block face length ⌉.
           </p>
           <h3>Caps</h3>
           <p>
-            <strong>Caps = ⌈ wall length ÷ cap length ⌉</strong> — one cap per
+            <strong>Caps = ⌈ wall length ÷ cap length ⌉</strong> - one cap per
             block-length of wall, roughly.
           </p>
           <h3>Gravel and drainage</h3>
@@ -177,7 +177,7 @@ export default function RetainingWallCalculatorPage() {
               Base = length × 2 ft × 0.5 ft ÷ 27; drainage = length × 1 ft ×
               height ÷ 27
             </strong>{" "}
-            — both in cubic yards.
+            - both in cubic yards.
           </p>
 
           <h2 id="faqs">Frequently asked questions</h2>
@@ -195,7 +195,7 @@ export default function RetainingWallCalculatorPage() {
           {
             href: "/concrete-block-calculator",
             title: "Concrete Block Calculator",
-            desc: "CMU block walls — the mortared cousin of dry-stack.",
+            desc: "CMU block walls - the mortared cousin of dry-stack.",
           },
           {
             href: "/gravel-calculator",

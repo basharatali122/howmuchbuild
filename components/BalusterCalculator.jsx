@@ -111,7 +111,7 @@ export default function BalusterCalculator() {
                 result.passes ? "text-emerald-400" : "text-red-400"
               }`}
             >
-              {result.passes ? "Passes" : "Fails — check code"}
+              {result.passes ? "Passes" : "Fails - check code"}
             </p>
           </div>
         </div>
@@ -124,7 +124,7 @@ export default function BalusterCalculator() {
           <p className="mt-2 text-xs leading-relaxed text-amber-300/90">
             Stair note: measure the horizontal run and space balusters evenly
             along it. The 4-inch sphere rule also applies to the triangular
-            openings at treads — many inspectors check those separately.
+            openings at treads - many inspectors check those separately.
           </p>
         )}
       </div>

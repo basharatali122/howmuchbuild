@@ -185,7 +185,7 @@ export default function RebarCalculator() {
         </p>
         <p className="mt-2 text-xs leading-relaxed text-amber-300/90">
           Planning estimate. Rebar size and spacing for structural work should
-          follow your local building code or an engineer&apos;s spec — #4 at
+          follow your local building code or an engineer&apos;s spec - #4 at
           18 in on center is common for residential slabs, not a rule.
         </p>
       </div>
